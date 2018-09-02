@@ -68,6 +68,12 @@
         <mark key="." line="54" column="54" />
         <mark key="^" line="54" column="54" />
       </file>
+      <file name="D:/coding/AndroidStudioProjects/DroidCafe/app/build.gradle" timestamp="1535879808295">
+        <mark key="[" line="22" column="60" />
+        <mark key="]" line="22" column="65" />
+        <mark key="." line="22" column="65" />
+        <mark key="^" line="22" column="65" />
+      </file>
       <file name="D:/coding/AndroidStudioProjects/TwoActivities/app/src/main/res/values/strings.xml" timestamp="1535872786749">
         <mark key="[" line="5" column="28" />
         <mark key="]" line="5" column="60" />
@@ -120,10 +126,10 @@
     </jumps>
     <registers>
       <register name="&quot;" type="4">
-        <text>e</text>
+        <text>2</text>
       </register>
       <register name="-" type="4">
-        <text>e</text>
+        <text>2</text>
       </register>
       <register name="/" type="4">
         <text>returnR</text>
