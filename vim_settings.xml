@@ -74,11 +74,11 @@
         <mark key="." line="54" column="54" />
         <mark key="^" line="54" column="54" />
       </file>
-      <file name="D:/coding/AndroidStudioProjects/DroidCafe/app/build.gradle" timestamp="1535880823174">
-        <mark key="[" line="24" column="58" />
-        <mark key="]" line="24" column="59" />
-        <mark key="." line="24" column="59" />
-        <mark key="^" line="24" column="59" />
+      <file name="D:/coding/AndroidStudioProjects/DroidCafe/app/build.gradle" timestamp="1535882122538">
+        <mark key="[" line="22" column="60" />
+        <mark key="]" line="22" column="65" />
+        <mark key="." line="22" column="65" />
+        <mark key="^" line="22" column="65" />
       </file>
       <file name="D:/coding/AndroidStudioProjects/TwoActivities/app/src/main/res/values/strings.xml" timestamp="1535872786749">
         <mark key="[" line="5" column="28" />
@@ -149,11 +149,11 @@
       <jump line="40" column="25" filename="D:/coding/AndroidStudioProjects/ImplicitIntents/app/src/main/res/layout/activity_main.xml" />
     </jumps>
     <registers>
-      <register name="&quot;" type="2">
-        <text encoding="base64">ICAgIGltcGxlbWVudGF0aW9uICdjb20uYW5kcm9pZC5zdXBwb3J0OmRlc2lnbjoyOC4wLjAtcmMwMScK</text>
+      <register name="&quot;" type="4">
+        <text>2</text>
       </register>
       <register name="-" type="4">
-        <text>e</text>
+        <text>2</text>
       </register>
       <register name="/" type="4">
         <text>returnR</text>
@@ -209,6 +209,8 @@
         <entry>W</entry>
         <entry>w</entry>
       </history-cmd>
+      <history-expr />
+      <history-input />
     </history>
     <shortcut-conflicts>
       <shortcut-conflict owner="ide">
