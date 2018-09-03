@@ -90,7 +90,7 @@
         <mark key="." line="3" column="32" />
         <mark key="^" line="3" column="32" />
       </file>
-      <file name="/Dummy.txt" timestamp="1535940675692">
+      <file name="/Dummy.txt" timestamp="1535941452920">
         <mark key="[" line="0" column="0" />
       </file>
       <file name="D:/coding/AndroidStudioProjects/DroidCafe/app/src/main/res/layout/content_main.xml" timestamp="1535882229751">
@@ -111,8 +111,11 @@
         <mark key="." line="23" column="0" />
         <mark key="^" line="11" column="26" />
       </file>
-      <file name="D:/coding/AndroidStudioProjects/ANews/app/src/main/res/layout/content_main.xml" timestamp="1535940532705">
+      <file name="D:/coding/AndroidStudioProjects/ANews/app/src/main/res/layout/content_main.xml" timestamp="1535941682271">
         <mark key="[" line="38" column="38" />
+        <mark key="]" line="39" column="33" />
+        <mark key="^" line="39" column="33" />
+        <mark key="." line="39" column="33" />
       </file>
       <file name="D:/coding/AndroidStudioProjects/ScrollingText/app/src/main/res/values/strings.xml" timestamp="1535853912215">
         <mark key="[" line="2" column="33" />
@@ -142,9 +145,6 @@
         <mark key="]" line="24" column="73" />
         <mark key="^" line="24" column="73" />
         <mark key="." line="24" column="73" />
-      </file>
-      <file name="/fragment.java" timestamp="1535867525426">
-        <mark key="[" line="0" column="0" />
       </file>
       <file name="D:/coding/AndroidStudioProjects/DroidCafe/app/src/main/res/layout/activity_main.xml" timestamp="1535880594527">
         <mark key="[" line="5" column="40" />
