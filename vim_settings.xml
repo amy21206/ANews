@@ -21,14 +21,14 @@
         <mark key="^" line="42" column="31" />
         <mark key="." line="42" column="31" />
       </file>
+      <file name="/a.dummy" timestamp="1535960118672">
+        <mark key="[" line="0" column="0" />
+      </file>
       <file name="D:/coding/AndroidStudioProjects/ANews/app/src/main/res/layout/app_bar_main.xml" timestamp="1535939850048">
         <mark key="[" line="27" column="31" />
         <mark key="]" line="27" column="42" />
         <mark key="^" line="27" column="42" />
         <mark key="." line="27" column="42" />
-      </file>
-      <file name="/a.dummy" timestamp="1535960118672">
-        <mark key="[" line="0" column="0" />
       </file>
       <file name="D:/coding/AndroidStudioProjects/ScrollingText/app/build.gradle" timestamp="1535853262186">
         <mark key="[" line="22" column="60" />
@@ -98,15 +98,11 @@
         <mark key="." line="108" column="42" />
         <mark key="^" line="108" column="42" />
       </file>
-      <file name="D:/coding/AndroidStudioProjects/rssDemo/RSS-Parser/app/src/main/java/com/prof/rssparser/example/MainActivity.java" timestamp="1535953682217">
-        <mark key="[" line="114" column="0" />
-        <mark key="]" line="144" column="10" />
-      </file>
-      <file name="D:/coding/AndroidStudioProjects/Project/ANews/app/src/main/java/com/java/wuzihan/anews/NewsListModel.java" timestamp="1535970191855">
-        <mark key="[" line="99" column="0" />
-        <mark key="]" line="113" column="12" />
-        <mark key="^" line="52" column="4" />
-        <mark key="." line="52" column="4" />
+      <file name="D:/coding/AndroidStudioProjects/Project/ANews/app/src/main/java/com/java/wuzihan/anews/NewsListModel.java" timestamp="1535978813754">
+        <mark key="[" line="99" column="37" />
+        <mark key="]" line="99" column="38" />
+        <mark key="^" line="99" column="38" />
+        <mark key="." line="99" column="38" />
       </file>
       <file name="D:/coding/AndroidStudioProjects/Project/ANews/app/src/main/java/com/java/wuzihan/anews/NewsListPagerAdapter.java" timestamp="1535961793359">
         <mark key="[" line="20" column="49" />
@@ -133,6 +129,9 @@
         <mark key="." line="3" column="32" />
         <mark key="^" line="3" column="32" />
       </file>
+      <file name="app/build.gradle" timestamp="1535978583583">
+        <mark key="[" line="0" column="0" />
+      </file>
       <file name="D:/coding/AndroidStudioProjects/Project/ANews/app/src/main/java/com/java/wuzihan/anews/NewsListViewModel.java" timestamp="1535958853145">
         <mark key="[" line="18" column="41" />
         <mark key="]" line="18" column="50" />
@@ -154,10 +153,6 @@
         <mark key="^" line="17" column="52" />
         <mark key="." line="17" column="52" />
       </file>
-      <file name="D:/coding/AndroidStudioProjects/rssDemo/RSS-Parser/app/src/main/AndroidManifest.xml" timestamp="1535956216029">
-        <mark key="[" line="4" column="0" />
-        <mark key="]" line="5" column="65" />
-      </file>
       <file name="D:/coding/AndroidStudioProjects/Project/ANews/app/build.gradle" timestamp="1535956560398">
         <mark key="[" line="36" column="4" />
         <mark key="]" line="36" column="5" />
@@ -169,6 +164,9 @@
         <mark key="]" line="13" column="26" />
         <mark key="^" line="13" column="26" />
         <mark key="." line="13" column="26" />
+      </file>
+      <file name="app/src/main/res/values/strings.xml" timestamp="1535978529729">
+        <mark key="[" line="0" column="0" />
       </file>
       <file name="D:/coding/AndroidStudioProjects/Project/ANews/app/src/main/java/com/java/wuzihan/anews/NewsListFragment.java" timestamp="1535962708714">
         <mark key="[" line="11" column="50" />
@@ -220,17 +218,17 @@
         <mark key="." line="52" column="40" />
         <mark key="^" line="66" column="50" />
       </file>
-      <file name="D:/coding/AndroidStudioProjects/TwoActivities/app/src/main/res/layout/activity_main.xml" timestamp="1535872808734">
-        <mark key="[" line="51" column="70" />
-        <mark key="]" line="52" column="37" />
-        <mark key="^" line="52" column="37" />
-        <mark key="." line="52" column="37" />
-      </file>
       <file name="D:/coding/AndroidStudioProjects/DroidCafe/app/src/main/res/values/strings.xml" timestamp="1535880034777">
         <mark key="[" line="3" column="30" />
         <mark key="]" line="3" column="43" />
         <mark key="." line="3" column="43" />
         <mark key="^" line="3" column="43" />
+      </file>
+      <file name="D:/coding/AndroidStudioProjects/TwoActivities/app/src/main/res/layout/activity_main.xml" timestamp="1535872808734">
+        <mark key="[" line="51" column="70" />
+        <mark key="]" line="52" column="37" />
+        <mark key="^" line="52" column="37" />
+        <mark key="." line="52" column="37" />
       </file>
       <file name="D:/coding/AndroidStudioProjects/TwoActivities/app/src/main/AndroidManifest.xml" timestamp="1535867711482">
         <mark key="[" line="18" column="48" />
@@ -248,10 +246,6 @@
       <file name="/fragment.java" timestamp="1535962666136">
         <mark key="[" line="0" column="0" />
         <mark key="o" line="0" column="0" />
-      </file>
-      <file name="D:/coding/AndroidStudioProjects/rssDemo/RSS-Parser/app/src/main/java/com/prof/rssparser/example/ArticleAdapter.java" timestamp="1535952933623">
-        <mark key="[" line="46" column="0" />
-        <mark key="]" line="46" column="39" />
       </file>
       <file name="D:/coding/AndroidStudioProjects/DroidCafe/app/src/main/res/layout/activity_main.xml" timestamp="1535880594527">
         <mark key="[" line="5" column="40" />
