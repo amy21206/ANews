@@ -78,11 +78,11 @@
         <mark key="." line="108" column="42" />
         <mark key="^" line="108" column="42" />
       </file>
-      <file name="D:/coding/AndroidStudioProjects/ANews/app/build.gradle" timestamp="1535938986770">
-        <mark key="[" line="3" column="22" />
-        <mark key="]" line="22" column="64" />
-        <mark key="^" line="22" column="64" />
-        <mark key="." line="22" column="64" />
+      <file name="D:/coding/AndroidStudioProjects/ANews/app/build.gradle" timestamp="1535944737158">
+        <mark key="[" line="29" column="4" />
+        <mark key="]" line="29" column="17" />
+        <mark key="^" line="29" column="17" />
+        <mark key="." line="29" column="17" />
       </file>
       <file name="D:/coding/AndroidStudioProjects/DroidCafe/app/src/main/res/values/dimens.xml" timestamp="1535880191803">
         <mark key="[" line="3" column="32" />
@@ -170,10 +170,10 @@
     </jumps>
     <registers>
       <register name="&quot;" type="4">
-        <text>match_parent</text>
+        <text>e</text>
       </register>
       <register name="-" type="4">
-        <text>match_parent</text>
+        <text>e</text>
       </register>
       <register name="/" type="4">
         <text>returnR</text>
