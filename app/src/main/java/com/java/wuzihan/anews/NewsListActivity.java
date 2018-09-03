@@ -31,40 +31,46 @@ public class NewsListActivity extends AppCompatActivity
     private NewsListViewModel mViewModel;
     private TabLayout mTabLayout;
     private ViewPager mViewPager;
+    private NewsListTabAdapter mTabAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_news_list);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+
+        // Setting toolbar
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        // Setting drawer
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        // Setting navigation view
+        NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+        // Setting tab adapter
+        mViewPager = findViewById(R.id.newsListViewPager);
         mTabLayout = findViewById(R.id.newsListTabLayout);
+        mTabAdapter = new NewsListTabAdapter(getSupportFragmentManager());
+        // Setting ViewModel
         mViewModel = ViewModelProviders.of(this).get(NewsListViewModel.class);
-
         final Observer<List<String>> articleObserver = new Observer<List<String>>() {
             @Override
-            public void onChanged(@Nullable List<String> articles) {
-                Log.d("articleObserver", "onChanged");
-                for (String category: articles) {
-                    mTabLayout.addTab(mTabLayout.newTab().setText(category));
-                    Log.d("tabName", category);
-                }
+            public void onChanged(List<String> articles) {
+                Log.d("onChanged", articles.get(0));
+                mTabAdapter.setFragmentTitleList(articles);
+                mTabAdapter.notifyDataSetChanged();
             }
         };
+        mViewModel.getNewsCategories().observe(this, articleObserver);
+        mViewPager.setAdapter(mTabAdapter);
+        mTabLayout.setupWithViewPager(mViewPager);
 
-        mViewPager = findViewById(R.id.newsListViewPager);
-
-        mViewModel.getNewsList().observe(this, articleObserver);
     }
 
     @Override

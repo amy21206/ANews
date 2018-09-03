@@ -16,7 +16,7 @@ public class NewsListViewModel extends ViewModel {
         model_ = new NewsListModel();
     }
 
-    public LiveData<List<String>> getNewsList() {
+    public LiveData<List<String>> getNewsCategories() {
         Log.d("NewsListViewModel", "getting News List");
         if (newsCategories == null) {
             newsCategories = mFetchNewsCategories();
