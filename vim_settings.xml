@@ -3,7 +3,7 @@
     <state version="4" enabled="true" />
     <globalmarks />
     <filemarks>
-      <file name="/Dummy.txt" timestamp="1535881155362">
+      <file name="/Dummy.txt" timestamp="1535932558805">
         <mark key="[" line="0" column="0" />
       </file>
       <file name="D:/coding/AndroidStudioProjects/DroidCafe/app/src/main/res/layout/content_main.xml" timestamp="1535882229751">
@@ -116,6 +116,12 @@
         <mark key="]" line="24" column="73" />
         <mark key="^" line="24" column="73" />
         <mark key="." line="24" column="73" />
+      </file>
+      <file name="D:/coding/AndroidStudioProjects/ANews/app/build.gradle" timestamp="1535933751049">
+        <mark key="[" line="22" column="63" />
+        <mark key="]" line="22" column="65" />
+        <mark key="^" line="22" column="65" />
+        <mark key="." line="22" column="65" />
       </file>
       <file name="/fragment.java" timestamp="1535867525426">
         <mark key="[" line="0" column="0" />
