@@ -2,7 +2,7 @@
   <component name="VimSettings">
     <state version="4" enabled="true" />
     <globalmarks>
-      <mark key="U" line="117" column="11" filename="D:/coding/AndroidStudioProjects/Project/ANews/app/src/main/java/com/java/wuzihan/anews/NewsListModel.java" protocol="file" />
+      <mark key="U" line="122" column="11" filename="D:/coding/AndroidStudioProjects/Project/ANews/app/src/main/java/com/java/wuzihan/anews/NewsListModel.java" protocol="file" />
     </globalmarks>
     <filemarks>
       <file name="D:/coding/AndroidStudioProjects/TwoActivities/app/build.gradle" timestamp="1535854327223">
@@ -11,11 +11,11 @@
         <mark key="." line="22" column="65" />
         <mark key="^" line="22" column="65" />
       </file>
-      <file name="D:/coding/AndroidStudioProjects/Project/ANews/app/src/main/res/layout/fragment_news_list.xml" timestamp="1535962739902">
-        <mark key="[" line="0" column="0" />
-        <mark key="]" line="11" column="16" />
-        <mark key="." line="11" column="16" />
-        <mark key="^" line="11" column="16" />
+      <file name="D:/coding/AndroidStudioProjects/Project/ANews/app/src/main/res/layout/fragment_news_list.xml" timestamp="1535989472547">
+        <mark key="[" line="4" column="13" />
+        <mark key="]" line="5" column="42" />
+        <mark key="." line="5" column="42" />
+        <mark key="^" line="5" column="42" />
       </file>
       <file name="D:/coding/AndroidStudioProjects/HelloToast/app/src/main/res/layout/activity_main.xml" timestamp="1535852163797">
         <mark key="[" line="19" column="49" />
@@ -101,12 +101,16 @@
         <mark key="." line="108" column="42" />
         <mark key="^" line="108" column="42" />
       </file>
-      <file name="D:/coding/AndroidStudioProjects/Project/ANews/app/src/main/java/com/java/wuzihan/anews/NewsListModel.java" timestamp="1535982664265">
-        <mark key="'" line="52" column="142" />
-        <mark key="[" line="134" column="30" />
-        <mark key="]" line="134" column="33" />
-        <mark key="^" line="134" column="33" />
-        <mark key="." line="134" column="33" />
+      <file name="D:/coding/AndroidStudioProjects/rssDemo/RSS-Parser/app/src/main/java/com/prof/rssparser/example/MainActivity.java" timestamp="1536027153497">
+        <mark key="'" line="133" column="21" />
+        <mark key="[" line="133" column="0" />
+        <mark key="]" line="142" column="18" />
+      </file>
+      <file name="D:/coding/AndroidStudioProjects/Project/ANews/app/src/main/java/com/java/wuzihan/anews/NewsListModel.java" timestamp="1535990700114">
+        <mark key="[" line="183" column="0" />
+        <mark key="]" line="183" column="0" />
+        <mark key="^" line="189" column="31" />
+        <mark key="." line="183" column="0" />
       </file>
       <file name="D:/coding/AndroidStudioProjects/Project/ANews/app/src/main/java/com/java/wuzihan/anews/NewsListPagerAdapter.java" timestamp="1535961793359">
         <mark key="[" line="20" column="49" />
@@ -136,11 +140,11 @@
       <file name="app/build.gradle" timestamp="1535978583583">
         <mark key="[" line="0" column="0" />
       </file>
-      <file name="D:/coding/AndroidStudioProjects/Project/ANews/app/src/main/java/com/java/wuzihan/anews/NewsListViewModel.java" timestamp="1535958853145">
-        <mark key="[" line="18" column="41" />
-        <mark key="]" line="18" column="50" />
-        <mark key="^" line="18" column="50" />
-        <mark key="." line="18" column="50" />
+      <file name="D:/coding/AndroidStudioProjects/Project/ANews/app/src/main/java/com/java/wuzihan/anews/NewsListViewModel.java" timestamp="1535990213122">
+        <mark key="[" line="41" column="35" />
+        <mark key="]" line="41" column="36" />
+        <mark key="." line="41" column="36" />
+        <mark key="^" line="41" column="36" />
       </file>
       <file name="/Dummy.txt" timestamp="1535963997593">
         <mark key="[" line="0" column="0" />
@@ -172,11 +176,11 @@
       <file name="app/src/main/res/values/strings.xml" timestamp="1535978529729">
         <mark key="[" line="0" column="0" />
       </file>
-      <file name="D:/coding/AndroidStudioProjects/Project/ANews/app/src/main/java/com/java/wuzihan/anews/NewsListFragment.java" timestamp="1535983311389">
-        <mark key="[" line="14" column="43" />
-        <mark key="]" line="14" column="7" />
-        <mark key="." line="14" column="7" />
-        <mark key="^" line="14" column="7" />
+      <file name="D:/coding/AndroidStudioProjects/Project/ANews/app/src/main/java/com/java/wuzihan/anews/NewsListFragment.java" timestamp="1535990814808">
+        <mark key="[" line="34" column="43" />
+        <mark key="]" line="34" column="46" />
+        <mark key="." line="34" column="46" />
+        <mark key="^" line="34" column="46" />
       </file>
       <file name="D:/coding/AndroidStudioProjects/HelloToast/app/src/main/java/com/java/wuzihan/hellotoast/MainActivity.java" timestamp="1535852927110">
         <mark key="[" line="23" column="0" />
@@ -211,9 +215,9 @@
       <file name="D:/coding/AndroidStudioProjects/ANews/app/src/main/java/com/java/wuzihan/anews/NewsListModel.java" timestamp="1535947163013">
         <mark key="[" line="2" column="28" />
       </file>
-      <file name="D:/coding/AndroidStudioProjects/Project/ANews/app/src/main/java/com/java/wuzihan/anews/NewsListActivity.java" timestamp="1535963978411">
-        <mark key="[" line="52" column="40" />
-        <mark key="]" line="52" column="40" />
+      <file name="D:/coding/AndroidStudioProjects/Project/ANews/app/src/main/java/com/java/wuzihan/anews/NewsListActivity.java" timestamp="1535989323931">
+        <mark key="[" line="61" column="0" />
+        <mark key="]" line="69" column="69" />
         <mark key="." line="52" column="40" />
         <mark key="^" line="66" column="50" />
       </file>
@@ -269,55 +273,60 @@
       <jump line="11" column="35" filename="D:/coding/AndroidStudioProjects/Project/ANews/app/src/main/java/com/java/wuzihan/anews/NewsListPageAdapter.java" />
       <jump line="9" column="23" filename="D:/coding/AndroidStudioProjects/Project/ANews/app/src/main/java/com/java/wuzihan/anews/NewsListPageAdapter.java" />
       <jump line="60" column="142" filename="D:/coding/AndroidStudioProjects/Project/ANews/app/src/main/java/com/java/wuzihan/anews/NewsListModel.java" />
+      <jump line="100" column="0" filename="D:/coding/AndroidStudioProjects/rssDemo/RSS-Parser/app/src/main/java/com/prof/rssparser/example/MainActivity.java" />
+      <jump line="134" column="28" filename="D:/coding/AndroidStudioProjects/rssDemo/RSS-Parser/app/src/main/java/com/prof/rssparser/example/MainActivity.java" />
+      <jump line="133" column="21" filename="D:/coding/AndroidStudioProjects/rssDemo/RSS-Parser/app/src/main/java/com/prof/rssparser/example/MainActivity.java" />
+      <jump line="195" column="0" filename="D:/coding/AndroidStudioProjects/Project/ANews/app/src/main/java/com/java/wuzihan/anews/NewsListModel.java" />
+      <jump line="183" column="43" filename="D:/coding/AndroidStudioProjects/Project/ANews/app/src/main/java/com/java/wuzihan/anews/NewsListModel.java" />
     </jumps>
     <registers>
-      <register name="&quot;" type="2">
-        <text encoding="base64">ICAgICAgICByZXR1cm4gbmV3IE5ld3NMaXN0RnJhZ21lbnQobUZyYWdtZW50VGl0bGVMaXN0LmdldChwb3NpdGlvbikpOwo=</text>
+      <register name="&quot;" type="4">
+        <text>&quot;</text>
       </register>
       <register name="-" type="4">
-        <text>]</text>
+        <text>&quot;</text>
       </register>
       <register name="/" type="4">
-        <text>FetchTh</text>
+        <text>save</text>
       </register>
       <register name="0" type="2">
-        <text encoding="base64">ICAgICAgICB0cnkgewogICAgICAgICAgICAvLyBUT0RPOiAxLiBvcGVuZWQgaXQgdHdpY2UgdG8gZ2V0IGVuY29kaW5nLiBjaGFuZ2UgaXQuCiAgICAgICAgICAgIC8vIFRPRE87IDIuIHRvbyBsb25nLgogICAgICAgICAgICBVUkwgdXJsID0gbmV3IFVSTChhcmdzWzBdKTsKICAgICAgICAgICAgQnVmZmVyZWRSZWFkZXIgaW5GaXJzdExpbmUgPSBuZXcgQnVmZmVyZWRSZWFkZXIobmV3IElucHV0U3RyZWFtUmVhZGVyKHVybC5vcGVuU3RyZWFtKCkpKTsKICAgICAgICAgICAgU3RyaW5nIGZpcnN0TGluZSA9IGluRmlyc3RMaW5lLnJlYWRMaW5lKCk7CiAgICAgICAgICAgIFBhdHRlcm4gZW5jb2RpbmdQYXR0ZXJuID0gUGF0dGVybi5jb21waWxlKCJlbmNvZGluZz1cIi4qP1wiIik7CiAgICAgICAgICAgIE1hdGNoZXIgZW5jb2RpbmdNYXRjaGVyID0gZW5jb2RpbmdQYXR0ZXJuLm1hdGNoZXIoZmlyc3RMaW5lKTsKICAgICAgICAgICAgU3RyaW5nIGVuY29kaW5nID0gZW5jb2RpbmdNYXRjaGVyLmZpbmQoKSA/IGZpcnN0TGluZS5zdWJzdHJpbmcoZW5jb2RpbmdNYXRjaGVyLnN0YXJ0KCkgKyAxMCwgZW5jb2RpbmdNYXRjaGVyLmVuZCgpIC0gMSkgOiAiVVRGLTgiOwogICAgICAgICAgICBpbkZpcnN0TGluZS5jbG9zZSgpOwogICAgICAgICAgICBCdWZmZXJlZFJlYWRlciBpbiA9CiAgICAgICAgICAgICAgICAgICAgbmV3IEJ1ZmZlcmVkUmVhZGVyKG5ldyBJbnB1dFN0cmVhbVJlYWRlcih1cmwub3BlblN0cmVhbSgpLCBlbmNvZGluZykpOwogICAgICAgICAgICBTdHJpbmcgeG1sQ29udGVudCA9ICIiOwogICAgICAgICAgICBTdHJpbmcgaW5wdXRMaW5lOwogICAgICAgICAgICB3aGlsZSAoKGlucHV0TGluZSA9IGluLnJlYWRMaW5lKCkpICE9IG51bGwpIHsKICAgICAgICAgICAgICAgIHhtbENvbnRlbnQgPSB4bWxDb250ZW50LmNvbmNhdCgiICIgKyBpbnB1dExpbmUpOwogICAgICAgICAgICB9CiAgICAgICAgICAgIGluLmNsb3NlKCk7CgogICAgICAgICAgICBQYXR0ZXJuIHAgPSBQYXR0ZXJuLmNvbXBpbGUoIjxpdGVtPi4qPzwvaXRlbT4iKTsKICAgICAgICAgICAgTWF0Y2hlciBtID0gcC5tYXRjaGVyKHhtbENvbnRlbnQpOwogICAgICAgICAgICB3aGlsZSAobS5maW5kKCkpIHsKICAgICAgICAgICAgICAgIFN0cmluZyBpdGVtID0geG1sQ29udGVudC5zdWJzdHJpbmcobS5zdGFydCgpICsgNiwgbS5lbmQoKSAtIDcpOwogICAgICAgICAgICAgICAgUGF0dGVybiB0aXRsZVBhdHRlcm4gPSBQYXR0ZXJuLmNvbXBpbGUoIjx0aXRsZT4uKjwvdGl0bGU+Iik7CiAgICAgICAgICAgICAgICBNYXRjaGVyIHRtID0gdGl0bGVQYXR0ZXJuLm1hdGNoZXIoaXRlbSk7CiAgICAgICAgICAgICAgICBQYXR0ZXJuIGxpbmtQYXR0ZXJuID0gUGF0dGVybi5jb21waWxlKCI8bGluaz4uKj88L2xpbms+Iik7CiAgICAgICAgICAgICAgICBNYXRjaGVyIGxtID0gbGlua1BhdHRlcm4ubWF0Y2hlcihpdGVtKTsKICAgICAgICAgICAgICAgIFBhdHRlcm4gcHViRGF0ZVBhdHRlcm4gPSBQYXR0ZXJuLmNvbXBpbGUoIjxwdWJEYXRlPi4qPzwvcHViRGF0ZT4iKTsKICAgICAgICAgICAgICAgIE1hdGNoZXIgcG0gPSBwdWJEYXRlUGF0dGVybi5tYXRjaGVyKGl0ZW0pOwogICAgICAgICAgICAgICAgUGF0dGVybiBkZXNjcmlwdGlvblBhdHRlcm4gPSBQYXR0ZXJuLmNvbXBpbGUoIjxkZXNjcmlwdGlvbj4uKj88L2Rlc2NyaXB0aW9uPiIpOwogICAgICAgICAgICAgICAgTWF0Y2hlciBkbSA9IGRlc2NyaXB0aW9uUGF0dGVybi5tYXRjaGVyKGl0ZW0pOwogICAgICAgICAgICAgICAgdG0uZmluZCgpOwogICAgICAgICAgICAgICAgbG0uZmluZCgpOwogICAgICAgICAgICAgICAgcG0uZmluZCgpOwogICAgICAgICAgICAgICAgZG0uZmluZCgpOwogICAgICAgICAgICAgICAgdHJ5IHsKICAgICAgICAgICAgICAgICAgICBTdHJpbmcgdGl0bGUgPSBpdGVtLnN1YnN0cmluZyh0bS5zdGFydCgpICsgNywgdG0uZW5kKCkgLSA4KTsKICAgICAgICAgICAgICAgICAgICBTdHJpbmcgbGluayA9IGl0ZW0uc3Vic3RyaW5nKGxtLnN0YXJ0KCkgKyA2LCBsbS5lbmQoKSAtIDcpOwogICAgICAgICAgICAgICAgICAgIFN0cmluZyBwdWJEYXRlID0gaXRlbS5zdWJzdHJpbmcocG0uc3RhcnQoKSArIDksIHBtLmVuZCgpIC0gMTApOwogICAgICAgICAgICAgICAgICAgIFN0cmluZyBkZXNjcmlwdGlvbiA9IGl0ZW0uc3Vic3RyaW5nKGRtLnN0YXJ0KCkgKyAxMywgZG0uZW5kKCkgLSAxNCk7CiAgICAgICAgICAgICAgICAgICAgU3lzdGVtLm91dC5wcmludGxuKHRpdGxlKTsKICAgICAgICAgICAgICAgICAgICBTeXN0ZW0ub3V0LnByaW50bG4obGluayk7CiAgICAgICAgICAgICAgICAgICAgU3lzdGVtLm91dC5wcmludGxuKHB1YkRhdGUpOwogICAgICAgICAgICAgICAgICAgIFN5c3RlbS5vdXQucHJpbnRsbihkZXNjcmlwdGlvbik7CiAgICAgICAgICAgICAgICAgICAgTmV3cyBwaWVjZSA9IG5ldyBOZXdzKHRpdGxlLCBkZXNjcmlwdGlvbiwgbGluaywgcHViRGF0ZSk7CiAgICAgICAgICAgICAgICAgICAgbmV3cy5hZGQocGllY2UpOwogICAgICAgICAgICAgICAgfSBjYXRjaCAoRXhjZXB0aW9uIGUpIHt9CiAgICAgICAgICAgIH0KICAgICAgICB9IGNhdGNoIChFeGNlcHRpb24gZSkgewogICAgICAgICAgICBlLnByaW50U3RhY2tUcmFjZSgpOwogICAgICAgIH0KICAgICAgICBMb2cuZCgiTmV3c0xpc3RNb2RlbCIsIFN0cmluZy52YWx1ZU9mKG5ld3Muc2l6ZSgpKSk7Cg==</text>
+        <text encoding="base64">ICAgICAgICAgICAgICAgIHJ1bk9uVWlUaHJlYWQobmV3IFJ1bm5hYmxlKCkgewogICAgICAgICAgICAgICAgICAgIEBPdmVycmlkZQogICAgICAgICAgICAgICAgICAgIHB1YmxpYyB2b2lkIHJ1bigpIHsKICAgICAgICAgICAgICAgICAgICAgICAgcHJvZ3Jlc3NCYXIuc2V0VmlzaWJpbGl0eShWaWV3LkdPTkUpOwogICAgICAgICAgICAgICAgICAgICAgICBtU3dpcGVSZWZyZXNoTGF5b3V0LnNldFJlZnJlc2hpbmcoZmFsc2UpOwogICAgICAgICAgICAgICAgICAgICAgICBUb2FzdC5tYWtlVGV4dChNYWluQWN0aXZpdHkudGhpcywgIlVuYWJsZSB0byBsb2FkIGRhdGEuIiwKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBUb2FzdC5MRU5HVEhfTE9ORykuc2hvdygpOwogICAgICAgICAgICAgICAgICAgICAgICBMb2cuaSgiVW5hYmxlIHRvIGxvYWQgIiwgImFydGljbGVzIik7CiAgICAgICAgICAgICAgICAgICAgfQogICAgICAgICAgICAgICAgfSk7Cg==</text>
       </register>
       <register name="1" type="2">
-        <text encoding="base64">ICAgICAgICByZXR1cm4gbmV3IE5ld3NMaXN0RnJhZ21lbnQobUZyYWdtZW50VGl0bGVMaXN0LmdldChwb3NpdGlvbikpOwo=</text>
+        <text encoding="base64">ICAgICAgICAgICAgICAgICAgICBMb2cuZCgiTmV3c0xpc3RNb2RlbCIsInNhdmUiKTsK</text>
       </register>
       <register name="2" type="2">
-        <text encoding="base64">Cg==</text>
+        <text encoding="base64">ICAgICAgICBydW5PblVpVGhyZWFkKG5ldyBSdW5uYWJsZSgpIHsKICAgICAgICAgICAgQE92ZXJyaWRlCiAgICAgICAgICAgIHB1YmxpYyB2b2lkIHJ1bigpIHsKICAgICAgICAgICAgICAgIHByb2dyZXNzQmFyLnNldFZpc2liaWxpdHkoVmlldy5HT05FKTsKICAgICAgICAgICAgICAgIG1Td2lwZVJlZnJlc2hMYXlvdXQuc2V0UmVmcmVzaGluZyhmYWxzZSk7CiAgICAgICAgICAgICAgICBUb2FzdC5tYWtlVGV4dChNYWluQWN0aXZpdHkudGhpcywgIlVuYWJsZSB0byBsb2FkIGRhdGEuIiwKICAgICAgICAgICAgICAgICAgICAgICAgVG9hc3QuTEVOR1RIX0xPTkcpLnNob3coKTsKICAgICAgICAgICAgICAgIExvZy5pKCJVbmFibGUgdG8gbG9hZCAiLCAiYXJ0aWNsZXMiKTsKICAgICAgICAgICAgfQogICAgICAgIH0pOwo=</text>
       </register>
       <register name="3" type="2">
-        <text encoding="base64">ICAgIHB1YmxpYyBOZXdzTGlzdEZyYWdtZW50KFN0cmluZyBjYXRlZ29yeSkgewogICAgICAgIHN1cGVyKCk7CgogICAgfQo=</text>
+        <text encoding="base64">ICAgICAgICBMb2cuZCgiZmV0Y2hpbmcgbmV3cyBsaXN0IiwgImFoaGgiKTsK</text>
       </register>
       <register name="4" type="2">
-        <text encoding="base64">Cg==</text>
+        <text encoding="base64">ICAgICAgICB9Cg==</text>
       </register>
       <register name="5" type="2">
-        <text encoding="base64">ICAgIHB1YmxpYyBvbkNyZWF0ZQo=</text>
+        <text encoding="base64">ICAgICAgICBpZiAobmV3c0xpc3QgPT0gbnVsbCkgewo=</text>
       </register>
       <register name="6" type="2">
-        <text encoding="base64">Cg==</text>
+        <text encoding="base64">ICAgICAgICBMb2cuZCgiTmV3c0xpc3RWaWV3TW9kZWwiLCAiZ2V0dGluZyBOZXdzIExpc3QiKTsK</text>
       </register>
       <register name="7" type="2">
-        <text encoding="base64">aW1wb3J0IGphdmF4LnhtbC5wYXJzZXJzLkRvY3VtZW50QnVpbGRlcjsKaW1wb3J0IGphdmF4LnhtbC5wYXJzZXJzLkRvY3VtZW50QnVpbGRlckZhY3Rvcnk7CmltcG9ydCBqYXZheC54bWwudHJhbnNmb3JtLk91dHB1dEtleXM7CmltcG9ydCBqYXZheC54bWwudHJhbnNmb3JtLlRyYW5zZm9ybWVyOwppbXBvcnQgamF2YXgueG1sLnRyYW5zZm9ybS5UcmFuc2Zvcm1lckZhY3Rvcnk7CmltcG9ydCBqYXZheC54bWwudHJhbnNmb3JtLmRvbS5ET01Tb3VyY2U7CmltcG9ydCBqYXZheC54bWwudHJhbnNmb3JtLnN0cmVhbS5TdHJlYW1SZXN1bHQ7Cg==</text>
+        <text encoding="base64">Cg==</text>
       </register>
       <register name="8" type="2">
-        <text encoding="base64">ICAgICAgICBMaXN0PE5ld3M+IG1OZXdzID0gbmV3IEFycmF5TGlzdDw+KCk7Cg==</text>
+        <text encoding="base64">ICAgICAgICAgICAgICAgICAgICBUZXh0VmlldyA9IGZpbmRWaWV3QnlJZChSLmlkLm5ld3NfbGlzdF9mcmFnbWVudCk7Cg==</text>
       </register>
       <register name="9" type="2">
-        <text encoding="base64">Cg==</text>
+        <text encoding="base64">ICAgICAgICAgICAgICAgIExvZy5kKCJvbkNoYW5nZWQiLCBhcnRpY2xlcy5nZXQoMCkpOwo=</text>
       </register>
       <register name=":" type="4">
         <text>w</text>
       </register>
     </registers>
     <search>
-      <last-search>FetchTh</last-search>
+      <last-search>save</last-search>
       <last-offset />
-      <last-pattern>FetchTh</last-pattern>
+      <last-pattern>save</last-pattern>
       <last-dir>1</last-dir>
       <show-last>false</show-last>
     </search>
@@ -327,6 +336,11 @@
         <entry>returnR</entry>
         <entry>fetchthread</entry>
         <entry>FetchTh</entry>
+        <entry>Thread</entry>
+        <entry>runOnUiThread</entry>
+        <entry>runOn</entry>
+        <entry>Ui</entry>
+        <entry>save</entry>
       </history-search>
       <history-cmd>
         <entry>ww</entry>
