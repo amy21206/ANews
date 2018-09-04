@@ -1,0 +1,8 @@
+<application>
+  <component name="HttpConfigurable">
+    <option name="USE_PROXY_PAC" value="true" />
+    <option name="PROXY_HOST" value="ipv4.vpn.mhy12345.xyz" />
+    <option name="PROXY_PORT" value="8388" />
+    <option name="PROXY_AUTHENTICATION" value="true" />
+  </component>
+</application>
