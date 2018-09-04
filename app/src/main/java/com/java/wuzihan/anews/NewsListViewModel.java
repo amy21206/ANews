@@ -5,13 +5,14 @@ import android.arch.lifecycle.MutableLiveData;
 import android.arch.lifecycle.ViewModel;
 import android.util.Log;
 
+import java.util.HashMap;
 import java.util.List;
 
 public class NewsListViewModel extends ViewModel {
 
     private NewsListModel model_;
     private MutableLiveData<List<String>> newsCategories;
-    private MutableLiveData<List<News>> newsList;
+    private MutableLiveData<HashMap<String, List<News>>> categoryToNewsList;
 
     public NewsListViewModel() {
         model_ = new NewsListModel();
@@ -31,14 +32,26 @@ public class NewsListViewModel extends ViewModel {
         return model_.getNewsCategories();
     }
 
-    public LiveData<List<News>> getNewsList() {
-        newsList = mFetchNewsList();
-        return newsList;
+    public LiveData<HashMap<String, List<News>>> getCategoryToNewsList() {
+        if (categoryToNewsList == null) {
+            categoryToNewsList = new MutableLiveData<>();
+            HashMap<String, List<News>> init = new HashMap<>();
+            categoryToNewsList.setValue(init);
+        }
+        return categoryToNewsList;
     }
 
-    private MutableLiveData<List<News>> mFetchNewsList() {
+    public void updateCategory(String category) {
+        if (categoryToNewsList == null) {
+            categoryToNewsList = new MutableLiveData<>();
+            HashMap<String, List<News>> init = new HashMap<>();
+            categoryToNewsList.setValue(init);
+        }
         // TODO: replace hardcoded stuff.
         Log.d("NewsListViewModel", "fetching News List");
-        return model_.getNewsList("科技");
+        if (categoryToNewsList.getValue().containsKey(category)) {
+            return;
+        }
+        model_.updateCategory(category, categoryToNewsList);
     }
 }

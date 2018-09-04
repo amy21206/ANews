@@ -54,10 +54,15 @@ public class NewsListModel {
         } else {
             List<News> newsList = new ArrayList<>();
             Log.d("Model", "fetchNewsList");
-            NewsFetchThread myThread = new NewsFetchThread("fetchNewsThread", mData.getmCategoryToUrl().get(category), newsList, newsListData);
-            myThread.start();
+//            NewsFetchThread myThread = new NewsFetchThread("fetchNewsThread", mData.getmCategoryToUrl().get(category), newsList, newsListData);
+//            myThread.start();
         }
         return newsListData;
+    }
+
+    public void updateCategory(String category, MutableLiveData<HashMap<String,List<News>>> data) {
+        NewsFetchThread myThread = new NewsFetchThread("fetchNewsThread", mData.getmCategoryToUrl().get(category), category, data);
+        myThread.start();
     }
 }
 
@@ -122,13 +127,15 @@ class NewsFetchThread extends Thread {
 
     String mUrl;
     List<News> mNewsList;
-    MutableLiveData<List<News>> mNewsListData;
+    String mCategory;
+    MutableLiveData<HashMap<String,List<News>>> mCategoryToNewsListData;
 
-    NewsFetchThread(String name, String url, List<News> newsList, MutableLiveData<List<News>> newsListData) {
+    NewsFetchThread(String name, String url, String category, MutableLiveData<HashMap<String, List<News>>> categoryToNewsListData) {
         super(name);
         mUrl = url;
-        mNewsList = newsList;
-        mNewsListData = newsListData;
+        mCategory = category;
+        mNewsList = new ArrayList<>();
+        mCategoryToNewsListData = categoryToNewsListData;
     }
 
     @Override
@@ -187,7 +194,9 @@ class NewsFetchThread extends Thread {
             e.printStackTrace();
         }
         Log.d("NewsListModel", String.valueOf(mNewsList.size()));
-        mNewsListData.postValue(mNewsList);
+        HashMap<String, List<News>> map = mCategoryToNewsListData.getValue();
+        map.put(mCategory, mNewsList);
+        mCategoryToNewsListData.postValue(map);
     }
 }
 
