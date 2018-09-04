@@ -1,5 +1,6 @@
 package com.java.wuzihan.anews;
 
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
@@ -12,6 +13,7 @@ public class NewsListTabAdapter extends FragmentStatePagerAdapter {
     NewsListTabAdapter(FragmentManager fm) {
         super(fm);
         mFragmentTitleList = new ArrayList<>();
+
     }
 
     public void setFragmentTitleList(List<String> titleList) {
@@ -20,7 +22,11 @@ public class NewsListTabAdapter extends FragmentStatePagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        return new NewsListFragment();
+        Fragment newsListFragment = new NewsListFragment();
+        Bundle bundle = new Bundle();
+        bundle.putString("category", mFragmentTitleList.get(position));
+        newsListFragment.setArguments(bundle);
+        return newsListFragment;
     }
 
     @Override

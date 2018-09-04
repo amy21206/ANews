@@ -11,6 +11,7 @@ public class NewsListViewModel extends ViewModel {
 
     private NewsListModel model_;
     private MutableLiveData<List<String>> newsCategories;
+    private MutableLiveData<List<News>> newsList;
 
     public NewsListViewModel() {
         model_ = new NewsListModel();
@@ -30,5 +31,14 @@ public class NewsListViewModel extends ViewModel {
         return model_.getNewsCategories();
     }
 
+    public LiveData<List<News>> getNewsList() {
+        newsList = mFetchNewsList();
+        return newsList;
+    }
 
+    private MutableLiveData<List<News>> mFetchNewsList() {
+        // TODO: replace hardcoded stuff.
+        Log.d("NewsListViewModel", "fetching News List");
+        return model_.getNewsList("科技");
+    }
 }
