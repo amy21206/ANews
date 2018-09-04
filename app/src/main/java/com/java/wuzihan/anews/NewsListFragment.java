@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class NewsListFragment extends Fragment {
@@ -35,23 +36,24 @@ public class NewsListFragment extends Fragment {
         mViewModel = ViewModelProviders.of(getActivity()).get(NewsListViewModel.class);
         Bundle bundle = this.getArguments();
         mCategory = bundle.getString("category");
+        mViewModel.updateCategory(mCategory);
         Log.d("category", mCategory);
         rendered = false;
         text = "tab";
         mNewsList = new ArrayList<>();
-        final Observer<List<News>> newsObserver = new Observer<List<News>>() {
+        final Observer<HashMap<String, List<News>>> newsObserver = new Observer<HashMap<String, List<News>>>() {
             @Override
-            public void onChanged(List<News> news) {
-                if (!rendered) {
+            public void onChanged(HashMap<String, List<News>> categoryToNewsList) {
+                if (!rendered && categoryToNewsList.containsKey(mCategory)) {
                     rendered = true;
                     mNewsList.clear();
-                    mNewsList.addAll(news);
+                    mNewsList.addAll(categoryToNewsList.get(mCategory));
                     mRecyclerView = view.findViewById(R.id.recyclerview_news_list);
                     mRecyclerView.getAdapter().notifyDataSetChanged();
                 }
             }
         };
-        mViewModel.getNewsList().observe(this, newsObserver);
+        mViewModel.getCategoryToNewsList().observe(this, newsObserver);
         mRecyclerView = view.findViewById(R.id.recyclerview_news_list);
         mAdapter = new NewsListItemsAdapter(view.getContext(), mNewsList);
         mRecyclerView.setAdapter(mAdapter);
@@ -85,6 +87,8 @@ class NewsListItemsAdapter extends RecyclerView.Adapter<NewsListItemsAdapter.New
     public void onBindViewHolder(NewsListItemsAdapter.NewsListItemHolder holder, int position) {
         News mCurrent = mNewsList.get(position);
         holder.newsHeading.setText(mCurrent.getmHeading());
+        holder.newsLink.setText(mCurrent.getmUrl());
+        holder.newsTime.setText(mCurrent.getmPubDate());
     }
 
     @Override
@@ -96,17 +100,18 @@ class NewsListItemsAdapter extends RecyclerView.Adapter<NewsListItemsAdapter.New
 
         TextView newsHeading;
         final NewsListItemsAdapter mAdapter;
-//    TextView newsTime;
-//    TextView newsContent;
-//    TextView newsLink;
+        TextView newsTime;
+        TextView newsContent;
+        TextView newsLink;
 
         public NewsListItemHolder(View view, NewsListItemsAdapter adapter) {
+            // TODO: change styles of item holder.
             super(view);
             mAdapter = adapter;
             newsHeading = view.findViewById(R.id.item_news_list_heading);
-//        newsTime = view.findViewById(R.id.item_news_list_time);
-//        newsContent = view.findViewById(R.id.item_news_list_content);
-//        newsLink = view.findViewById(R.id.item_news_list_link);
+            newsTime = view.findViewById(R.id.item_news_list_time);
+//            newsContent = view.findViewById(R.id.item_news_list_content);
+            newsLink = view.findViewById(R.id.item_news_list_link);
         }
     }
 }
