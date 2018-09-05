@@ -80,6 +80,7 @@
         <mark key="." line="19" column="52" />
         <mark key="^" line="19" column="52" />
       </file>
+      <file name="D:/coding/AndroidStudioProjects/Project/ANews/app/src/main/java/com/java/wuzihan/anews/NewsListModel.java" timestamp="1536156585433" />
       <file name="D:/coding/AndroidStudioProjects/Project/ANews/app/src/main/java/com/java/wuzihan/anews/NewsListPagerAdapter.java" timestamp="1535961793359">
         <mark key="[" line="20" column="49" />
         <mark key="]" line="20" column="56" />
@@ -182,12 +183,12 @@
         <mark key="." line="28" column="31" />
         <mark key="^" line="28" column="31" />
       </file>
-      <file name="D:/coding/AndroidStudioProjects/Project/ANews/app/src/main/java/com/java/wuzihan/anews/ui/NewsListActivity/NewsListActivity.java" timestamp="1536149930116">
+      <file name="D:/coding/AndroidStudioProjects/Project/ANews/app/src/main/java/com/java/wuzihan/anews/ui/NewsListActivity/NewsListActivity.java" timestamp="1536156656421">
         <mark key="'" line="107" column="8" />
-        <mark key="[" line="22" column="0" />
-        <mark key="]" line="22" column="0" />
-        <mark key="." line="22" column="0" />
-        <mark key="^" line="104" column="84" />
+        <mark key="[" line="32" column="0" />
+        <mark key="]" line="32" column="0" />
+        <mark key="." line="32" column="0" />
+        <mark key="^" line="32" column="0" />
       </file>
       <file name="D:/coding/AndroidStudioProjects/TwoActivities/app/src/main/res/layout/activity_second.xml" timestamp="1535873405072">
         <mark key="[" line="39" column="31" />
@@ -269,7 +270,7 @@
         <mark key="." line="29" column="32" />
         <mark key="^" line="29" column="32" />
       </file>
-      <file name="/Dummy.txt" timestamp="1536155982107">
+      <file name="/Dummy.txt" timestamp="1536156002629">
         <mark key="[" line="0" column="0" />
         <mark key="]" line="0" column="18" />
         <mark key="^" line="0" column="18" />
@@ -355,11 +356,11 @@
         <mark key="." line="8" column="46" />
         <mark key="^" line="8" column="46" />
       </file>
-      <file name="D:/coding/AndroidStudioProjects/Project/ANews/app/src/main/java/com/java/wuzihan/anews/ui/SettingNewsCategoryActivity/SettingNewsCategoryActivity.java" timestamp="1536155307160">
-        <mark key="[" line="110" column="0" />
-        <mark key="]" line="110" column="0" />
-        <mark key="." line="110" column="0" />
-        <mark key="^" line="109" column="115" />
+      <file name="D:/coding/AndroidStudioProjects/Project/ANews/app/src/main/java/com/java/wuzihan/anews/ui/SettingNewsCategoryActivity/SettingNewsCategoryActivity.java" timestamp="1536156864441">
+        <mark key="[" line="104" column="54" />
+        <mark key="]" line="111" column="16" />
+        <mark key="." line="111" column="16" />
+        <mark key="^" line="111" column="16" />
       </file>
     </filemarks>
     <jumps>
