@@ -1,4 +1,4 @@
-package com.java.wuzihan.anews;
+package com.java.wuzihan.anews.ui.NewsListActivity;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;

@@ -1,4 +1,4 @@
-package com.java.wuzihan.anews;
+package com.java.wuzihan.anews.ui.NewsListActivity;
 
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
@@ -14,7 +14,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.java.wuzihan.anews.R;
 import com.java.wuzihan.anews.database.entity.News;
+import com.java.wuzihan.anews.ViewModel.NewsListViewModel;
+import com.java.wuzihan.anews.ui.NewsDetailsActivity.NewsDetailsActivity;
 
 import java.util.ArrayList;
 import java.util.HashMap;

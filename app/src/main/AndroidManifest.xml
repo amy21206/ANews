@@ -12,7 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".ui.MainActivity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -20,16 +20,16 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".NewsListActivity"
+            android:name=".ui.NewsListActivity.NewsListActivity"
             android:label="@string/title_activity_news_list"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".NewsDetailsActivity"
-            android:parentActivityName=".NewsListActivity"
+            android:name=".ui.NewsDetailsActivity.NewsDetailsActivity"
+            android:parentActivityName=".ui.NewsListActivity.NewsListActivity"
             android:label="@string/title_activity_news_detail">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".NewsListActivity"></meta-data>
+                android:value=".ui.NewsListActivity.NewsListActivity"></meta-data>
         </activity>
     </application>
 

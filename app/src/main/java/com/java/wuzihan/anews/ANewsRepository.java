@@ -19,7 +19,7 @@ public class ANewsRepository {
     // dependency. This adds complexity and much more code, and this sample is not about testing.
     // See the BasicSample in the android-architecture-components repository at
     // https://github.com/googlesamples
-    ANewsRepository(Application application) {
+    public ANewsRepository(Application application) {
         ANewsDatabase db = ANewsDatabase.getDatabase(application);
         mCategoryDao = db.categoryDao();
         mAllCategories = mCategoryDao.getAllCategories();
@@ -27,7 +27,7 @@ public class ANewsRepository {
 
     // Room executes all queries on a separate thread.
     // Observed LiveData will notify the observer when the data has changed.
-    LiveData<List<Category>> getAllCategories() {
+    public LiveData<List<Category>> getAllCategories() {
         return mAllCategories;
     }
 

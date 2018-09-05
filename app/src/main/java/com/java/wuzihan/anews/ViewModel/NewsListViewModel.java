@@ -1,4 +1,4 @@
-package com.java.wuzihan.anews;
+package com.java.wuzihan.anews.ViewModel;
 
 import android.app.Application;
 import android.arch.lifecycle.AndroidViewModel;
@@ -6,8 +6,10 @@ import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
 import android.util.Log;
 
+import com.java.wuzihan.anews.ANewsRepository;
 import com.java.wuzihan.anews.database.entity.Category;
 import com.java.wuzihan.anews.database.entity.News;
+import com.java.wuzihan.anews.ui.NewsListActivity.NewsListModel;
 
 import java.util.HashMap;
 import java.util.List;

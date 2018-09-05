@@ -1,4 +1,4 @@
-package com.java.wuzihan.anews;
+package com.java.wuzihan.anews.ui.NewsDetailsActivity;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -7,6 +7,8 @@ import android.util.Log;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+
+import com.java.wuzihan.anews.R;
 
 public class NewsDetailsActivity extends AppCompatActivity {
 
