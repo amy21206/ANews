@@ -16,6 +16,7 @@ import android.os.AsyncTask;
 import android.support.annotation.Nullable;
 import android.util.Log;
 
+import com.java.wuzihan.anews.database.News;
 import com.prof.rssparser.Article;
 import com.prof.rssparser.Parser;
 
@@ -100,49 +101,6 @@ class tempData {
 
     public HashMap<String, List<News>> getmCategoryToNews() {
         return mCategoryToNews;
-    }
-}
-
-@Entity(tableName = "news_table")
-class News {
-
-    @PrimaryKey(autoGenerate = true)
-    private int id;
-
-    private String mHeading;
-    private String mContent;
-    private String mUrl;
-    private String mPubDate;
-
-    News (String heading, String content, String url, String pubDate) {
-        mHeading = heading;
-        mContent = content;
-        mUrl = url;
-        mPubDate = pubDate;
-    }
-
-    public void setId(int id_) {
-        id = id_;
-    }
-
-    public String getHeading() {
-        return mHeading;
-    }
-
-    public String getContent() {
-        return mContent;
-    }
-
-    public String getPubDate() {
-        return mPubDate;
-    }
-
-    public String getUrl() {
-        return mUrl;
-    }
-
-    public int getId() {
-        return id;
     }
 }
 
