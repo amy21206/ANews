@@ -1,21 +1,13 @@
-package com.java.wuzihan.anews;
+package com.java.wuzihan.anews.ui.NewsListActivity;
 
-import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
-import android.net.Uri;
-import android.os.AsyncTask;
 import android.support.annotation.Nullable;
 import android.util.Log;
 
-import com.prof.rssparser.Article;
-import com.prof.rssparser.Parser;
-
-import org.w3c.dom.Document;
+import com.java.wuzihan.anews.database.entity.News;
 
 import java.io.BufferedReader;
-import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.StringWriter;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -39,7 +31,7 @@ public class NewsListModel {
     @Nullable
     public MutableLiveData<List<String>> getNewsCategories() {
         // TODO: replace hardcoded rss for maps with category for now
-        Log.d("Model", "getNewsCategories");
+        Log.d("Model", "getShownCategories");
         final MutableLiveData<List<String>> newsCategories = new MutableLiveData<>();
         newsCategories.setValue(mNewsCategories);
         return newsCategories;
@@ -94,34 +86,7 @@ class tempData {
     }
 }
 
-class News {
-    private String mHeading;
-    private String mContent;
-    private String mUrl;
-    private String mPubDate;
-    News (String heading, String content, String url, String pubDate) {
-        mHeading = heading;
-        mContent = content;
-        mUrl = url;
-        mPubDate = pubDate;
-    }
 
-    public String getmHeading() {
-        return mHeading;
-    }
-
-    public String getmContent() {
-        return mContent;
-    }
-
-    public String getmPubDate() {
-        return mPubDate;
-    }
-
-    public String getmUrl() {
-        return mUrl;
-    }
-}
 
 class NewsFetchThread extends Thread {
 
@@ -186,7 +151,7 @@ class NewsFetchThread extends Thread {
                     System.out.println(link);
                     System.out.println(pubDate);
                     System.out.println(description);
-                    News piece = new News(title, description, link, pubDate);
+                    News piece = new News(mCategory, title, description, link, pubDate);
                     mNewsList.add(piece);
                 } catch (Exception e) {}
             }
@@ -200,63 +165,3 @@ class NewsFetchThread extends Thread {
     }
 }
 
-class NewsFetcher extends AsyncTask<String, Void, List<News>> {
-
-    @Override
-    protected List<News> doInBackground(String... args) {
-        List<News> news = new ArrayList<>();
-        try {
-            // TODO: 1. opened it twice to get encoding. change it.
-            // TODO; 2. too long.
-            URL url = new URL(args[0]);
-            BufferedReader inFirstLine = new BufferedReader(new InputStreamReader(url.openStream()));
-            String firstLine = inFirstLine.readLine();
-            Pattern encodingPattern = Pattern.compile("encoding=\".*?\"");
-            Matcher encodingMatcher = encodingPattern.matcher(firstLine);
-            String encoding = encodingMatcher.find() ? firstLine.substring(encodingMatcher.start() + 10, encodingMatcher.end() - 1) : "UTF-8";
-            inFirstLine.close();
-            BufferedReader in =
-                    new BufferedReader(new InputStreamReader(url.openStream(), encoding));
-            String xmlContent = "";
-            String inputLine;
-            while ((inputLine = in.readLine()) != null) {
-                xmlContent = xmlContent.concat(" " + inputLine);
-            }
-            in.close();
-
-            Pattern p = Pattern.compile("<item>.*?</item>");
-            Matcher m = p.matcher(xmlContent);
-            while (m.find()) {
-                String item = xmlContent.substring(m.start() + 6, m.end() - 7);
-                Pattern titlePattern = Pattern.compile("<title>.*</title>");
-                Matcher tm = titlePattern.matcher(item);
-                Pattern linkPattern = Pattern.compile("<link>.*?</link>");
-                Matcher lm = linkPattern.matcher(item);
-                Pattern pubDatePattern = Pattern.compile("<pubDate>.*?</pubDate>");
-                Matcher pm = pubDatePattern.matcher(item);
-                Pattern descriptionPattern = Pattern.compile("<description>.*?</description>");
-                Matcher dm = descriptionPattern.matcher(item);
-                tm.find();
-                lm.find();
-                pm.find();
-                dm.find();
-                try {
-                    String title = item.substring(tm.start() + 7, tm.end() - 8);
-                    String link = item.substring(lm.start() + 6, lm.end() - 7);
-                    String pubDate = item.substring(pm.start() + 9, pm.end() - 10);
-                    String description = item.substring(dm.start() + 13, dm.end() - 14);
-                    System.out.println(title);
-                    System.out.println(link);
-                    System.out.println(pubDate);
-                    System.out.println(description);
-                    News piece = new News(title, description, link, pubDate);
-                    news.add(piece);
-                } catch (Exception e) {}
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        Log.d("NewsListModel", String.valueOf(news.size()));
-        return news;
-    }
-}

@@ -1,16 +1,12 @@
-package com.java.wuzihan.anews;
+package com.java.wuzihan.anews.ui.NewsListActivity;
 
 import android.arch.lifecycle.Observer;
-import android.arch.lifecycle.ViewModel;
 import android.arch.lifecycle.ViewModelProviders;
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
+import android.support.annotation.NonNull;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -19,10 +15,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.TextView;
 
-import com.prof.rssparser.Article;
+import com.java.wuzihan.anews.R;
+import com.java.wuzihan.anews.database.entity.Category;
+import com.java.wuzihan.anews.ViewModel.NewsListViewModel;
+import com.java.wuzihan.anews.ui.SettingNewsCategoryActivity.SettingNewsCategoryActivity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class NewsListActivity extends AppCompatActivity
@@ -59,15 +58,18 @@ public class NewsListActivity extends AppCompatActivity
         mTabAdapter = new NewsListTabAdapter(getSupportFragmentManager());
         // Setting ViewModel
         mViewModel = ViewModelProviders.of(this).get(NewsListViewModel.class);
-        final Observer<List<String>> articleObserver = new Observer<List<String>>() {
+        final Observer<List<Category>> articleObserver = new Observer<List<Category>>() {
             @Override
-            public void onChanged(List<String> articles) {
-                Log.d("onChanged", articles.get(0));
-                mTabAdapter.setFragmentTitleList(articles);
+            public void onChanged(List<Category> categories) {
+                List<String> categoryTitles = new ArrayList<>();
+                for (Category category : categories) {
+                    categoryTitles.add(category.getName());
+                }
+                mTabAdapter.setFragmentTitleList(categoryTitles);
                 mTabAdapter.notifyDataSetChanged();
             }
         };
-        mViewModel.getNewsCategories().observe(this, articleObserver);
+        mViewModel.getShownCategories().observe(this, articleObserver);
         mViewPager.setAdapter(mTabAdapter);
         mTabLayout.setupWithViewPager(mViewPager);
 
@@ -75,7 +77,7 @@ public class NewsListActivity extends AppCompatActivity
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
@@ -99,6 +101,9 @@ public class NewsListActivity extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            Intent intent = new Intent();
+            intent.setClass(this.getApplicationContext(), SettingNewsCategoryActivity.class);
+            this.getApplicationContext().startActivity(intent);
             return true;
         }
 
@@ -107,7 +112,7 @@ public class NewsListActivity extends AppCompatActivity
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
@@ -125,7 +130,7 @@ public class NewsListActivity extends AppCompatActivity
 
         }
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }

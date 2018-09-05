@@ -1,28 +1,35 @@
-package com.java.wuzihan.anews;
+package com.java.wuzihan.anews.ViewModel;
 
+import android.app.Application;
+import android.arch.lifecycle.AndroidViewModel;
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
-import android.arch.lifecycle.ViewModel;
 import android.util.Log;
+
+import com.java.wuzihan.anews.ANewsRepository;
+import com.java.wuzihan.anews.database.entity.Category;
+import com.java.wuzihan.anews.database.entity.News;
+import com.java.wuzihan.anews.ui.NewsListActivity.NewsListModel;
 
 import java.util.HashMap;
 import java.util.List;
 
-public class NewsListViewModel extends ViewModel {
+public class NewsListViewModel extends AndroidViewModel {
+
+    private ANewsRepository mRepository;
 
     private NewsListModel model_;
-    private MutableLiveData<List<String>> newsCategories;
+    private LiveData<List<Category>> newsCategories;
     private MutableLiveData<HashMap<String, List<News>>> categoryToNewsList;
 
-    public NewsListViewModel() {
+    public NewsListViewModel(Application application) {
+        super(application);
+        mRepository = new ANewsRepository(application);
         model_ = new NewsListModel();
+        newsCategories = mRepository.getShownCategories();
     }
 
-    public LiveData<List<String>> getNewsCategories() {
-        Log.d("NewsListViewModel", "getting News List");
-        if (newsCategories == null) {
-            newsCategories = mFetchNewsCategories();
-        }
+    public LiveData<List<Category>> getShownCategories() {
         return newsCategories;
     }
 

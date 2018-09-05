@@ -1,10 +1,10 @@
-package com.java.wuzihan.anews;
+package com.java.wuzihan.anews.ui.NewsListActivity;
 
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -13,6 +13,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import com.java.wuzihan.anews.R;
+import com.java.wuzihan.anews.database.entity.News;
+import com.java.wuzihan.anews.ViewModel.NewsListViewModel;
+import com.java.wuzihan.anews.ui.NewsDetailsActivity.NewsDetailsActivity;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -69,6 +74,7 @@ public class NewsListFragment extends Fragment {
 }
 
 class NewsListItemsAdapter extends RecyclerView.Adapter<NewsListItemsAdapter.NewsListItemHolder> {
+
     private final List<News> mNewsList;
     private LayoutInflater mInflater;
 
@@ -80,15 +86,25 @@ class NewsListItemsAdapter extends RecyclerView.Adapter<NewsListItemsAdapter.New
     @Override
     public NewsListItemsAdapter.NewsListItemHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View mItemView = mInflater.inflate(R.layout.item_news_list, parent, false);
-        return new NewsListItemHolder(mItemView, this);
+        NewsListItemHolder holder = new NewsListItemHolder(mItemView, this);
+        mItemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d("NewsListItemsAdapter", "clicked");
+                TextView newsUrl = v.findViewById(R.id.item_news_list_link);
+                Intent intent = new Intent();
+                intent.setClass(v.getContext(), NewsDetailsActivity.class);
+                intent.putExtra("newsUrl", newsUrl.getText());
+                v.getContext().startActivity(intent);
+            }
+        });
+
+        return holder;
     }
 
     @Override
     public void onBindViewHolder(NewsListItemsAdapter.NewsListItemHolder holder, int position) {
-        News mCurrent = mNewsList.get(position);
-        holder.newsHeading.setText(mCurrent.getmHeading());
-        holder.newsLink.setText(mCurrent.getmUrl());
-        holder.newsTime.setText(mCurrent.getmPubDate());
+        holder.bind(mNewsList.get(position));
     }
 
     @Override
@@ -112,6 +128,12 @@ class NewsListItemsAdapter extends RecyclerView.Adapter<NewsListItemsAdapter.New
             newsTime = view.findViewById(R.id.item_news_list_time);
 //            newsContent = view.findViewById(R.id.item_news_list_content);
             newsLink = view.findViewById(R.id.item_news_list_link);
+        }
+
+        public void bind(final News item) {
+            newsHeading.setText(item.getHeading());
+            newsLink.setText(item.getUrl());
+            newsTime.setText(item.getPubDate());
         }
     }
 }
