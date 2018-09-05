@@ -27,6 +27,28 @@ public class ANewsRepository {
         mShownCategories = mCategoryDao.getShownCategories();
     }
 
+    public void updateCategory(String categoryName, boolean categoryShown) {
+        new updateCategoryAsyncTask(mCategoryDao, categoryShown).execute(categoryName);
+    }
+
+    private static class updateCategoryAsyncTask extends AsyncTask<String, Void, Void> {
+
+        private CategoryDao mAsyncTaskDao;
+        private boolean mCategoryShown;
+
+        updateCategoryAsyncTask(CategoryDao dao, boolean categoryShown) {
+            mAsyncTaskDao = dao;
+            mCategoryShown = categoryShown;
+        }
+
+        @Override
+        protected Void doInBackground(final String... params) {
+            mAsyncTaskDao.updateCategory(params[0], mCategoryShown);
+
+            return null;
+        }
+    }
+
     // Room executes all queries on a separate thread.
     // Observed LiveData will notify the observer when the data has changed.
     public LiveData<List<Category>> getAllCategories() {

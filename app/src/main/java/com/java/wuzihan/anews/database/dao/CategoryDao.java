@@ -21,8 +21,8 @@ public interface CategoryDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     void insertCategory(Category category);
 
-    @Update
-    void updateCategory(Category category);
+    @Query("UPDATE category_table SET shown=:shown WHERE name=:name")
+    void updateCategory(String name, boolean shown);
 
     @Query("SELECT * from category_table")
     LiveData<List<Category>> getAllCategories();

@@ -24,4 +24,8 @@ public class SettingNewsCategoryViewModel extends AndroidViewModel {
     public LiveData<List<Category>> getAllCategories() {
         return allCategories;
     }
+
+    public void updateCategory(String categoryName, boolean categoryShown) {
+        mRepository.updateCategory(categoryName, categoryShown);
+    }
 }
