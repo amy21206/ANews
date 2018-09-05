@@ -5,7 +5,7 @@ import android.arch.lifecycle.MutableLiveData;
 import android.arch.lifecycle.ViewModel;
 import android.util.Log;
 
-import com.java.wuzihan.anews.database.News;
+import com.java.wuzihan.anews.database.entity.News;
 
 import java.util.HashMap;
 import java.util.List;
