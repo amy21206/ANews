@@ -2,6 +2,15 @@ package com.java.wuzihan.anews;
 
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
+import android.arch.persistence.room.Dao;
+import android.arch.persistence.room.Database;
+import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.Insert;
+import android.arch.persistence.room.PrimaryKey;
+import android.arch.persistence.room.Query;
+import android.arch.persistence.room.Room;
+import android.arch.persistence.room.RoomDatabase;
+import android.content.Context;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.support.annotation.Nullable;
@@ -94,11 +103,17 @@ class tempData {
     }
 }
 
+@Entity(tableName = "news_table")
 class News {
+
+    @PrimaryKey(autoGenerate = true)
+    private int id;
+
     private String mHeading;
     private String mContent;
     private String mUrl;
     private String mPubDate;
+
     News (String heading, String content, String url, String pubDate) {
         mHeading = heading;
         mContent = content;
@@ -106,20 +121,62 @@ class News {
         mPubDate = pubDate;
     }
 
-    public String getmHeading() {
+    public void setId(int id_) {
+        id = id_;
+    }
+
+    public String getHeading() {
         return mHeading;
     }
 
-    public String getmContent() {
+    public String getContent() {
         return mContent;
     }
 
-    public String getmPubDate() {
+    public String getPubDate() {
         return mPubDate;
     }
 
-    public String getmUrl() {
+    public String getUrl() {
         return mUrl;
+    }
+
+    public int getId() {
+        return id;
+    }
+}
+
+@Dao
+interface NewsDao {
+
+    @Insert
+    void insert(News news);
+
+    @Query("DELETE FROM news_table")
+    void deleteAll();
+
+    @Query("SELECT * from news_table ORDER BY mPubDate DESC")
+    List<News> getAllNews();
+}
+
+@Database(entities = {News.class}, version = 1)
+abstract class NewsRoomDatabase extends RoomDatabase {
+
+    public abstract NewsDao newsDao();
+
+    private static NewsRoomDatabase INSTANCE;
+
+    static NewsRoomDatabase getDatabase(final Context context) {
+        if (INSTANCE == null) {
+            synchronized (NewsRoomDatabase.class) {
+                if (INSTANCE == null) {
+                    INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
+                            NewsRoomDatabase.class, "news_database")
+                            .build();
+                }
+            }
+        }
+        return INSTANCE;
     }
 }
 
