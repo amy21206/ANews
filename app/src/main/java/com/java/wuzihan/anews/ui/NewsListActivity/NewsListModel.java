@@ -31,7 +31,7 @@ public class NewsListModel {
     @Nullable
     public MutableLiveData<List<String>> getNewsCategories() {
         // TODO: replace hardcoded rss for maps with category for now
-        Log.d("Model", "getNewsCategories");
+        Log.d("Model", "getShownCategories");
         final MutableLiveData<List<String>> newsCategories = new MutableLiveData<>();
         newsCategories.setValue(mNewsCategories);
         return newsCategories;

@@ -26,16 +26,10 @@ public class NewsListViewModel extends AndroidViewModel {
         super(application);
         mRepository = new ANewsRepository(application);
         model_ = new NewsListModel();
-        newsCategories = mRepository.getAllCategories();
+        newsCategories = mRepository.getShownCategories();
     }
 
-    public LiveData<List<Category>> getNewsCategories() {
-        /*
-        Log.d("NewsListViewModel", "getting News List");
-        if (newsCategories == null) {
-            newsCategories = mFetchNewsCategories();
-        }
-        */
+    public LiveData<List<Category>> getShownCategories() {
         return newsCategories;
     }
 

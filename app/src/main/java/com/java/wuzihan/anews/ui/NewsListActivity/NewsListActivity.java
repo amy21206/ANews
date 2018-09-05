@@ -69,7 +69,7 @@ public class NewsListActivity extends AppCompatActivity
                 mTabAdapter.notifyDataSetChanged();
             }
         };
-        mViewModel.getNewsCategories().observe(this, articleObserver);
+        mViewModel.getShownCategories().observe(this, articleObserver);
         mViewPager.setAdapter(mTabAdapter);
         mTabLayout.setupWithViewPager(mViewPager);
 
