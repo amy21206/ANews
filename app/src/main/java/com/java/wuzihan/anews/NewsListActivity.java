@@ -4,6 +4,7 @@ import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModel;
 import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -21,8 +22,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import com.java.wuzihan.anews.database.entity.Category;
 import com.prof.rssparser.Article;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class NewsListActivity extends AppCompatActivity
@@ -59,11 +62,14 @@ public class NewsListActivity extends AppCompatActivity
         mTabAdapter = new NewsListTabAdapter(getSupportFragmentManager());
         // Setting ViewModel
         mViewModel = ViewModelProviders.of(this).get(NewsListViewModel.class);
-        final Observer<List<String>> articleObserver = new Observer<List<String>>() {
+        final Observer<List<Category>> articleObserver = new Observer<List<Category>>() {
             @Override
-            public void onChanged(List<String> articles) {
-                Log.d("onChanged", articles.get(0));
-                mTabAdapter.setFragmentTitleList(articles);
+            public void onChanged(List<Category> categories) {
+                List<String> categoryTitles = new ArrayList<>();
+                for (Category category : categories) {
+                    categoryTitles.add(category.getName());
+                }
+                mTabAdapter.setFragmentTitleList(categoryTitles);
                 mTabAdapter.notifyDataSetChanged();
             }
         };
@@ -75,7 +81,7 @@ public class NewsListActivity extends AppCompatActivity
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
@@ -107,7 +113,7 @@ public class NewsListActivity extends AppCompatActivity
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
@@ -125,7 +131,7 @@ public class NewsListActivity extends AppCompatActivity
 
         }
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
