@@ -2,6 +2,7 @@ package com.java.wuzihan.anews.ui.NewsListActivity;
 
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.TabLayout;
@@ -18,6 +19,7 @@ import android.view.MenuItem;
 import com.java.wuzihan.anews.R;
 import com.java.wuzihan.anews.database.entity.Category;
 import com.java.wuzihan.anews.ViewModel.NewsListViewModel;
+import com.java.wuzihan.anews.ui.SettingNewsCategoryActivity.SettingNewsCategoryActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -99,6 +101,9 @@ public class NewsListActivity extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            Intent intent = new Intent();
+            intent.setClass(this.getApplicationContext(), SettingNewsCategoryActivity.class);
+            this.getApplicationContext().startActivity(intent);
             return true;
         }
 

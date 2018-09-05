@@ -25,11 +25,19 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ui.NewsDetailsActivity.NewsDetailsActivity"
-            android:parentActivityName=".ui.NewsListActivity.NewsListActivity"
-            android:label="@string/title_activity_news_detail">
+            android:label="@string/title_activity_news_detail"
+            android:parentActivityName=".ui.NewsListActivity.NewsListActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ui.NewsListActivity.NewsListActivity"></meta-data>
+                android:value=".ui.NewsListActivity.NewsListActivity" />
+        </activity>
+        <activity
+            android:name=".ui.SettingNewsCategoryActivity.SettingNewsCategoryActivity"
+            android:label="@string/title_activity_setting_news_list"
+            android:parentActivityName=".ui.NewsListActivity.NewsListActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.NewsListActivity.NewsListActivity" />
         </activity>
     </application>
 

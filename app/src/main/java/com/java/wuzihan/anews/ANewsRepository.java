@@ -14,6 +14,7 @@ public class ANewsRepository {
 
     private CategoryDao mCategoryDao;
     private LiveData<List<Category>> mAllCategories;
+    private LiveData<List<Category>> mShownCategories;
 
     // Note that in order to unit test the WordRepository, you have to remove the Application
     // dependency. This adds complexity and much more code, and this sample is not about testing.
@@ -23,6 +24,7 @@ public class ANewsRepository {
         ANewsDatabase db = ANewsDatabase.getDatabase(application);
         mCategoryDao = db.categoryDao();
         mAllCategories = mCategoryDao.getAllCategories();
+        mShownCategories = mCategoryDao.getShownCategories();
     }
 
     // Room executes all queries on a separate thread.
@@ -31,6 +33,9 @@ public class ANewsRepository {
         return mAllCategories;
     }
 
+    public LiveData<List<Category>> getShownCategories() {
+        return mShownCategories;
+    }
     // You must call this on a non-UI thread or your app will crash.
     // Like this, Room ensures that you're not doing any long running operations on the main
     // thread, blocking the UI.

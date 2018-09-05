@@ -79,9 +79,9 @@ public abstract class ANewsDatabase extends RoomDatabase {
             mDao.insertCategory(new Category("国际", true, "http://news.qq.com/newsgj/rss_newswj.xml"));
             mDao.insertCategory(new Category("游戏", true, "http://games.qq.com/ntgame/rss_ntgame.xml"));
             mDao.insertCategory(new Category("教育", true, "http://edu.qq.com/gaokao/rss_gaokao.xml"));
-            mDao.insertCategory(new Category("动漫", true, "http://comic.qq.com/news/rss_news.xml"));
-            mDao.insertCategory(new Category("时尚", true, "http://luxury.qq.com/staff/rss_staff.xml"));
-            mDao.insertCategory(new Category("人物", true, "http://news.qq.com/person/rss_person.xml"));
+            mDao.insertCategory(new Category("动漫", false, "http://comic.qq.com/news/rss_news.xml"));
+            mDao.insertCategory(new Category("时尚", false, "http://luxury.qq.com/staff/rss_staff.xml"));
+            mDao.insertCategory(new Category("人物", false, "http://news.qq.com/person/rss_person.xml"));
             Log.d("ANewsDatabase", "inserting");
             return null;
         }

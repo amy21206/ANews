@@ -28,5 +28,5 @@ public interface CategoryDao {
     LiveData<List<Category>> getAllCategories();
 
     @Query("SELECT * from category_table WHERE shown = 1")
-    List<Category> getShownCategories();
+    LiveData<List<Category>> getShownCategories();
 }
