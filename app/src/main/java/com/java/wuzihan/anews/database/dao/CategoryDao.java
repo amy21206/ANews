@@ -29,4 +29,7 @@ public interface CategoryDao {
 
     @Query("SELECT * from category_table WHERE shown = 1")
     LiveData<List<Category>> getShownCategories();
+
+    @Query("SELECT * from category_table WHERE name = :name")
+    Category getCategoryByName(String name);
 }

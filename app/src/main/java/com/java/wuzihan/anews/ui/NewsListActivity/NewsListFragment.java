@@ -15,6 +15,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.java.wuzihan.anews.R;
+import com.java.wuzihan.anews.ViewModel.NewsListFragmentViewModel;
+import com.java.wuzihan.anews.ViewModel.NewsListFragmentViewModelFactory;
 import com.java.wuzihan.anews.database.entity.News;
 import com.java.wuzihan.anews.ViewModel.NewsListViewModel;
 import com.java.wuzihan.anews.ui.NewsDetailsActivity.NewsDetailsActivity;
@@ -28,7 +30,7 @@ public class NewsListFragment extends Fragment {
     private List<News> mNewsList;
     private boolean rendered;
     private String text;
-    private NewsListViewModel mViewModel;
+    private NewsListFragmentViewModel mViewModel;
     private List<News> tmpNewsList;
 
     // To create items inside.
@@ -38,27 +40,28 @@ public class NewsListFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.fragment_news_list, container, false);
-        mViewModel = ViewModelProviders.of(getActivity()).get(NewsListViewModel.class);
         Bundle bundle = this.getArguments();
         mCategory = bundle.getString("category");
-        mViewModel.updateCategory(mCategory);
-        Log.d("category", mCategory);
+        mViewModel =
+                ViewModelProviders
+                        .of(this,
+                                new NewsListFragmentViewModelFactory(this.getActivity().getApplication(), mCategory))
+                        .get(NewsListFragmentViewModel.class);
         rendered = false;
         text = "tab";
         mNewsList = new ArrayList<>();
-        final Observer<HashMap<String, List<News>>> newsObserver = new Observer<HashMap<String, List<News>>>() {
+        final Observer<List<News>> newsObserver = new Observer<List<News>>() {
             @Override
-            public void onChanged(HashMap<String, List<News>> categoryToNewsList) {
-                if (!rendered && categoryToNewsList.containsKey(mCategory)) {
-                    rendered = true;
-                    mNewsList.clear();
-                    mNewsList.addAll(categoryToNewsList.get(mCategory));
-                    mRecyclerView = view.findViewById(R.id.recyclerview_news_list);
-                    mRecyclerView.getAdapter().notifyDataSetChanged();
-                }
+            public void onChanged(List<News> newsList) {
+                Log.d("onchanged", mCategory);
+                Log.d("onchanged", String.valueOf(newsList.size()));
+                mNewsList.clear();
+                mNewsList.addAll(newsList);
+                mRecyclerView = view.findViewById(R.id.recyclerview_news_list);
+                mRecyclerView.getAdapter().notifyDataSetChanged();
             }
         };
-        mViewModel.getCategoryToNewsList().observe(this, newsObserver);
+        mViewModel.getNews().observe(this, newsObserver);
         mRecyclerView = view.findViewById(R.id.recyclerview_news_list);
         mAdapter = new NewsListItemsAdapter(view.getContext(), mNewsList);
         mRecyclerView.setAdapter(mAdapter);
