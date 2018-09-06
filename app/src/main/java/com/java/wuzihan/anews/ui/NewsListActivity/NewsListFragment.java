@@ -98,6 +98,7 @@ class NewsListItemsAdapter extends RecyclerView.Adapter<NewsListItemsAdapter.New
                 Intent intent = new Intent();
                 intent.setClass(v.getContext(), NewsDetailsActivity.class);
                 intent.putExtra("newsUrl", newsUrl.getText());
+                intent.putExtra("favorited", false);
                 v.getContext().startActivity(intent);
             }
         });

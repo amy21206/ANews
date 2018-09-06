@@ -170,4 +170,25 @@ public class ANewsRepository {
             }
         }
     }
+
+    public void setNewsFavorite(String newsTitle, boolean favorite) {
+        new setNewsFavoriteAsyncTask(mNewsDao, newsTitle).execute(favorite);
+    }
+
+    private static class setNewsFavoriteAsyncTask extends AsyncTask<Boolean, Void, Void> {
+
+        private NewsDao mNewsDao;
+        private String mNewsTitle;
+
+        setNewsFavoriteAsyncTask(NewsDao dao, String newsTitle) {
+            mNewsDao = dao;
+            mNewsTitle = newsTitle;
+        }
+
+        @Override
+        protected Void doInBackground(final Boolean... params) {
+            mNewsDao.updateNewsFavorite(mNewsTitle, params[0]);
+            return null;
+        }
+    }
 }
