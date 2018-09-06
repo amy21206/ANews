@@ -23,11 +23,11 @@
         <mark key="." line="22" column="65" />
         <mark key="^" line="22" column="65" />
       </file>
-      <file name="D:/coding/AndroidStudioProjects/Project/ANews/app/src/main/java/com/java/wuzihan/anews/database/dao/CategoryDao.java" timestamp="1536213636502">
-        <mark key="[" line="17" column="0" />
-        <mark key="]" line="30" column="49" />
-        <mark key="^" line="23" column="66" />
-        <mark key="." line="17" column="40" />
+      <file name="D:/coding/AndroidStudioProjects/Project/ANews/app/src/main/java/com/java/wuzihan/anews/database/dao/CategoryDao.java" timestamp="1536221751112">
+        <mark key="[" line="30" column="50" />
+        <mark key="]" line="33" column="43" />
+        <mark key="^" line="33" column="43" />
+        <mark key="." line="33" column="43" />
       </file>
       <file name="D:/coding/AndroidStudioProjects/HelloToast/app/src/main/res/layout/activity_main.xml" timestamp="1535852163797">
         <mark key="[" line="19" column="49" />
@@ -41,19 +41,22 @@
         <mark key="." line="16" column="10" />
         <mark key="^" line="16" column="10" />
       </file>
-      <file name="D:/coding/AndroidStudioProjects/Project/ANews/app/src/main/java/com/java/wuzihan/anews/ViewModel/NewsListFragmentViewModel.java" timestamp="1536219084935">
-        <mark key="[" line="11" column="0" />
-        <mark key="]" line="11" column="0" />
-        <mark key="." line="11" column="0" />
-        <mark key="^" line="20" column="19" />
+      <file name="D:/coding/AndroidStudioProjects/Project/ANews/app/src/main/java/com/java/wuzihan/anews/ViewModel/NewsListFragmentViewModel.java" timestamp="1536222055755">
+        <mark key="'" line="18" column="20" />
+        <mark key="[" line="21" column="37" />
+        <mark key="]" line="21" column="53" />
+        <mark key="^" line="21" column="53" />
+        <mark key="." line="21" column="53" />
       </file>
-      <file name="/a.dummy" timestamp="1536214085416">
+      <file name="/a.dummy" timestamp="1536220203924">
         <mark key="[" line="0" column="0" />
       </file>
-      <file name="D:/coding/AndroidStudioProjects/Project/ANews/app/src/main/java/com/java/wuzihan/anews/ui/NewsListActivity/NewsListFragment.java" timestamp="1536150810636">
-        <mark key="'" line="67" column="0" />
-        <mark key="[" line="40" column="0" />
-        <mark key="]" line="40" column="86" />
+      <file name="D:/coding/AndroidStudioProjects/Project/ANews/app/src/main/java/com/java/wuzihan/anews/ui/NewsListActivity/NewsListFragment.java" timestamp="1536222106791">
+        <mark key="'" line="71" column="0" />
+        <mark key="[" line="47" column="73" />
+        <mark key="]" line="47" column="69" />
+        <mark key="^" line="47" column="83" />
+        <mark key="." line="47" column="69" />
       </file>
       <file name="D:/coding/AndroidStudioProjects/ScrollingText/app/build.gradle" timestamp="1535853262186">
         <mark key="[" line="22" column="60" />
@@ -142,11 +145,6 @@
         <mark key="^" line="2" column="32" />
         <mark key="." line="2" column="32" />
       </file>
-      <file name="D:/coding/AndroidStudioProjects/Project/ANews/app/src/main/res/values/dimens.xml" timestamp="1536149292577">
-        <mark key="[" line="6" column="0" />
-        <mark key="]" line="6" column="0" />
-        <mark key="." line="6" column="0" />
-      </file>
       <file name="D:/coding/AndroidStudioProjects/Project/ANews/app/src/main/java/com/java/wuzihan/anews/DataRepository.java" timestamp="1536138323888">
         <mark key="[" line="21" column="40" />
         <mark key="]" line="21" column="40" />
@@ -182,6 +180,12 @@
         <mark key="]" line="4" column="0" />
         <mark key="." line="4" column="0" />
         <mark key="^" line="35" column="57" />
+      </file>
+      <file name="D:/coding/AndroidStudioProjects/Project/ANews/app/src/main/java/com/java/wuzihan/anews/ViewModel/NewsListFragmentViewModelFactory.java" timestamp="1536222023237">
+        <mark key="[" line="12" column="44" />
+        <mark key="]" line="12" column="43" />
+        <mark key="." line="12" column="43" />
+        <mark key="^" line="12" column="43" />
       </file>
       <file name="D:/coding/AndroidStudioProjects/ANews/app/src/main/res/layout/app_bar_main.xml" timestamp="1535939850048">
         <mark key="[" line="27" column="31" />
@@ -300,16 +304,16 @@
         <mark key="." line="1" column="14" />
         <mark key="^" line="1" column="14" />
       </file>
-      <file name="D:/coding/AndroidStudioProjects/Project/ANews/app/src/main/java/com/java/wuzihan/anews/ANewsRepository.java" timestamp="1536219028651">
-        <mark key="[" line="27" column="0" />
-        <mark key="]" line="27" column="0" />
-        <mark key="^" line="81" column="25" />
-        <mark key="." line="27" column="0" />
+      <file name="D:/coding/AndroidStudioProjects/Project/ANews/app/src/main/java/com/java/wuzihan/anews/ANewsRepository.java" timestamp="1536221930562">
+        <mark key="[" line="80" column="76" />
+        <mark key="]" line="80" column="76" />
+        <mark key="." line="80" column="76" />
+        <mark key="^" line="80" column="76" />
       </file>
-      <file name="D:/coding/AndroidStudioProjects/Project/ANews/app/src/main/java/com/java/wuzihan/anews/database/ANewsDatabase.java" timestamp="1536215816513">
+      <file name="D:/coding/AndroidStudioProjects/Project/ANews/app/src/main/java/com/java/wuzihan/anews/database/ANewsDatabase.java" timestamp="1536219288630">
         <mark key="'" line="71" column="45" />
-        <mark key="[" line="84" column="109" />
-        <mark key="]" line="84" column="108" />
+        <mark key="[" line="116" column="0" />
+        <mark key="]" line="185" column="4" />
         <mark key="^" line="84" column="108" />
         <mark key="." line="84" column="108" />
       </file>
@@ -364,7 +368,7 @@
         <mark key="." line="6" column="25" />
         <mark key="^" line="6" column="25" />
       </file>
-      <file name="/fragment.java" timestamp="1536216093249">
+      <file name="/fragment.java" timestamp="1536221237864">
         <mark key="[" line="0" column="0" />
         <mark key="o" line="0" column="0" />
       </file>
@@ -434,46 +438,47 @@
       <jump line="107" column="8" filename="D:/coding/AndroidStudioProjects/Project/ANews/app/src/main/java/com/java/wuzihan/anews/ui/NewsListActivity/NewsListActivity.java" />
       <jump line="25" column="36" filename="D:/coding/AndroidStudioProjects/Project/ANews/app/src/main/java/com/java/wuzihan/anews/ui/SettingNewsListActivity/SettingNewsListActivity.java" />
       <jump line="61" column="45" filename="D:/coding/AndroidStudioProjects/Project/ANews/app/src/main/java/com/java/wuzihan/anews/database/ANewsDatabase.java" />
+      <jump line="17" column="20" filename="D:/coding/AndroidStudioProjects/Project/ANews/app/src/main/java/com/java/wuzihan/anews/ViewModel/NewsListFragmentViewModel.java" />
     </jumps>
     <registers>
-      <register name="&quot;" type="2">
-        <text encoding="base64">aW1wb3J0IGNvbS5qYXZhLnd1emloYW4uYW5ld3MudWkuTmV3c0xpc3RBY3Rpdml0eS5OZXdzTGlzdEZyYWdtZW50Owo=</text>
+      <register name="&quot;" type="4">
+        <text>Application</text>
       </register>
       <register name="-" type="4">
-        <text encoding="base64">IA==</text>
+        <text>Application</text>
       </register>
       <register name="/" type="4">
         <text>Categorys</text>
       </register>
-      <register name="0" type="4">
-        <text>getNewsListByCategory</text>
+      <register name="0" type="2">
+        <text encoding="base64">ICAgIHByaXZhdGUgdm9pZCB1cGRhdGVOZXdzTGlzdEJ5Q2F0ZWdvcnkoQ2F0ZWdvcnkgY2F0ZWdvcnkpIHsKICAgICAgICBOZXdzRmV0Y2hUaHJlYWQgdGhyZWFkID0gbmV3IE5ld3NGZXRjaFRocmVhZCgibmV3c0ZldGNoVGhyZWFkIiwgbU5ld3NEYW8sIGNhdGVnb3J5KTsKICAgICAgICB0aHJlYWQuc3RhcnQoKTsKICAgIH0K</text>
       </register>
       <register name="1" type="2">
-        <text encoding="base64">aW1wb3J0IGNvbS5qYXZhLnd1emloYW4uYW5ld3MudWkuTmV3c0xpc3RBY3Rpdml0eS5OZXdzTGlzdEZyYWdtZW50Owo=</text>
-      </register>
-      <register name="2" type="2">
-        <text encoding="base64">ICAgIHZvaWQgc2V0VXNlcklkKFN0cmluZyB1c2VySWQpIHsKICAgICAgICB0aGlzLnVzZXJJZExpdmVEYXRhLnNldFZhbHVlKHVzZXJJZCk7CiAgICB9Cg==</text>
-      </register>
-      <register name="3" type="2">
-        <text encoding="base64">ICAgICAqLwo=</text>
-      </register>
-      <register name="4" type="2">
-        <text encoding="base64">ICAgICAqIEBwYXJhbSBjYXRlZ29yeQo=</text>
-      </register>
-      <register name="5" type="2">
-        <text encoding="base64">ICAgICAgICAgICAgICAgIEBPdmVycmlkZQogICAgICAgICAgICAgICAgcHVibGljIHZvaWQgb2JzZXJ2ZShATm9uTnVsbCBMaWZlY3ljbGVPd25lciBvd25lciwgQE5vbk51bGwgT2JzZXJ2ZXI8TGlzdDxOZXdzPj4gb2JzZXJ2ZXIpIHsKICAgICAgICAgICAgICAgICAgICBzdXBlci5vYnNlcnZlKG93bmVyLCBvYnNlcnZlcik7CiAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgIH0K</text>
-      </register>
-      <register name="6" type="2">
-        <text encoding="base64">ICAgICAgICAgICAgTGl2ZURhdGE8TGlzdDxOZXdzPj4gY3VyTmV3c0xpc3QgPSBuZXcgTGl2ZURhdGE8PigpOyB7Cg==</text>
-      </register>
-      <register name="7" type="2">
-        <text encoding="base64">ICAgIExpdmVEYXRhIHVzZXJMaXZlRGF0YSA9IFRyYW5zZm9ybWF0aW9ucy5zd2l0Y2hNYXAodXNlcklkTGl2ZURhdGEsIGlkIC0+CiAgICAgICAgICAgIHJlcG9zaXRvcnkuZ2V0VXNlckJ5SWQoaWQpKTsgLy8gUmV0dXJucyBMaXZlRGF0YQoK</text>
-      </register>
-      <register name="8" type="2">
         <text encoding="base64">Cg==</text>
       </register>
+      <register name="2" type="2">
+        <text encoding="base64">ICAgICAgICBMb2cuZCgiY2F0ZWdvcnkiLCBtQ2F0ZWdvcnkpOwo=</text>
+      </register>
+      <register name="3" type="2">
+        <text encoding="base64">Cg==</text>
+      </register>
+      <register name="4" type="2">
+        <text encoding="base64">ICAgICAgICAvLyBUT0RPOiBmaWxsIGluIGhlcmUuCg==</text>
+      </register>
+      <register name="5" type="2">
+        <text encoding="base64">ICAgICAgICBMb2cuZCgiY2F0ZWdvcnkiLCBtQ2F0ZWdvcnkpOwo=</text>
+      </register>
+      <register name="6" type="2">
+        <text encoding="base64">ICAgICAgICBtVmlld01vZGVsLnVwZGF0ZUNhdGVnb3J5KG1DYXRlZ29yeSk7Cg==</text>
+      </register>
+      <register name="7" type="2">
+        <text encoding="base64">ICAgICAgICBtVmlld01vZGVsID0gVmlld01vZGVsUHJvdmlkZXJzLm9mKHRoaXMsbmV3IE5ld3NMaXN0RnJhZ21lbnRWaWV3TW9kZWxGYWN0b3J5KHRoaXMsIGNhdGVnb3J5KSkuZ2V0KE5ld3NMaXN0RnJhZ21lbnRWaWV3TW9kZWwuY2xhc3MpOwo=</text>
+      </register>
+      <register name="8" type="2">
+        <text encoding="base64">fQpjbGFzcyBOZXdzTGlzdEZyYWdtZW50Vmlld01vZGVsRmFjdG9yeSBleHRlbmRzIFZpZXdNb2RlbFByb3ZpZGVyLk5ld0luc3RhbmNlRmFjdG9yeSB7Cg==</text>
+      </register>
       <register name="9" type="2">
-        <text encoding="base64">ICAgIHByaXZhdGUgTGl2ZURhdGE8TGlzdDxOZXdzPj4gbU5ld3MgPSBUcmFuc2Zvcm1hdGlvbnMuc3dpdGNoTWFwKG1BbGxDYXRlZ29yaWVzLCBjYXRlZ29yeU5hbWUgLT4pOwo=</text>
+        <text encoding="base64">Y2xhc3MgTmV3c0xpc3RGcmFnbWVudFZpZXdNb2RlbEZhY3RvcnkgZXh0ZW5kcyBWaWV3TW9kZWxQcm92aWRlci5OZXdJbnN0YW5jZUZhY3RvcnkgewogICAgcHJpdmF0ZSBBcHBsaWNhdGlvbiBtQXBwbGljYXRpb247CiAgICBwcml2YXRlIENhdGVnb3J5IG1DYXRlZ29yeTsKCiAgICBwdWJsaWMgTmV3c0xpc3RGcmFnbWVudFZpZXdNb2RlbEZhY3RvcnkoQXBwbGljYXRpb24gYXBwbGljYXRpb24sIENhdGVnb3J5IGNhdGVnb3J5KSB7CiAgICAgICAgbUFwcGxpY2F0aW9uID0gYXBwbGljYXRpb247CiAgICAgICAgbUNhdGVnb3J5ID0gY2F0ZWdvcnk7CiAgICB9CgogICAgQE92ZXJyaWRlCiAgICBwdWJsaWMgPFQgZXh0ZW5kcyBWaWV3TW9kZWw+IFQgY3JlYXRlKENsYXNzPFQ+IG1vZGVsQ2xhc3MpIHsKICAgICAgICByZXR1cm4gKFQpIG5ldyBOZXdzTGlzdEZyYWdtZW50Vmlld01vZGVsKG1BcHBsaWNhdGlvbiwgbUNhdGVnb3J5KTsKICAgIH0KfQo=</text>
       </register>
       <register name=":" type="4">
         <text>w</text>
