@@ -9,8 +9,8 @@ Android news client for Java
 - [x] Set up architecture and room database
 
 - [ ] "Favorite"
-    - [ ] star icon on webview page
-    - [ ] 'favorite' data type
+    - [x] star icon on webview page
+    - [x] 'favorite' data type
     - [ ] favorite page activity triggered by entry in drawer
 
 - [ ] Share

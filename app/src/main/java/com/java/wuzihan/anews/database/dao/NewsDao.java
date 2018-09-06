@@ -33,5 +33,5 @@ public interface NewsDao {
     void updateNewsViewed(String heading, boolean viewed);
 
     @Query("UPDATE news_table SET favorite=:favorite WHERE heading=:heading")
-    void updateNewsFavorite(int heading, boolean favorite);
+    void updateNewsFavorite(String heading, boolean favorite);
 }
