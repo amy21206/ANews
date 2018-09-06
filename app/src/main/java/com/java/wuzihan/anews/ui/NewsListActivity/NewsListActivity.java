@@ -102,8 +102,8 @@ public class NewsListActivity extends AppCompatActivity
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             Intent intent = new Intent();
-            intent.setClass(this.getApplicationContext(), SettingNewsCategoryActivity.class);
-            this.getApplicationContext().startActivity(intent);
+            intent.setClass(NewsListActivity.this, SettingNewsCategoryActivity.class);
+            startActivity(intent);
             return true;
         }
 

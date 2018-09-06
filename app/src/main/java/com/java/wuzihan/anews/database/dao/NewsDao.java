@@ -1,7 +1,10 @@
 package com.java.wuzihan.anews.database.dao;
 
+import android.arch.lifecycle.LiveData;
 import android.arch.persistence.room.Dao;
+import android.arch.persistence.room.Ignore;
 import android.arch.persistence.room.Insert;
+import android.arch.persistence.room.OnConflictStrategy;
 import android.arch.persistence.room.Query;
 
 import com.java.wuzihan.anews.database.entity.News;
@@ -11,15 +14,24 @@ import java.util.List;
 @Dao
 public interface NewsDao {
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
     void insert(News news);
 
     @Query("DELETE FROM news_table")
     void deleteAll();
 
     @Query("SELECT * from news_table ORDER BY pubDate DESC")
-    List<News> getAllNews();
+    LiveData<List<News>> getAllNews();
 
     @Query("SELECT * from news_table WHERE category = :category ORDER BY pubDate DESC")
-    List<News> getNewsOfCategory(String category);
+    LiveData<List<News>> getNewsOfCategory(String category);
+
+    @Query("SELECT * from news_table WHERE favorite = 1 ORDER BY pubDate DESC")
+    LiveData<List<News>> getNewsFavorite();
+
+    @Query("UPDATE news_table SET viewed=:viewed WHERE heading=:heading")
+    void updateNewsViewed(String heading, boolean viewed);
+
+    @Query("UPDATE news_table SET favorite=:favorite WHERE heading=:heading")
+    void updateNewsFavorite(int heading, boolean favorite);
 }
