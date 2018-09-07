@@ -18,9 +18,9 @@ Android news client for Java
     - [ ] share icon on webview page
     - [ ] set up share intent
 
-- [ ] viewed record
-    - [ ] update database on clicking item in NewsList
-    - [ ] Highlight unread stuff in newsitem
+- [x] viewed record
+    - [x] update database on clicking item in NewsList
+    - [x] Highlight unread stuff in newsitem
 
 - [ ] recommend
     - [ ] simple recommend algorithm in viewmodel
