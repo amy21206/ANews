@@ -11,7 +11,8 @@ Android news client for Java
 - [ ] "Favorite"
     - [x] star icon on webview page
     - [x] 'favorite' data type
-    - [ ] favorite page activity triggered by entry in drawer
+    - [x] favorite page activity triggered by entry in drawer
+    - [ ] cache webpage
 
 - [ ] Share
     - [ ] share icon on webview page
