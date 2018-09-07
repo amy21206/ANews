@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -63,7 +64,7 @@ public class NewsListFragment extends Fragment {
         };
         mViewModel.getNews().observe(this, newsObserver);
         mRecyclerView = view.findViewById(R.id.recyclerview_news_list);
-        mAdapter = new NewsListItemsAdapter(view.getContext(), mNewsList);
+        mAdapter = new NewsListItemsAdapter(view.getContext(), mNewsList, mViewModel);
         mRecyclerView.setAdapter(mAdapter);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
         return view;
@@ -80,10 +81,12 @@ class NewsListItemsAdapter extends RecyclerView.Adapter<NewsListItemsAdapter.New
 
     private final List<News> mNewsList;
     private LayoutInflater mInflater;
+    private NewsListFragmentViewModel mViewModel;
 
-    public NewsListItemsAdapter(Context context, List<News> newsList) {
+    public NewsListItemsAdapter(Context context, List<News> newsList, NewsListFragmentViewModel viewModel) {
         mInflater = LayoutInflater.from(context);
         mNewsList = newsList;
+        mViewModel = viewModel;
     }
 
     @Override
@@ -96,6 +99,7 @@ class NewsListItemsAdapter extends RecyclerView.Adapter<NewsListItemsAdapter.New
                 Log.d("NewsListItemsAdapter", "clicked");
                 TextView newsUrl = v.findViewById(R.id.item_news_list_link);
                 TextView newsHeading = v.findViewById(R.id.item_news_list_heading);
+                mViewModel.setNewsViewed((String) newsHeading.getText(), true);
                 Intent intent = new Intent();
                 intent.setClass(v.getContext(), NewsDetailsActivity.class);
                 intent.putExtra("newsUrl", newsUrl.getText());
@@ -111,7 +115,7 @@ class NewsListItemsAdapter extends RecyclerView.Adapter<NewsListItemsAdapter.New
 
     @Override
     public void onBindViewHolder(NewsListItemsAdapter.NewsListItemHolder holder, int position) {
-        holder.bind(mNewsList.get(position));
+        holder.bind(mNewsList.get(position), mViewModel);
     }
 
     @Override
@@ -127,6 +131,7 @@ class NewsListItemsAdapter extends RecyclerView.Adapter<NewsListItemsAdapter.New
         TextView newsContent;
         TextView newsLink;
         News news;
+        private NewsListFragmentViewModel mViewModel;
 
         public NewsListItemHolder(View view, NewsListItemsAdapter adapter) {
             // TODO: change styles of item holder.
@@ -138,9 +143,15 @@ class NewsListItemsAdapter extends RecyclerView.Adapter<NewsListItemsAdapter.New
             newsLink = view.findViewById(R.id.item_news_list_link);
         }
 
-        public void bind(final News item) {
+        public void bind(final News item, NewsListFragmentViewModel viewModel) {
             news = item;
+            mViewModel = viewModel;
             newsHeading.setText(item.getHeading());
+            if (item.isViewed()) {
+                newsHeading.setTextColor(this.itemView.getContext().getResources().getColor(R.color.unReadNews));
+            } else {
+                newsHeading.setTextColor(this.itemView.getContext().getResources().getColor(R.color.colorPrimary));
+            }
             newsLink.setText(item.getUrl());
             newsTime.setText(item.getPubDate());
             newsHeading.setTag(item.isFavorite());

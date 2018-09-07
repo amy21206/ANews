@@ -199,4 +199,25 @@ public class ANewsRepository {
             return null;
         }
     }
+
+    public void setNewsViewed(String newsTitle, boolean viewed) {
+        new setNewsViewedAsyncTask(mNewsDao, newsTitle).execute(viewed);
+    }
+
+    private static class setNewsViewedAsyncTask extends AsyncTask<Boolean, Void, Void> {
+
+        private NewsDao mNewsDao;
+        private String mNewsTitle;
+
+        setNewsViewedAsyncTask(NewsDao dao, String newsTitle) {
+            mNewsDao = dao;
+            mNewsTitle = newsTitle;
+        }
+
+        @Override
+        protected Void doInBackground(final Boolean... params) {
+            mNewsDao.updateNewsViewed(mNewsTitle, params[0]);
+            return null;
+        }
+    }
 }
