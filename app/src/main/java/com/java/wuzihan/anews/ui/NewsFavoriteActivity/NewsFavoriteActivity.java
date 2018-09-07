@@ -8,7 +8,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -70,7 +69,6 @@ class NewsListItemsAdapter extends RecyclerView.Adapter<NewsListItemsAdapter.New
         mItemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d("NewsListItemsAdapter", "clicked");
                 TextView newsUrl = v.findViewById(R.id.item_news_list_link);
                 TextView newsHeading = v.findViewById(R.id.item_news_list_heading);
                 Intent intent = new Intent();

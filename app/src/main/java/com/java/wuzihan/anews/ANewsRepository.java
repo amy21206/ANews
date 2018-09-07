@@ -49,30 +49,6 @@ public class ANewsRepository {
         mFavoriteNews = mNewsDao.getNewsFavorite();
     }
 
-    public void updateCategory(String categoryName, boolean categoryShown) {
-        new updateCategoryAsyncTask(mCategoryDao, categoryShown).execute(categoryName);
-    }
-
-    private static class updateCategoryAsyncTask extends AsyncTask<String, Void, Void> {
-
-        private CategoryDao mAsyncTaskDao;
-        private boolean mCategoryShown;
-
-        updateCategoryAsyncTask(CategoryDao dao, boolean categoryShown) {
-            mAsyncTaskDao = dao;
-            mCategoryShown = categoryShown;
-        }
-
-        @Override
-        protected Void doInBackground(final String... params) {
-            mAsyncTaskDao.updateCategory(params[0], mCategoryShown);
-
-            return null;
-        }
-    }
-
-    // Room executes all queries on a separate thread.
-    // Observed LiveData will notify the observer when the data has changed.
     public LiveData<List<Category>> getAllCategories() {
         return mAllCategories;
     }
@@ -93,15 +69,40 @@ public class ANewsRepository {
         return mCategoryToNews.get(categoryName);
     }
 
-    // gets data from urls.
-    private void updateNewsListByCategory(Category category) {
-//        NewsFetchThread thread = new NewsFetchThread("newsFetchThread", mNewsDao, category);
-//        thread.start();
+    public void updateCategory(String categoryName, boolean categoryShown) {
+        new updateCategoryAsyncTask(mCategoryDao, categoryShown).execute(categoryName);
     }
 
-    public void updateNewsListByCategoryName(String categoryName) {
+    private void updateNewsListByCategoryName(String categoryName) {
         NewsFetchThread thread = new NewsFetchThread("newsFetchThread", mNewsDao, mCategoryDao, categoryName);
         thread.start();
+    }
+
+    public void setNewsFavorite(String newsTitle, boolean favorite) {
+        Log.d("favorite", "repo set");
+        new setNewsFavoriteAsyncTask(mNewsDao, newsTitle).execute(favorite);
+    }
+
+    public void setNewsViewed(String newsTitle, boolean viewed) {
+        new setNewsViewedAsyncTask(mNewsDao, newsTitle).execute(viewed);
+    }
+
+    private static class updateCategoryAsyncTask extends AsyncTask<String, Void, Void> {
+
+        private CategoryDao mAsyncTaskDao;
+        private boolean mCategoryShown;
+
+        updateCategoryAsyncTask(CategoryDao dao, boolean categoryShown) {
+            mAsyncTaskDao = dao;
+            mCategoryShown = categoryShown;
+        }
+
+        @Override
+        protected Void doInBackground(final String... params) {
+            mAsyncTaskDao.updateCategory(params[0], mCategoryShown);
+
+            return null;
+        }
     }
 
     private static class NewsFetchThread extends Thread {
@@ -166,8 +167,6 @@ public class ANewsRepository {
                         String description = item.substring(dm.start() + 13, dm.end() - 14);
                         News piece = new News(mCategory, title, description, link, pubDate, false, false);
                         mNewsDao.insert(piece);
-                        Log.d("insert", mCategory);
-                        Log.d("insert", "insert");
                     } catch (Exception e) {
                     }
                 }
@@ -175,11 +174,6 @@ public class ANewsRepository {
                 e.printStackTrace();
             }
         }
-    }
-
-    public void setNewsFavorite(String newsTitle, boolean favorite) {
-        Log.d("favorite", "repo set");
-        new setNewsFavoriteAsyncTask(mNewsDao, newsTitle).execute(favorite);
     }
 
     private static class setNewsFavoriteAsyncTask extends AsyncTask<Boolean, Void, Void> {
@@ -200,10 +194,6 @@ public class ANewsRepository {
         }
     }
 
-    public void setNewsViewed(String newsTitle, boolean viewed) {
-        new setNewsViewedAsyncTask(mNewsDao, newsTitle).execute(viewed);
-    }
-
     private static class setNewsViewedAsyncTask extends AsyncTask<Boolean, Void, Void> {
 
         private NewsDao mNewsDao;
@@ -220,4 +210,5 @@ public class ANewsRepository {
             return null;
         }
     }
+
 }

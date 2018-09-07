@@ -29,10 +29,7 @@ import java.util.List;
 public class NewsListFragment extends Fragment {
     private String mCategory;
     private List<News> mNewsList;
-    private boolean rendered;
-    private String text;
     private NewsListFragmentViewModel mViewModel;
-    private List<News> tmpNewsList;
 
     // To create items inside.
     private RecyclerView mRecyclerView;
@@ -48,8 +45,6 @@ public class NewsListFragment extends Fragment {
                         .of(this,
                                 new NewsListFragmentViewModelFactory(this.getActivity().getApplication(), mCategory))
                         .get(NewsListFragmentViewModel.class);
-        rendered = false;
-        text = "tab";
         mNewsList = new ArrayList<>();
         final Observer<List<News>> newsObserver = new Observer<List<News>>() {
             @Override
@@ -73,7 +68,6 @@ public class NewsListFragment extends Fragment {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        Log.d("category", mCategory + " onDestroy");
     }
 }
 
@@ -96,7 +90,6 @@ class NewsListItemsAdapter extends RecyclerView.Adapter<NewsListItemsAdapter.New
         mItemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d("NewsListItemsAdapter", "clicked");
                 TextView newsUrl = v.findViewById(R.id.item_news_list_link);
                 TextView newsHeading = v.findViewById(R.id.item_news_list_heading);
                 mViewModel.setNewsViewed((String) newsHeading.getText(), true);
@@ -104,7 +97,6 @@ class NewsListItemsAdapter extends RecyclerView.Adapter<NewsListItemsAdapter.New
                 intent.setClass(v.getContext(), NewsDetailsActivity.class);
                 intent.putExtra("newsUrl", newsUrl.getText());
                 intent.putExtra("favorite", (Boolean) newsHeading.getTag());
-                Log.d("favorite", String.valueOf((Boolean) newsHeading.getTag()));
                 intent.putExtra("title", newsHeading.getText());
                 v.getContext().startActivity(intent);
             }
@@ -128,10 +120,8 @@ class NewsListItemsAdapter extends RecyclerView.Adapter<NewsListItemsAdapter.New
         TextView newsHeading;
         final NewsListItemsAdapter mAdapter;
         TextView newsTime;
-        TextView newsContent;
         TextView newsLink;
         News news;
-        private NewsListFragmentViewModel mViewModel;
 
         public NewsListItemHolder(View view, NewsListItemsAdapter adapter) {
             // TODO: change styles of item holder.
@@ -139,7 +129,6 @@ class NewsListItemsAdapter extends RecyclerView.Adapter<NewsListItemsAdapter.New
             mAdapter = adapter;
             newsHeading = view.findViewById(R.id.item_news_list_heading);
             newsTime = view.findViewById(R.id.item_news_list_time);
-//            newsContent = view.findViewById(R.id.item_news_list_content);
             newsLink = view.findViewById(R.id.item_news_list_link);
         }
 
@@ -155,7 +144,6 @@ class NewsListItemsAdapter extends RecyclerView.Adapter<NewsListItemsAdapter.New
             newsLink.setText(item.getUrl());
             newsTime.setText(item.getPubDate());
             newsHeading.setTag(item.isFavorite());
-            Log.d("favorite", item.getHeading() + item.isFavorite());
         }
     }
 }

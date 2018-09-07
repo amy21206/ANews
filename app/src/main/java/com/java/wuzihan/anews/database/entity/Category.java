@@ -3,7 +3,6 @@ package com.java.wuzihan.anews.database.entity;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 
 @Entity(tableName = "category_table")
 public class Category {

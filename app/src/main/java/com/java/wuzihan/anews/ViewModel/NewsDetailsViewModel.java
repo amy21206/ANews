@@ -8,7 +8,7 @@ import com.java.wuzihan.anews.ANewsRepository;
 
 public class NewsDetailsViewModel extends AndroidViewModel {
 
-    ANewsRepository mRepository;
+    private ANewsRepository mRepository;
 
     public NewsDetailsViewModel(Application application) {
         super(application);
