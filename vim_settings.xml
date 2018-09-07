@@ -39,7 +39,7 @@
       <file name="/a.dummy" timestamp="1536230354904">
         <mark key="[" line="0" column="0" />
       </file>
-      <file name="D:/coding/AndroidStudioProjects/Project/ANews/app/src/main/java/com/java/wuzihan/anews/ui/NewsListActivity/NewsListFragment.java" timestamp="1536235654174">
+      <file name="D:/coding/AndroidStudioProjects/Project/ANews/app/src/main/java/com/java/wuzihan/anews/ui/NewsListActivity/NewsListFragment.java" timestamp="1536321279763">
         <mark key="'" line="135" column="0" />
         <mark key="[" line="99" column="62" />
         <mark key="]" line="100" column="51" />
@@ -82,6 +82,7 @@
         <mark key="." line="35" column="33" />
         <mark key="^" line="35" column="33" />
       </file>
+      <file name="D:/coding/AndroidStudioProjects/Project/ANews/app/src/main/java/com/java/wuzihan/anews/NewsListModel.java" timestamp="1536320668712" />
       <file name="D:/coding/AndroidStudioProjects/Project/ANews/app/src/main/java/com/java/wuzihan/anews/NewsListPagerAdapter.java" timestamp="1535961793359">
         <mark key="[" line="20" column="49" />
         <mark key="]" line="20" column="56" />
@@ -167,7 +168,6 @@
         <mark key="." line="5" column="35" />
         <mark key="^" line="5" column="35" />
       </file>
-      <file name="D:/coding/AndroidStudioProjects/Project/ANews/app/src/main/res/layout/activity_news_details_original.xml" timestamp="1536230285321" />
       <file name="D:/coding/AndroidStudioProjects/Project/ANews/app/src/main/res/layout/fragment_news_list.xml" timestamp="1536148986151">
         <mark key="[" line="5" column="0" />
         <mark key="]" line="9" column="39" />
