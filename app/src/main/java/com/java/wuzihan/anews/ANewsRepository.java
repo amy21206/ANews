@@ -33,6 +33,7 @@ public class ANewsRepository {
     private HashMap<String, LiveData<List<News>>> mCategoryToNews;
     private LiveData<List<Category>> mAllCategories;
     private LiveData<List<Category>> mShownCategories;
+    private LiveData<List<News>> mFavoriteNews;
 
     // Note that in order to unit test the WordRepository, you have to remove the Application
     // dependency. This adds complexity and much more code, and this sample is not about testing.
@@ -45,6 +46,7 @@ public class ANewsRepository {
         mAllCategories = mCategoryDao.getAllCategories();
         mShownCategories = mCategoryDao.getShownCategories();
         mCategoryToNews = new HashMap<>();
+        mFavoriteNews = mNewsDao.getNewsFavorite();
     }
 
     public void updateCategory(String categoryName, boolean categoryShown) {
@@ -77,6 +79,10 @@ public class ANewsRepository {
 
     public LiveData<List<Category>> getShownCategories() {
         return mShownCategories;
+    }
+
+    public LiveData<List<News>> getFavoriteNews() {
+        return mFavoriteNews;
     }
 
     public LiveData<List<News>> getNewsListByCategoryName(String categoryName) {
@@ -172,6 +178,7 @@ public class ANewsRepository {
     }
 
     public void setNewsFavorite(String newsTitle, boolean favorite) {
+        Log.d("favorite", "repo set");
         new setNewsFavoriteAsyncTask(mNewsDao, newsTitle).execute(favorite);
     }
 
@@ -188,6 +195,7 @@ public class ANewsRepository {
         @Override
         protected Void doInBackground(final Boolean... params) {
             mNewsDao.updateNewsFavorite(mNewsTitle, params[0]);
+            Log.d("favorite", "doInbackground");
             return null;
         }
     }

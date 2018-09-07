@@ -1,11 +1,11 @@
-package com.java.wuzihan.anews.ui.NewsListActivity;
+package com.java.wuzihan.anews.ui.NewsFavoriteActivity;
 
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
 import android.content.Intent;
+import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -15,64 +15,41 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.java.wuzihan.anews.R;
-import com.java.wuzihan.anews.ViewModel.NewsListFragmentViewModel;
-import com.java.wuzihan.anews.ViewModel.NewsListFragmentViewModelFactory;
+import com.java.wuzihan.anews.ViewModel.NewsFavoriteViewModel;
 import com.java.wuzihan.anews.database.entity.News;
-import com.java.wuzihan.anews.ViewModel.NewsListViewModel;
 import com.java.wuzihan.anews.ui.NewsDetailsActivity.NewsDetailsActivity;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
-public class NewsListFragment extends Fragment {
-    private String mCategory;
-    private List<News> mNewsList;
-    private boolean rendered;
-    private String text;
-    private NewsListFragmentViewModel mViewModel;
-    private List<News> tmpNewsList;
+public class NewsFavoriteActivity extends AppCompatActivity {
 
-    // To create items inside.
-    private RecyclerView mRecyclerView;
-    private NewsListItemsAdapter mAdapter;
+    RecyclerView mRecyclerView;
+    NewsFavoriteViewModel mViewModel;
+    NewsListItemsAdapter mAdapter;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        final View view = inflater.inflate(R.layout.fragment_news_list, container, false);
-        Bundle bundle = this.getArguments();
-        mCategory = bundle.getString("category");
-        mViewModel =
-                ViewModelProviders
-                        .of(this,
-                                new NewsListFragmentViewModelFactory(this.getActivity().getApplication(), mCategory))
-                        .get(NewsListFragmentViewModel.class);
-        rendered = false;
-        text = "tab";
-        mNewsList = new ArrayList<>();
-        final Observer<List<News>> newsObserver = new Observer<List<News>>() {
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_news_favorite);
+        mRecyclerView = findViewById(R.id.recyclerview_news_favorite);
+        mViewModel = ViewModelProviders.of(this).get(NewsFavoriteViewModel.class);
+
+        final List<News> newsList = new ArrayList<>();
+        final Observer<List<News>> categoryObserver = new Observer<List<News>>() {
             @Override
-            public void onChanged(List<News> newsList) {
-                Log.d("onchanged", mCategory);
-                Log.d("onchanged", String.valueOf(newsList.size()));
-                mNewsList.clear();
-                mNewsList.addAll(newsList);
-                mRecyclerView = view.findViewById(R.id.recyclerview_news_list);
+            public void onChanged(List<News> favoriteNews) {
+                newsList.clear();
+                newsList.addAll(favoriteNews);
+                mRecyclerView = findViewById(R.id.recyclerview_news_favorite);
                 mRecyclerView.getAdapter().notifyDataSetChanged();
             }
         };
-        mViewModel.getNews().observe(this, newsObserver);
-        mRecyclerView = view.findViewById(R.id.recyclerview_news_list);
-        mAdapter = new NewsListItemsAdapter(view.getContext(), mNewsList);
-        mRecyclerView.setAdapter(mAdapter);
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
-        return view;
-    }
+        mViewModel.getFavoriteNews().observe(this, categoryObserver);
 
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        Log.d("category", mCategory + " onDestroy");
+        mAdapter = new NewsListItemsAdapter(this.getApplicationContext(), newsList);
+        mRecyclerView.setAdapter(mAdapter);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(this.getApplicationContext()));
     }
 }
 
@@ -99,8 +76,7 @@ class NewsListItemsAdapter extends RecyclerView.Adapter<NewsListItemsAdapter.New
                 Intent intent = new Intent();
                 intent.setClass(v.getContext(), NewsDetailsActivity.class);
                 intent.putExtra("newsUrl", newsUrl.getText());
-                intent.putExtra("favorite", (Boolean) newsHeading.getTag());
-                Log.d("favorite", String.valueOf((Boolean) newsHeading.getTag()));
+                intent.putExtra("favorited", false);
                 intent.putExtra("title", newsHeading.getText());
                 v.getContext().startActivity(intent);
             }
@@ -124,9 +100,7 @@ class NewsListItemsAdapter extends RecyclerView.Adapter<NewsListItemsAdapter.New
         TextView newsHeading;
         final NewsListItemsAdapter mAdapter;
         TextView newsTime;
-        TextView newsContent;
         TextView newsLink;
-        News news;
 
         public NewsListItemHolder(View view, NewsListItemsAdapter adapter) {
             // TODO: change styles of item holder.
@@ -134,17 +108,13 @@ class NewsListItemsAdapter extends RecyclerView.Adapter<NewsListItemsAdapter.New
             mAdapter = adapter;
             newsHeading = view.findViewById(R.id.item_news_list_heading);
             newsTime = view.findViewById(R.id.item_news_list_time);
-//            newsContent = view.findViewById(R.id.item_news_list_content);
             newsLink = view.findViewById(R.id.item_news_list_link);
         }
 
         public void bind(final News item) {
-            news = item;
             newsHeading.setText(item.getHeading());
             newsLink.setText(item.getUrl());
             newsTime.setText(item.getPubDate());
-            newsHeading.setTag(item.isFavorite());
-            Log.d("favorite", item.getHeading() + item.isFavorite());
         }
     }
 }

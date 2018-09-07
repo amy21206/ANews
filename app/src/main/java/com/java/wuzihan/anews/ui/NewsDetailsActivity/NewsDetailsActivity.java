@@ -1,7 +1,11 @@
 package com.java.wuzihan.anews.ui.NewsDetailsActivity;
 
+import android.arch.lifecycle.ViewModel;
+import android.arch.lifecycle.ViewModelProvider;
+import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -13,12 +17,16 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
 import com.java.wuzihan.anews.R;
+import com.java.wuzihan.anews.ViewModel.NewsDetailsViewModel;
 
 public class NewsDetailsActivity extends AppCompatActivity {
 
     private WebView mWebView;
     private String mUrl;
-    private boolean favorited;
+    private boolean favorite;
+    private NewsDetailsViewModel mViewModel;
+    private String mTitle;
+    private Menu mMenu;
 
     private class NewsWebViewClient extends WebViewClient {
         @Override
@@ -33,6 +41,7 @@ public class NewsDetailsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_news_details);
+        mViewModel = ViewModelProviders.of(this).get(NewsDetailsViewModel.class);
 
         Toolbar toolbar = findViewById(R.id.toolbar_news_details);
         setSupportActionBar(toolbar);
@@ -45,15 +54,21 @@ public class NewsDetailsActivity extends AppCompatActivity {
         settings.setLoadWithOverviewMode(true);
         settings.setJavaScriptEnabled(true);
         mUrl = startingIntent.getStringExtra("newsUrl");
-        favorited = startingIntent.getBooleanExtra("favorited", false);
+        favorite = startingIntent.getBooleanExtra("favorite", false);
+        mTitle = startingIntent.getStringExtra("title");
         Log.d("NewsDetailsActivity", mUrl);
         mWebView.loadUrl(mUrl);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+        mMenu = menu;
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.news_details, menu);
+        if (favorite) {
+            MenuItem menuFavorite = mMenu.findItem(R.id.settings_favorite_news);
+            menuFavorite.setIcon(ContextCompat.getDrawable(this, R.drawable.ic_favorite_news_chose));
+        }
         return true;
     }
 
@@ -66,13 +81,14 @@ public class NewsDetailsActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.settings_favorite_news) {
-            favorited = !favorited;
-            if (favorited) {
+            favorite = !favorite;
+            if (favorite) {
                 item.setIcon(ContextCompat.getDrawable(this, R.drawable.ic_favorite_news_chose));
             } else {
                 item.setIcon(ContextCompat.getDrawable(this, R.drawable.ic_favorite_news));
             }
-
+            mViewModel.setNewsFavorite(mTitle, favorite);
+            Log.d("favorite", "let viewmodel set");
             return true;
         }
 

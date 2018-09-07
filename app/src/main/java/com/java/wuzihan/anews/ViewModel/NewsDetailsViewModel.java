@@ -2,6 +2,7 @@ package com.java.wuzihan.anews.ViewModel;
 
 import android.app.Application;
 import android.arch.lifecycle.AndroidViewModel;
+import android.util.Log;
 
 import com.java.wuzihan.anews.ANewsRepository;
 
@@ -16,5 +17,6 @@ public class NewsDetailsViewModel extends AndroidViewModel {
 
     public void setNewsFavorite(String newsTitle, boolean favorite) {
         mRepository.setNewsFavorite(newsTitle, favorite);
+        Log.d("favorite", "viewmodel set");
     }
 }
