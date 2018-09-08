@@ -114,12 +114,12 @@
         <mark key="^" line="153" column="99" />
         <mark key="." line="153" column="99" />
       </file>
-      <file name="D:/coding/AndroidStudioProjects/Project/ANews/app/src/main/java/com/java/wuzihan/anews/ui/NewsDetailsActivity/NewsDetailsActivity.java" timestamp="1536398363606">
+      <file name="D:/coding/AndroidStudioProjects/Project/ANews/app/src/main/java/com/java/wuzihan/anews/ui/NewsDetailsActivity/NewsDetailsActivity.java" timestamp="1536401111085">
         <mark key="'" line="83" column="0" />
-        <mark key="[" line="54" column="0" />
-        <mark key="]" line="54" column="0" />
-        <mark key="^" line="60" column="21" />
-        <mark key="." line="54" column="0" />
+        <mark key="[" line="104" column="12" />
+        <mark key="]" line="104" column="13" />
+        <mark key="^" line="104" column="13" />
+        <mark key="." line="104" column="13" />
       </file>
       <file name="D:/coding/AndroidStudioProjects/DroidCafe/app/src/main/res/values/dimens.xml" timestamp="1535880191803">
         <mark key="[" line="3" column="32" />
@@ -243,7 +243,7 @@
         <mark key="." line="14" column="44" />
         <mark key="^" line="14" column="44" />
       </file>
-      <file name="D:/coding/AndroidStudioProjects/Project/ANews/app/src/main/res/layout/activity_news_details.xml" timestamp="1536234538086">
+      <file name="D:/coding/AndroidStudioProjects/Project/ANews/app/src/main/res/layout/activity_news_details.xml" timestamp="1536399886380">
         <mark key="[" line="15" column="29" />
         <mark key="]" line="15" column="48" />
         <mark key="." line="15" column="48" />
@@ -285,11 +285,11 @@
         <mark key="." line="22" column="58" />
         <mark key="^" line="22" column="58" />
       </file>
-      <file name="D:/coding/AndroidStudioProjects/Project/ANews/app/src/main/res/menu/news_details.xml" timestamp="1536235460283">
-        <mark key="[" line="5" column="37" />
-        <mark key="]" line="5" column="36" />
-        <mark key="^" line="5" column="36" />
-        <mark key="." line="5" column="36" />
+      <file name="D:/coding/AndroidStudioProjects/Project/ANews/app/src/main/res/menu/news_details.xml" timestamp="1536400647129">
+        <mark key="[" line="10" column="33" />
+        <mark key="]" line="10" column="33" />
+        <mark key="^" line="10" column="33" />
+        <mark key="." line="10" column="33" />
       </file>
       <file name="D:/coding/AndroidStudioProjects/Project/ANews/app/src/main/res/layout/activity_news_favorite.xml" timestamp="1536322330575">
         <mark key="[" line="9" column="38" />
@@ -352,11 +352,12 @@
         <mark key="." line="40" column="4" />
         <mark key="^" line="21" column="6" />
       </file>
-      <file name="D:/coding/AndroidStudioProjects/Project/ANews/app/src/main/java/com/java/wuzihan/anews/database/ANewsDatabase.java" timestamp="1536397808706">
+      <file name="D:/coding/AndroidStudioProjects/Project/ANews/app/src/main/java/com/java/wuzihan/anews/database/ANewsDatabase.java" timestamp="1536400552905">
         <mark key="'" line="82" column="109" />
-        <mark key="[" line="72" column="110" />
-        <mark key="]" line="72" column="111" />
-        <mark key="." line="72" column="110" />
+        <mark key="[" line="73" column="90" />
+        <mark key="]" line="73" column="90" />
+        <mark key="." line="73" column="90" />
+        <mark key="^" line="82" column="70" />
       </file>
       <file name="D:/coding/AndroidStudioProjects/HelloToast/app/src/main/java/com/java/wuzihan/hellotoast/MainActivity.java" timestamp="1535852927110">
         <mark key="[" line="23" column="0" />
@@ -473,44 +474,44 @@
       <jump line="82" column="109" filename="D:/coding/AndroidStudioProjects/Project/ANews/app/src/main/java/com/java/wuzihan/anews/database/ANewsDatabase.java" />
     </jumps>
     <registers>
-      <register name="&quot;" type="2">
-        <text encoding="base64">ICAgICAgICBuZXdzTGlzdCA9IG1SZXBvc2l0b3J5LmdldFJlY29tbWVuZE5ld3NMaXN0KCk7Cg==</text>
+      <register name="&quot;" type="4">
+        <text>1</text>
       </register>
       <register name="-" type="4">
-        <text>getSearchResult</text>
+        <text>1</text>
       </register>
       <register name="/" type="4">
         <text encoding="base64">XDwwXD4=</text>
       </register>
       <register name="0" type="2">
-        <text encoding="base64">ICAgIHB1YmxpYyBMaXZlRGF0YTxMaXN0PE5ld3M+PiBnZXRTZWFyY2hSZXN1bHQoU3RyaW5nIHByb21wdCkgewogICAgICAgIG1TZWFyY2hSZXN1bHQgPSBtTmV3c0Rhby5nZXROZXdzU2VhcmNoQnkocHJvbXB0KTsKICAgICAgICBMb2cuZCgic2VhcmNoIiwgImdldHNlYXJjaHJlc3VsdCIpOwogICAgICAgIHJldHVybiBtU2VhcmNoUmVzdWx0OwogICAgfQo=</text>
+        <text encoding="base64">ICAgICAgICBhbmRyb2lkOmlkPSJAK2lkL3NldHRpbmdzX2Zhdm9yaXRlX25ld3MiCiAgICAgICAgYW5kcm9pZDpvcmRlckluQ2F0ZWdvcnk9IjEwMCIKICAgICAgICBhbmRyb2lkOmljb249IkBkcmF3YWJsZS9pY19mYXZvcml0ZV9uZXdzIgogICAgICAgIGFwcDpzaG93QXNBY3Rpb249ImFsd2F5cyIgLz4K</text>
       </register>
       <register name="1" type="2">
-        <text encoding="base64">ICAgICAgICBuZXdzTGlzdCA9IG1SZXBvc2l0b3J5LmdldFJlY29tbWVuZE5ld3NMaXN0KCk7Cg==</text>
+        <text encoding="base64">ICAgICAgICAvPgo=</text>
       </register>
       <register name="2" type="2">
-        <text encoding="base64">Cg==</text>
+        <text encoding="base64">ICAgICAgICBuZXdzTGlzdCA9IG1SZXBvc2l0b3J5LmdldFJlY29tbWVuZE5ld3NMaXN0KCk7Cg==</text>
       </register>
       <register name="3" type="2">
-        <text encoding="base64">ICAgIHB1YmxpYyBMaXZlRGF0YTxMaXN0PE5ld3M+PiBnZXRTZWFyY2hSZXN1bHQoU3RyaW5nIHByb21wdCkgewogICAgICAgIG1TZWFyY2hSZXN1bHQgPSBtTmV3c0Rhby5nZXROZXdzU2VhcmNoQnkocHJvbXB0KTsKICAgICAgICBMb2cuZCgic2VhcmNoIiwgImdldHNlYXJjaHJlc3VsdCIpOwogICAgICAgIHJldHVybiBtU2VhcmNoUmVzdWx0OwogICAgfQo=</text>
+        <text encoding="base64">Cg==</text>
       </register>
       <register name="4" type="2">
-        <text encoding="base64">Cg==</text>
+        <text encoding="base64">ICAgIHB1YmxpYyBMaXZlRGF0YTxMaXN0PE5ld3M+PiBnZXRTZWFyY2hSZXN1bHQoU3RyaW5nIHByb21wdCkgewogICAgICAgIG1TZWFyY2hSZXN1bHQgPSBtTmV3c0Rhby5nZXROZXdzU2VhcmNoQnkocHJvbXB0KTsKICAgICAgICBMb2cuZCgic2VhcmNoIiwgImdldHNlYXJjaHJlc3VsdCIpOwogICAgICAgIHJldHVybiBtU2VhcmNoUmVzdWx0OwogICAgfQo=</text>
       </register>
       <register name="5" type="2">
-        <text encoding="base64">ICAgIHB1YmxpYyBNdXRhYmxlTGl2ZURhdGE8TGlzdDxOZXdzPj4gZ2V0UmVjb21tZW5kTmV3c0xpc3QoKSB7CiAgICAgICAgcmV0dXJuIG1SZWNvbW1lbmROZXdzOwogICAgfQo=</text>
+        <text encoding="base64">Cg==</text>
       </register>
       <register name="6" type="2">
-        <text encoding="base64">Cg==</text>
+        <text encoding="base64">ICAgIHB1YmxpYyBNdXRhYmxlTGl2ZURhdGE8TGlzdDxOZXdzPj4gZ2V0UmVjb21tZW5kTmV3c0xpc3QoKSB7CiAgICAgICAgcmV0dXJuIG1SZWNvbW1lbmROZXdzOwogICAgfQo=</text>
       </register>
       <register name="7" type="2">
-        <text encoding="base64">ICAgICAgICBtUmVjb21tZW5kTmV3cyA9IG5ldyBNdXRhYmxlTGl2ZURhdGE8PigpOwo=</text>
-      </register>
-      <register name="8" type="2">
         <text encoding="base64">Cg==</text>
       </register>
+      <register name="8" type="2">
+        <text encoding="base64">ICAgICAgICBtUmVjb21tZW5kTmV3cyA9IG5ldyBNdXRhYmxlTGl2ZURhdGE8PigpOwo=</text>
+      </register>
       <register name="9" type="2">
-        <text encoding="base64">ICAgIHB1YmxpYyBMaXZlRGF0YTxMaXN0PE5ld3M+PiBnZXRTZWFyY2hSZXN1bHQoU3RyaW5nIHByb21wdCkgewogICAgICAgIG1TZWFyY2hSZXN1bHQgPSBtTmV3c0Rhby5nZXROZXdzU2VhcmNoQnkocHJvbXB0KTsKICAgICAgICBMb2cuZCgic2VhcmNoIiwgImdldHNlYXJjaHJlc3VsdCIpOwogICAgICAgIHJldHVybiBtU2VhcmNoUmVzdWx0OwogICAgfQo=</text>
+        <text encoding="base64">Cg==</text>
       </register>
       <register name=":" type="4">
         <text>w</text>
