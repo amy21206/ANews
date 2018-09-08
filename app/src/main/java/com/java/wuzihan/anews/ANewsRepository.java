@@ -36,8 +36,9 @@ public class ANewsRepository {
     private LiveData<List<News>> mFavoriteNews;
 
     private LiveData<List<News>> mSearchResult;
-
+    private LiveData<List<News>> mRecommendNews;
     private LiveData<List<Category>> mMostViewedCategory;
+
 
     // Note that in order to unit test the WordRepository, you have to remove the Application
     // dependency. This adds complexity and much more code, and this sample is not about testing.
@@ -54,6 +55,8 @@ public class ANewsRepository {
         mSearchResult = mNewsDao.getNewsSearchBy("alsdjfa;lifja;wiefja;weifajwe;if");
         Log.d("search", mSearchResult.toString());
         mMostViewedCategory = mCategoryDao.getMostViewedThreeCategory();
+        mRecommendNews = new MutableLiveData<>();
+//        new UpdateRecommendAsyncTask(mNewsDao, mRecommendNews).execute(mMostViewedCategory.getValue());
     }
 
     public LiveData<List<Category>> getAllCategories() {
@@ -68,11 +71,21 @@ public class ANewsRepository {
         return mFavoriteNews;
     }
 
+    public LiveData<List<Category>> getMostViewedCategory() {
+        return mMostViewedCategory;
+    }
+
     public LiveData<List<News>> getSearchResult(String prompt) {
         mSearchResult = mNewsDao.getNewsSearchBy(prompt);
         Log.d("search", "getsearchresult");
         return mSearchResult;
     }
+
+    public LiveData<List<News>> getRecommendNews(List<Category> cats) {
+        mRecommendNews = mNewsDao.getNewsRecommend(cats.get(0).getName(), cats.get(1).getName(), cats.get(2).getName(), 10);
+        return mRecommendNews;
+    }
+
 
     public LiveData<List<News>> getNewsListByCategoryName(String categoryName) {
         if (!mCategoryToNews.containsKey(categoryName)) {
@@ -98,6 +111,14 @@ public class ANewsRepository {
 
     public void setNewsViewed(String newsTitle, boolean viewed) {
         new setNewsViewedAsyncTask(mNewsDao, mCategoryDao, newsTitle).execute(viewed);
+//        new UpdateRecommendAsyncTask(mNewsDao, mCategoryDao, mRecommendNews).execute(mMostViewedCategory);
+    }
+
+    public void fetchAllData() {
+        List<Category> allCats = mCategoryDao.getAllCategories().getValue();
+        for (Category cat : allCats) {
+            NewsFetchThread thread = new NewsFetchThread(cat.getName(), mNewsDao, mCategoryDao, cat.getName());
+        }
     }
 
 
@@ -226,6 +247,34 @@ public class ANewsRepository {
             String cat = mNewsDao.getNewsByHeading(mNewsTitle).getCategory();
             Category category = mCategoryDao.getCategoryByName(cat);
             mCategoryDao.updateCategoryReadTimes(cat, category.getReadtime() + 1);
+            return null;
+        }
+    }
+
+    private static class UpdateRecommendAsyncTask extends AsyncTask<LiveData<List<Category>>, Void, Void> {
+        private NewsDao mNewsDao;
+        private CategoryDao categoryDao;
+        private MutableLiveData<List<News>> newsList;
+
+        UpdateRecommendAsyncTask(NewsDao dao, CategoryDao categoryDao, MutableLiveData<List<News>> newsList) {
+            mNewsDao = dao;
+            this.newsList = newsList;
+            this.categoryDao = categoryDao;
+        }
+
+        @Override
+        protected Void doInBackground(final LiveData<List<Category>>... params) {
+            List<Category> catList = categoryDao.getMostViewedThreeCategory().getValue();
+            List<Integer> weight = new ArrayList<>(3);
+            weight.add(5);
+            weight.add(3);
+            weight.add(2);
+            List<News> mNewsList = new ArrayList<>();
+            for (int i = 0; i < weight.size(); ++i) {
+                String cat = catList.get(i).getName();
+                mNewsList.addAll(mNewsDao.getNewsOfCategoryByNumber(cat, weight.get(i)).getValue());
+            }
+            newsList.setValue(mNewsList);
             return null;
         }
     }

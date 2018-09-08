@@ -6,4 +6,9 @@
         android:orderInCategory="100"
         android:icon="@drawable/ic_favorite_news"
         app:showAsAction="always" />
+    <item
+        android:id="@+id/settings_share"
+        android:orderInCategory="90"
+        android:icon="@drawable/ic_share"
+        app:showAsAction="always" />
 </menu>

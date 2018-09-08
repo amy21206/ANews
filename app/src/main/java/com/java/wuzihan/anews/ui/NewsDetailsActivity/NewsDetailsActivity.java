@@ -83,6 +83,29 @@ public class NewsDetailsActivity extends AppCompatActivity {
             }
             mViewModel.setNewsFavorite(mTitle, favorite);
             return true;
+        } else if (id == R.id.settings_share) {
+            Intent shareIntent;
+            /*
+            Bitmap bitmap= BitmapFactory.decodeResource(getResources(),R.mipmap.ic_launcher);
+            String path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES)+"/Share.png";
+            OutputStream out = null;
+            File file=new File(path);
+            try {
+                out = new FileOutputStream(file);
+                bitmap.compress(Bitmap.CompressFormat.PNG, 100, out);
+                out.flush();
+                out.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            path=file.getPath();
+            Uri bmpUri = Uri.parse("file://"+path);*/
+            shareIntent = new Intent(android.content.Intent.ACTION_SEND);
+            shareIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            //shareIntent.putExtra(Intent.EXTRA_STREAM, bmpUri);
+            shareIntent.putExtra(Intent.EXTRA_TEXT, "ANews-分享新闻：\n" + mTitle);
+            shareIntent.setType("image/png");
+            startActivity(Intent.createChooser(shareIntent, "Share with"));
         }
 
         return super.onOptionsItemSelected(item);

@@ -1,27 +1,55 @@
 package com.java.wuzihan.anews.ui.RecommendActivity;
 
+import android.arch.lifecycle.Observer;
+import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.java.wuzihan.anews.R;
+import com.java.wuzihan.anews.ViewModel.RecommendViewModel;
 import com.java.wuzihan.anews.database.entity.News;
 import com.java.wuzihan.anews.ui.NewsDetailsActivity.NewsDetailsActivity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class RecommendActivity extends AppCompatActivity {
+
+    private RecommendViewModel mViewModel;
+    RecyclerView mRecyclerView;
+    NewsListItemsAdapter mAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recommend);
+        mViewModel = ViewModelProviders.of(this).get(RecommendViewModel.class);
+        mRecyclerView = findViewById(R.id.recyclerview_recommend);
+        final List<News> newsList = new ArrayList<>();
+        mAdapter = new NewsListItemsAdapter(this.getApplicationContext(), newsList);
+        mRecyclerView.setAdapter(mAdapter);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(this.getApplicationContext()));
+
+        final Observer<List<News>> newsObserver = new Observer<List<News>>() {
+            @Override
+            public void onChanged(List<News> favoriteNews) {
+                newsList.clear();
+                newsList.addAll(favoriteNews);
+                Log.d("recommend", "data changed");
+                mRecyclerView = findViewById(R.id.recyclerview_recommend);
+                mRecyclerView.getAdapter().notifyDataSetChanged();
+            }
+        };
+        mViewModel.getNewsList().observe(this, newsObserver);
     }
 }
 

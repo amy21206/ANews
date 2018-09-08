@@ -71,7 +71,7 @@ public abstract class ANewsDatabase extends RoomDatabase {
             // Not needed if you only populate on creation.
             // populating categories
             categoryDao.insertCategory(new Category("国内", true, "http://news.qq.com/newsgn/rss_newsgn.xml", 0));
-            categoryDao.insertCategory(new Category("娱乐", true, "http://ent.qq.com/movie/jvrss_movie.xml", 0));
+            categoryDao.insertCategory(new Category("娱乐", true, "http://ent.qq.com/movie/rss_movie.xml", 0));
             categoryDao.insertCategory(new Category("财经", true, "http://finance.qq.com/financenews/breaknews/rss_finance.xml", 0));
             categoryDao.insertCategory(new Category("科技", true, "http://tech.qq.com/web/rss_web.xml", 0));
             categoryDao.insertCategory(new Category("体育", true, "http://sports.qq.com/rss_newssports.xml", 0));

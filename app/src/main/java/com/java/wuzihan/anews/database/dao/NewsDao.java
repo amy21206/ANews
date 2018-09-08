@@ -45,4 +45,7 @@ public interface NewsDao {
 
     @Query("SELECT * FROM news_table WHERE heading=:heading")
     News getNewsByHeading(String heading);
+
+    @Query("SELECT * FROM news_table WHERE viewed=0 and category like :cat1 or :cat2 or :cat3 LIMIT :num")
+    LiveData<List<News>> getNewsRecommend(String cat1, String cat2, String cat3, int num);
 }
