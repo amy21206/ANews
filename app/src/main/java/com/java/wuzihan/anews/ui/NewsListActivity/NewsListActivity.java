@@ -17,9 +17,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.java.wuzihan.anews.R;
+import com.java.wuzihan.anews.ui.RecommendActivity.RecommendActivity;
 import com.java.wuzihan.anews.database.entity.Category;
 import com.java.wuzihan.anews.ViewModel.NewsListViewModel;
 import com.java.wuzihan.anews.ui.NewsFavoriteActivity.NewsFavoriteActivity;
+import com.java.wuzihan.anews.ui.SearchActivity.SearchActivity;
 import com.java.wuzihan.anews.ui.SettingNewsCategoryActivity.SettingNewsCategoryActivity;
 
 import java.util.ArrayList;
@@ -121,9 +123,15 @@ public class NewsListActivity extends AppCompatActivity
             Intent intent = new Intent();
             intent.setClass(NewsListActivity.this, NewsFavoriteActivity.class);
             startActivity(intent);
-        } else if (id == R.id.nav_gallery) {
+        } else if (id == R.id.nav_search) {
+            Intent intent = new Intent();
+            intent.setClass(NewsListActivity.this, SearchActivity.class);
+            startActivity(intent);
 
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.nav_recommend) {
+            Intent intent = new Intent();
+            intent.setClass(NewsListActivity.this, RecommendActivity.class);
+            startActivity(intent);
 
         } else if (id == R.id.nav_manage) {
 

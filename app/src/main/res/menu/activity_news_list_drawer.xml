@@ -9,13 +9,13 @@
             android:icon="@drawable/ic_menu_camera"
             android:title="收藏夹" />
         <item
-            android:id="@+id/nav_gallery"
+            android:id="@+id/nav_search"
             android:icon="@drawable/ic_menu_gallery"
-            android:title="Gallery" />
+            android:title="搜索" />
         <item
-            android:id="@+id/nav_slideshow"
+            android:id="@+id/nav_recommend"
             android:icon="@drawable/ic_menu_slideshow"
-            android:title="Slideshow" />
+            android:title="推荐" />
         <item
             android:id="@+id/nav_manage"
             android:icon="@drawable/ic_menu_manage"

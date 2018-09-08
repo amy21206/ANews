@@ -10,4 +10,8 @@
     <string name="title_activity_news_detail">Details</string>
     <string name="title_activity_setting_news_list">分类</string>
     <string name="title_activity_favorite">收藏夹</string>
+    <string name="title_activity_search">搜索</string>
+    <string name="textinput_hint_search">请输入关键词</string>
+    <string name="button_search">搜索</string>
+    <string name="title_activity_recommend">推荐</string>
 </resources>

@@ -28,7 +28,7 @@ Android news client for Java
     - [ ] recyclerview
     - [ ] recommend method in repository
 
-- [ ] search
-    - [ ] new activity triggered by an entry in drawer
-    - [ ] a textinput and recyclerview
-    - [ ] search method in repository
+- [x] search
+    - [x] new activity triggered by an entry in drawer
+    - [x] a textinput and recyclerview
+    - [x] search method in repository
