@@ -29,5 +29,9 @@ public class NewsListFragmentViewModel extends AndroidViewModel {
     public LiveData<List<News>> getNews() {
         return newsList;
     }
+
+    public void setNewsViewed(String newsTitle, boolean viewed) {
+        mRepository.setNewsViewed(newsTitle, viewed);
+    }
 }
 

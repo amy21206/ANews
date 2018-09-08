@@ -40,6 +40,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ui.NewsListActivity.NewsListActivity" />
         </activity>
+        <activity
+            android:name=".ui.NewsFavoriteActivity.NewsFavoriteActivity"
+            android:label="@string/title_activity_favorite"
+            android:parentActivityName=".ui.NewsListActivity.NewsListActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.NewsListActivity.NewsListActivity" />
+        </activity>
     </application>
 
 </manifest>

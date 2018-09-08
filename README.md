@@ -11,15 +11,16 @@ Android news client for Java
 - [ ] "Favorite"
     - [x] star icon on webview page
     - [x] 'favorite' data type
-    - [ ] favorite page activity triggered by entry in drawer
+    - [x] favorite page activity triggered by entry in drawer
+    - [ ] cache webpage
 
 - [ ] Share
     - [ ] share icon on webview page
     - [ ] set up share intent
 
-- [ ] viewed record
-    - [ ] update database on clicking item in NewsList
-    - [ ] Highlight unread stuff in newsitem
+- [x] viewed record
+    - [x] update database on clicking item in NewsList
+    - [x] Highlight unread stuff in newsitem
 
 - [ ] recommend
     - [ ] simple recommend algorithm in viewmodel

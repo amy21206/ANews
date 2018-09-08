@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -28,10 +29,7 @@ import java.util.List;
 public class NewsListFragment extends Fragment {
     private String mCategory;
     private List<News> mNewsList;
-    private boolean rendered;
-    private String text;
     private NewsListFragmentViewModel mViewModel;
-    private List<News> tmpNewsList;
 
     // To create items inside.
     private RecyclerView mRecyclerView;
@@ -47,8 +45,6 @@ public class NewsListFragment extends Fragment {
                         .of(this,
                                 new NewsListFragmentViewModelFactory(this.getActivity().getApplication(), mCategory))
                         .get(NewsListFragmentViewModel.class);
-        rendered = false;
-        text = "tab";
         mNewsList = new ArrayList<>();
         final Observer<List<News>> newsObserver = new Observer<List<News>>() {
             @Override
@@ -63,7 +59,7 @@ public class NewsListFragment extends Fragment {
         };
         mViewModel.getNews().observe(this, newsObserver);
         mRecyclerView = view.findViewById(R.id.recyclerview_news_list);
-        mAdapter = new NewsListItemsAdapter(view.getContext(), mNewsList);
+        mAdapter = new NewsListItemsAdapter(view.getContext(), mNewsList, mViewModel);
         mRecyclerView.setAdapter(mAdapter);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
         return view;
@@ -72,7 +68,6 @@ public class NewsListFragment extends Fragment {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        Log.d("category", mCategory + " onDestroy");
     }
 }
 
@@ -80,10 +75,12 @@ class NewsListItemsAdapter extends RecyclerView.Adapter<NewsListItemsAdapter.New
 
     private final List<News> mNewsList;
     private LayoutInflater mInflater;
+    private NewsListFragmentViewModel mViewModel;
 
-    public NewsListItemsAdapter(Context context, List<News> newsList) {
+    public NewsListItemsAdapter(Context context, List<News> newsList, NewsListFragmentViewModel viewModel) {
         mInflater = LayoutInflater.from(context);
         mNewsList = newsList;
+        mViewModel = viewModel;
     }
 
     @Override
@@ -93,12 +90,14 @@ class NewsListItemsAdapter extends RecyclerView.Adapter<NewsListItemsAdapter.New
         mItemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d("NewsListItemsAdapter", "clicked");
                 TextView newsUrl = v.findViewById(R.id.item_news_list_link);
+                TextView newsHeading = v.findViewById(R.id.item_news_list_heading);
+                mViewModel.setNewsViewed((String) newsHeading.getText(), true);
                 Intent intent = new Intent();
                 intent.setClass(v.getContext(), NewsDetailsActivity.class);
                 intent.putExtra("newsUrl", newsUrl.getText());
-                intent.putExtra("favorited", false);
+                intent.putExtra("favorite", (Boolean) newsHeading.getTag());
+                intent.putExtra("title", newsHeading.getText());
                 v.getContext().startActivity(intent);
             }
         });
@@ -108,7 +107,7 @@ class NewsListItemsAdapter extends RecyclerView.Adapter<NewsListItemsAdapter.New
 
     @Override
     public void onBindViewHolder(NewsListItemsAdapter.NewsListItemHolder holder, int position) {
-        holder.bind(mNewsList.get(position));
+        holder.bind(mNewsList.get(position), mViewModel);
     }
 
     @Override
@@ -121,8 +120,8 @@ class NewsListItemsAdapter extends RecyclerView.Adapter<NewsListItemsAdapter.New
         TextView newsHeading;
         final NewsListItemsAdapter mAdapter;
         TextView newsTime;
-        TextView newsContent;
         TextView newsLink;
+        News news;
 
         public NewsListItemHolder(View view, NewsListItemsAdapter adapter) {
             // TODO: change styles of item holder.
@@ -130,14 +129,21 @@ class NewsListItemsAdapter extends RecyclerView.Adapter<NewsListItemsAdapter.New
             mAdapter = adapter;
             newsHeading = view.findViewById(R.id.item_news_list_heading);
             newsTime = view.findViewById(R.id.item_news_list_time);
-//            newsContent = view.findViewById(R.id.item_news_list_content);
             newsLink = view.findViewById(R.id.item_news_list_link);
         }
 
-        public void bind(final News item) {
+        public void bind(final News item, NewsListFragmentViewModel viewModel) {
+            news = item;
+            mViewModel = viewModel;
             newsHeading.setText(item.getHeading());
+            if (item.isViewed()) {
+                newsHeading.setTextColor(this.itemView.getContext().getResources().getColor(R.color.unReadNews));
+            } else {
+                newsHeading.setTextColor(this.itemView.getContext().getResources().getColor(R.color.colorPrimary));
+            }
             newsLink.setText(item.getUrl());
             newsTime.setText(item.getPubDate());
+            newsHeading.setTag(item.isFavorite());
         }
     }
 }

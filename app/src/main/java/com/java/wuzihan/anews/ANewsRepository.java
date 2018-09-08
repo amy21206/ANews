@@ -33,6 +33,7 @@ public class ANewsRepository {
     private HashMap<String, LiveData<List<News>>> mCategoryToNews;
     private LiveData<List<Category>> mAllCategories;
     private LiveData<List<Category>> mShownCategories;
+    private LiveData<List<News>> mFavoriteNews;
 
     // Note that in order to unit test the WordRepository, you have to remove the Application
     // dependency. This adds complexity and much more code, and this sample is not about testing.
@@ -45,10 +46,45 @@ public class ANewsRepository {
         mAllCategories = mCategoryDao.getAllCategories();
         mShownCategories = mCategoryDao.getShownCategories();
         mCategoryToNews = new HashMap<>();
+        mFavoriteNews = mNewsDao.getNewsFavorite();
+    }
+
+    public LiveData<List<Category>> getAllCategories() {
+        return mAllCategories;
+    }
+
+    public LiveData<List<Category>> getShownCategories() {
+        return mShownCategories;
+    }
+
+    public LiveData<List<News>> getFavoriteNews() {
+        return mFavoriteNews;
+    }
+
+    public LiveData<List<News>> getNewsListByCategoryName(String categoryName) {
+        if (!mCategoryToNews.containsKey(categoryName)) {
+            mCategoryToNews.put(categoryName, mNewsDao.getNewsOfCategory(categoryName));
+            updateNewsListByCategoryName(categoryName);
+        }
+        return mCategoryToNews.get(categoryName);
     }
 
     public void updateCategory(String categoryName, boolean categoryShown) {
         new updateCategoryAsyncTask(mCategoryDao, categoryShown).execute(categoryName);
+    }
+
+    private void updateNewsListByCategoryName(String categoryName) {
+        NewsFetchThread thread = new NewsFetchThread("newsFetchThread", mNewsDao, mCategoryDao, categoryName);
+        thread.start();
+    }
+
+    public void setNewsFavorite(String newsTitle, boolean favorite) {
+        Log.d("favorite", "repo set");
+        new setNewsFavoriteAsyncTask(mNewsDao, newsTitle).execute(favorite);
+    }
+
+    public void setNewsViewed(String newsTitle, boolean viewed) {
+        new setNewsViewedAsyncTask(mNewsDao, newsTitle).execute(viewed);
     }
 
     private static class updateCategoryAsyncTask extends AsyncTask<String, Void, Void> {
@@ -67,35 +103,6 @@ public class ANewsRepository {
 
             return null;
         }
-    }
-
-    // Room executes all queries on a separate thread.
-    // Observed LiveData will notify the observer when the data has changed.
-    public LiveData<List<Category>> getAllCategories() {
-        return mAllCategories;
-    }
-
-    public LiveData<List<Category>> getShownCategories() {
-        return mShownCategories;
-    }
-
-    public LiveData<List<News>> getNewsListByCategoryName(String categoryName) {
-        if (!mCategoryToNews.containsKey(categoryName)) {
-            mCategoryToNews.put(categoryName, mNewsDao.getNewsOfCategory(categoryName));
-            updateNewsListByCategoryName(categoryName);
-        }
-        return mCategoryToNews.get(categoryName);
-    }
-
-    // gets data from urls.
-    private void updateNewsListByCategory(Category category) {
-//        NewsFetchThread thread = new NewsFetchThread("newsFetchThread", mNewsDao, category);
-//        thread.start();
-    }
-
-    public void updateNewsListByCategoryName(String categoryName) {
-        NewsFetchThread thread = new NewsFetchThread("newsFetchThread", mNewsDao, mCategoryDao, categoryName);
-        thread.start();
     }
 
     private static class NewsFetchThread extends Thread {
@@ -160,8 +167,6 @@ public class ANewsRepository {
                         String description = item.substring(dm.start() + 13, dm.end() - 14);
                         News piece = new News(mCategory, title, description, link, pubDate, false, false);
                         mNewsDao.insert(piece);
-                        Log.d("insert", mCategory);
-                        Log.d("insert", "insert");
                     } catch (Exception e) {
                     }
                 }
@@ -169,10 +174,6 @@ public class ANewsRepository {
                 e.printStackTrace();
             }
         }
-    }
-
-    public void setNewsFavorite(String newsTitle, boolean favorite) {
-        new setNewsFavoriteAsyncTask(mNewsDao, newsTitle).execute(favorite);
     }
 
     private static class setNewsFavoriteAsyncTask extends AsyncTask<Boolean, Void, Void> {
@@ -188,7 +189,26 @@ public class ANewsRepository {
         @Override
         protected Void doInBackground(final Boolean... params) {
             mNewsDao.updateNewsFavorite(mNewsTitle, params[0]);
+            Log.d("favorite", "doInbackground");
             return null;
         }
     }
+
+    private static class setNewsViewedAsyncTask extends AsyncTask<Boolean, Void, Void> {
+
+        private NewsDao mNewsDao;
+        private String mNewsTitle;
+
+        setNewsViewedAsyncTask(NewsDao dao, String newsTitle) {
+            mNewsDao = dao;
+            mNewsTitle = newsTitle;
+        }
+
+        @Override
+        protected Void doInBackground(final Boolean... params) {
+            mNewsDao.updateNewsViewed(mNewsTitle, params[0]);
+            return null;
+        }
+    }
+
 }

@@ -9,4 +9,5 @@
     <string name="action_settings">分类</string>
     <string name="title_activity_news_detail">Details</string>
     <string name="title_activity_setting_news_list">分类</string>
+    <string name="title_activity_favorite">收藏夹</string>
 </resources>

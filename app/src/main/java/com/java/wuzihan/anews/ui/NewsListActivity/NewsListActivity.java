@@ -19,6 +19,7 @@ import android.view.MenuItem;
 import com.java.wuzihan.anews.R;
 import com.java.wuzihan.anews.database.entity.Category;
 import com.java.wuzihan.anews.ViewModel.NewsListViewModel;
+import com.java.wuzihan.anews.ui.NewsFavoriteActivity.NewsFavoriteActivity;
 import com.java.wuzihan.anews.ui.SettingNewsCategoryActivity.SettingNewsCategoryActivity;
 
 import java.util.ArrayList;
@@ -116,8 +117,10 @@ public class NewsListActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
+        if (id == R.id.nav_favorite) {
+            Intent intent = new Intent();
+            intent.setClass(NewsListActivity.this, NewsFavoriteActivity.class);
+            startActivity(intent);
         } else if (id == R.id.nav_gallery) {
 
         } else if (id == R.id.nav_slideshow) {
