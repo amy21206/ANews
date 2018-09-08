@@ -84,18 +84,18 @@
         <mark key="^" line="24" column="7" />
         <mark key="." line="24" column="7" />
       </file>
-      <file name="D:/coding/AndroidStudioProjects/Project/ANews/app/src/main/res/menu/activity_news_list_drawer.xml" timestamp="1536374393214">
+      <file name="D:/coding/AndroidStudioProjects/Project/ANews/app/src/main/res/menu/activity_news_list_drawer.xml" timestamp="1536393859654">
         <mark key="'" line="9" column="27" />
-        <mark key="[" line="13" column="27" />
-        <mark key="]" line="13" column="28" />
-        <mark key="." line="13" column="28" />
-        <mark key="^" line="13" column="28" />
+        <mark key="[" line="17" column="27" />
+        <mark key="]" line="17" column="28" />
+        <mark key="." line="17" column="28" />
+        <mark key="^" line="17" column="28" />
       </file>
-      <file name="D:/coding/AndroidStudioProjects/Project/ANews/app/src/main/java/com/java/wuzihan/anews/database/dao/NewsDao.java" timestamp="1536385469642">
-        <mark key="[" line="33" column="79" />
-        <mark key="]" line="33" column="118" />
-        <mark key="." line="33" column="118" />
-        <mark key="^" line="33" column="118" />
+      <file name="D:/coding/AndroidStudioProjects/Project/ANews/app/src/main/java/com/java/wuzihan/anews/database/dao/NewsDao.java" timestamp="1536394108915">
+        <mark key="[" line="27" column="85" />
+        <mark key="]" line="28" column="78" />
+        <mark key="." line="28" column="78" />
+        <mark key="^" line="28" column="78" />
       </file>
       <file name="D:/coding/AndroidStudioProjects/Project/ANews/app/src/main/java/com/java/wuzihan/anews/NewsListModel.java" timestamp="1536376733633" />
       <file name="D:/coding/AndroidStudioProjects/Project/ANews/app/src/main/java/com/java/wuzihan/anews/NewsListPagerAdapter.java" timestamp="1535961793359">
@@ -461,16 +461,16 @@
     </jumps>
     <registers>
       <register name="&quot;" type="2">
-        <text encoding="base64">ICAgICAgICAgICAgYW5kcm9pZDpwYXJlbnRBY3Rpdml0eU5hbWU9Ii51aS5OZXdzTGlzdEFjdGl2aXR5Lk5ld3NMaXN0QWN0aXZpdHkiPgogICAgICAgICAgICA8bWV0YS1kYXRhCiAgICAgICAgICAgICAgICBhbmRyb2lkOm5hbWU9ImFuZHJvaWQuc3VwcG9ydC5QQVJFTlRfQUNUSVZJVFkiCiAgICAgICAgICAgICAgICBhbmRyb2lkOnZhbHVlPSIudWkuTmV3c0xpc3RBY3Rpdml0eS5OZXdzTGlzdEFjdGl2aXR5IiAvPgo=</text>
+        <text encoding="base64">ICAgIEBRdWVyeSgiU0VMRUNUICogZnJvbSBuZXdzX3RhYmxlIFdIRVJFIGNhdGVnb3J5ID0gOmNhdGVnb3J5IE9SREVSIEJZIHB1YkRhdGUgREVTQyIpCiAgICBMaXZlRGF0YTxMaXN0PE5ld3M+PiBnZXROZXdzT2ZDYXRlZ29yeShTdHJpbmcgY2F0ZWdvcnkpOwo=</text>
       </register>
       <register name="-" type="4">
-        <text>'</text>
+        <text>Slideshow</text>
       </register>
       <register name="/" type="4">
         <text>Resour</text>
       </register>
       <register name="0" type="2">
-        <text encoding="base64">ICAgICAgICAgICAgYW5kcm9pZDpwYXJlbnRBY3Rpdml0eU5hbWU9Ii51aS5OZXdzTGlzdEFjdGl2aXR5Lk5ld3NMaXN0QWN0aXZpdHkiPgogICAgICAgICAgICA8bWV0YS1kYXRhCiAgICAgICAgICAgICAgICBhbmRyb2lkOm5hbWU9ImFuZHJvaWQuc3VwcG9ydC5QQVJFTlRfQUNUSVZJVFkiCiAgICAgICAgICAgICAgICBhbmRyb2lkOnZhbHVlPSIudWkuTmV3c0xpc3RBY3Rpdml0eS5OZXdzTGlzdEFjdGl2aXR5IiAvPgo=</text>
+        <text encoding="base64">ICAgIEBRdWVyeSgiU0VMRUNUICogZnJvbSBuZXdzX3RhYmxlIFdIRVJFIGNhdGVnb3J5ID0gOmNhdGVnb3J5IE9SREVSIEJZIHB1YkRhdGUgREVTQyIpCiAgICBMaXZlRGF0YTxMaXN0PE5ld3M+PiBnZXROZXdzT2ZDYXRlZ29yeShTdHJpbmcgY2F0ZWdvcnkpOwo=</text>
       </register>
       <register name="1" type="2">
         <text encoding="base64">ICAgICJTRUxFQ1QgKiBGUk9NIHVzZXIgV0hFUkUgZmlyc3RfbmFtZSBMSUtFIDpzZWFyY2ggIgogICAgICAgICAgICArICJPUiBsYXN0X25hbWUgTElLRSA6c2VhcmNoIgo=</text>
