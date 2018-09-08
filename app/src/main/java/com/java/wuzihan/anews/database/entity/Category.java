@@ -13,11 +13,13 @@ public class Category {
 
     private boolean shown;
     private String url;
+    private int readtime;
 
-    public Category(@NonNull String name, boolean shown, String url) {
+    public Category(@NonNull String name, boolean shown, String url, int readtime) {
         this.name = name;
         this.shown = shown;
         this.url = url;
+        this.readtime = readtime;
     }
 
     @NonNull
@@ -35,5 +37,13 @@ public class Category {
 
     public void setShown(boolean shown) {
         this.shown = shown;
+    }
+
+    public int getReadtime() {
+        return readtime;
+    }
+
+    public void setReadtime(int readtime) {
+        this.readtime = readtime;
     }
 }

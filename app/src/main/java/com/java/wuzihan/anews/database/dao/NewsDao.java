@@ -25,6 +25,9 @@ public interface NewsDao {
     @Query("SELECT * from news_table WHERE category = :category ORDER BY pubDate DESC")
     LiveData<List<News>> getNewsOfCategory(String category);
 
+    @Query("SELECT * from news_table WHERE category = :category ORDER BY pubDate DESC LIMIT :newsNum")
+    LiveData<List<News>> getNewsOfCategoryByNumber(String category, int newsNum);
+
     @Query("SELECT * from news_table WHERE favorite = 1 ORDER BY pubDate DESC")
     LiveData<List<News>> getNewsFavorite();
 
@@ -39,4 +42,7 @@ public interface NewsDao {
 
     @Query("UPDATE news_table SET favorite=:favorite WHERE heading=:heading")
     void updateNewsFavorite(String heading, boolean favorite);
+
+    @Query("SELECT * FROM news_table WHERE heading=:heading")
+    News getNewsByHeading(String heading);
 }

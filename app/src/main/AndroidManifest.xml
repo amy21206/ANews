@@ -56,6 +56,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ui.NewsListActivity.NewsListActivity" />
         </activity>
+        <activity
+            android:name=".ui.RecommendActivity.RecommendActivity"
+            android:label="@string/title_activity_recommend"
+            android:parentActivityName=".ui.NewsListActivity.NewsListActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.NewsListActivity.NewsListActivity" />
+        </activity>
     </application>
 
 </manifest>

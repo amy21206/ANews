@@ -22,6 +22,9 @@ public interface CategoryDao {
     @Query("UPDATE category_table SET shown=:shown WHERE name=:name")
     void updateCategory(String name, boolean shown);
 
+    @Query("UPDATE category_table SET readtime=:readtime WHERE name=:name")
+    void updateCategoryReadTimes(String name, int readtime);
+
     @Query("SELECT * from category_table")
     LiveData<List<Category>> getAllCategories();
 
@@ -30,4 +33,7 @@ public interface CategoryDao {
 
     @Query("SELECT * from category_table WHERE name = :name")
     Category getCategoryByName(String name);
+
+    @Query("SELECT * from category_table ORDER BY readtime DESC LIMIT 3")
+    LiveData<List<Category>> getMostViewedThreeCategory();
 }

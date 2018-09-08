@@ -37,6 +37,8 @@ public class ANewsRepository {
 
     private LiveData<List<News>> mSearchResult;
 
+    private LiveData<List<Category>> mMostViewedCategory;
+
     // Note that in order to unit test the WordRepository, you have to remove the Application
     // dependency. This adds complexity and much more code, and this sample is not about testing.
     // See the BasicSample in the android-architecture-components repository at
@@ -51,6 +53,7 @@ public class ANewsRepository {
         mFavoriteNews = mNewsDao.getNewsFavorite();
         mSearchResult = mNewsDao.getNewsSearchBy("alsdjfa;lifja;wiefja;weifajwe;if");
         Log.d("search", mSearchResult.toString());
+        mMostViewedCategory = mCategoryDao.getMostViewedThreeCategory();
     }
 
     public LiveData<List<Category>> getAllCategories() {
@@ -94,8 +97,9 @@ public class ANewsRepository {
     }
 
     public void setNewsViewed(String newsTitle, boolean viewed) {
-        new setNewsViewedAsyncTask(mNewsDao, newsTitle).execute(viewed);
+        new setNewsViewedAsyncTask(mNewsDao, mCategoryDao, newsTitle).execute(viewed);
     }
+
 
     private static class updateCategoryAsyncTask extends AsyncTask<String, Void, Void> {
 
@@ -207,18 +211,22 @@ public class ANewsRepository {
     private static class setNewsViewedAsyncTask extends AsyncTask<Boolean, Void, Void> {
 
         private NewsDao mNewsDao;
+        private CategoryDao mCategoryDao;
         private String mNewsTitle;
 
-        setNewsViewedAsyncTask(NewsDao dao, String newsTitle) {
+        setNewsViewedAsyncTask(NewsDao dao, CategoryDao cdao, String newsTitle) {
             mNewsDao = dao;
+            mCategoryDao = cdao;
             mNewsTitle = newsTitle;
         }
 
         @Override
         protected Void doInBackground(final Boolean... params) {
             mNewsDao.updateNewsViewed(mNewsTitle, params[0]);
+            String cat = mNewsDao.getNewsByHeading(mNewsTitle).getCategory();
+            Category category = mCategoryDao.getCategoryByName(cat);
+            mCategoryDao.updateCategoryReadTimes(cat, category.getReadtime() + 1);
             return null;
         }
     }
-
 }
