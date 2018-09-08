@@ -114,12 +114,12 @@
         <mark key="^" line="153" column="99" />
         <mark key="." line="153" column="99" />
       </file>
-      <file name="D:/coding/AndroidStudioProjects/Project/ANews/app/src/main/java/com/java/wuzihan/anews/ui/NewsDetailsActivity/NewsDetailsActivity.java" timestamp="1536401111085">
+      <file name="D:/coding/AndroidStudioProjects/Project/ANews/app/src/main/java/com/java/wuzihan/anews/ui/NewsDetailsActivity/NewsDetailsActivity.java" timestamp="1536401272172">
         <mark key="'" line="83" column="0" />
-        <mark key="[" line="104" column="12" />
-        <mark key="]" line="104" column="13" />
-        <mark key="^" line="104" column="13" />
-        <mark key="." line="104" column="13" />
+        <mark key="[" line="105" column="63" />
+        <mark key="]" line="105" column="64" />
+        <mark key="^" line="105" column="64" />
+        <mark key="." line="105" column="64" />
       </file>
       <file name="D:/coding/AndroidStudioProjects/DroidCafe/app/src/main/res/values/dimens.xml" timestamp="1535880191803">
         <mark key="[" line="3" column="32" />
@@ -475,16 +475,16 @@
     </jumps>
     <registers>
       <register name="&quot;" type="4">
-        <text>1</text>
+        <text encoding="base64">SGV5IHBsZWFzZSBjaGVjayB0aGlzIGFwcGxpY2F0aW9uIA==</text>
       </register>
       <register name="-" type="4">
-        <text>1</text>
+        <text encoding="base64">SGV5IHBsZWFzZSBjaGVjayB0aGlzIGFwcGxpY2F0aW9uIA==</text>
       </register>
       <register name="/" type="4">
         <text encoding="base64">XDwwXD4=</text>
       </register>
-      <register name="0" type="2">
-        <text encoding="base64">ICAgICAgICBhbmRyb2lkOmlkPSJAK2lkL3NldHRpbmdzX2Zhdm9yaXRlX25ld3MiCiAgICAgICAgYW5kcm9pZDpvcmRlckluQ2F0ZWdvcnk9IjEwMCIKICAgICAgICBhbmRyb2lkOmljb249IkBkcmF3YWJsZS9pY19mYXZvcml0ZV9uZXdzIgogICAgICAgIGFwcDpzaG93QXNBY3Rpb249ImFsd2F5cyIgLz4K</text>
+      <register name="0" type="4">
+        <text>Hey please check this application &quot; +</text>
       </register>
       <register name="1" type="2">
         <text encoding="base64">ICAgICAgICAvPgo=</text>
