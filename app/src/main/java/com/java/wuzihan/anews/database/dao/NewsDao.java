@@ -28,6 +28,12 @@ public interface NewsDao {
     @Query("SELECT * from news_table WHERE favorite = 1 ORDER BY pubDate DESC")
     LiveData<List<News>> getNewsFavorite();
 
+    /*"SELECT * FROM user WHERE first_name LIKE :search "
+            + "OR last_name LIKE :search"
+    */
+    @Query("SELECT * from news_table WHERE heading LIKE '%' || :prompt || '%'" + "OR content LIKE '%' || :prompt || '%'")
+    LiveData<List<News>> getNewsSearchBy(String prompt);
+
     @Query("UPDATE news_table SET viewed=:viewed WHERE heading=:heading")
     void updateNewsViewed(String heading, boolean viewed);
 

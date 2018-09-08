@@ -35,6 +35,8 @@ public class ANewsRepository {
     private LiveData<List<Category>> mShownCategories;
     private LiveData<List<News>> mFavoriteNews;
 
+    private LiveData<List<News>> mSearchResult;
+
     // Note that in order to unit test the WordRepository, you have to remove the Application
     // dependency. This adds complexity and much more code, and this sample is not about testing.
     // See the BasicSample in the android-architecture-components repository at
@@ -47,6 +49,8 @@ public class ANewsRepository {
         mShownCategories = mCategoryDao.getShownCategories();
         mCategoryToNews = new HashMap<>();
         mFavoriteNews = mNewsDao.getNewsFavorite();
+        mSearchResult = mNewsDao.getNewsSearchBy("alsdjfa;lifja;wiefja;weifajwe;if");
+        Log.d("search", mSearchResult.toString());
     }
 
     public LiveData<List<Category>> getAllCategories() {
@@ -59,6 +63,12 @@ public class ANewsRepository {
 
     public LiveData<List<News>> getFavoriteNews() {
         return mFavoriteNews;
+    }
+
+    public LiveData<List<News>> getSearchResult(String prompt) {
+        mSearchResult = mNewsDao.getNewsSearchBy(prompt);
+        Log.d("search", "getsearchresult");
+        return mSearchResult;
     }
 
     public LiveData<List<News>> getNewsListByCategoryName(String categoryName) {

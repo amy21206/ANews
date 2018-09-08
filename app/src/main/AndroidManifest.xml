@@ -48,6 +48,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ui.NewsListActivity.NewsListActivity" />
         </activity>
+        <activity
+            android:name=".ui.SearchActivity.SearchActivity"
+            android:label="@string/title_activity_search"
+            android:parentActivityName=".ui.NewsListActivity.NewsListActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.NewsListActivity.NewsListActivity" />
+        </activity>
     </application>
 
 </manifest>
