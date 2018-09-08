@@ -78,11 +78,11 @@
         <mark key="." line="10" column="52" />
         <mark key="^" line="8" column="38" />
       </file>
-      <file name="D:/coding/AndroidStudioProjects/Project/ANews/app/src/main/java/com/java/wuzihan/anews/ViewModel/SearchViewModel.java" timestamp="1536377689462">
-        <mark key="[" line="22" column="27" />
-        <mark key="]" line="23" column="46" />
-        <mark key="^" line="23" column="46" />
-        <mark key="." line="23" column="46" />
+      <file name="D:/coding/AndroidStudioProjects/Project/ANews/app/src/main/java/com/java/wuzihan/anews/ViewModel/SearchViewModel.java" timestamp="1536382587280">
+        <mark key="[" line="23" column="8" />
+        <mark key="]" line="23" column="12" />
+        <mark key="^" line="23" column="12" />
+        <mark key="." line="23" column="12" />
       </file>
       <file name="D:/coding/AndroidStudioProjects/Project/ANews/app/src/main/res/menu/activity_news_list_drawer.xml" timestamp="1536374393214">
         <mark key="'" line="9" column="27" />
@@ -336,12 +336,12 @@
         <mark key="." line="1" column="14" />
         <mark key="^" line="1" column="14" />
       </file>
-      <file name="D:/coding/AndroidStudioProjects/Project/ANews/app/src/main/java/com/java/wuzihan/anews/ANewsRepository.java" timestamp="1536376425962">
+      <file name="D:/coding/AndroidStudioProjects/Project/ANews/app/src/main/java/com/java/wuzihan/anews/ANewsRepository.java" timestamp="1536382607763">
         <mark key="'" line="62" column="35" />
-        <mark key="[" line="50" column="51" />
-        <mark key="]" line="51" column="84" />
-        <mark key="." line="51" column="84" />
-        <mark key="^" line="51" column="84" />
+        <mark key="[" line="67" column="57" />
+        <mark key="]" line="68" column="42" />
+        <mark key="." line="68" column="42" />
+        <mark key="^" line="68" column="42" />
       </file>
       <file name="D:/coding/AndroidStudioProjects/Project/ANews/app/build.gradle" timestamp="1536376932922">
         <mark key="[" line="40" column="4" />
