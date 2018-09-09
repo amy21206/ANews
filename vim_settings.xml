@@ -41,15 +41,17 @@
         <mark key="." line="16" column="10" />
         <mark key="^" line="16" column="10" />
       </file>
+      <file name="D:/coding/AndroidStudioProjects/Project/ANews/app/src/main/java/com/java/wuzihan/anews/ui/NewsListActivity/NewsListItemsAdapter.java" timestamp="1536466682580">
+        <mark key="[" line="21" column="49" />
+        <mark key="]" line="24" column="35" />
+        <mark key="^" line="24" column="35" />
+        <mark key="." line="24" column="35" />
+      </file>
       <file name="D:/coding/AndroidStudioProjects/Project/ANews/app/src/main/java/com/java/wuzihan/anews/ViewModel/NewsListFragmentViewModel.java" timestamp="1536460977520">
         <mark key="[" line="25" column="56" />
         <mark key="]" line="25" column="55" />
         <mark key="^" line="25" column="55" />
         <mark key="." line="25" column="55" />
-      </file>
-      <file name="D:/coding/AndroidStudioProjects/Project/ANews/app/src/main/java/com/java/wuzihan/anews/ui/NewsListActivity/NewsListFragment.java" timestamp="1536461829107">
-        <mark key="'" line="81" column="28" />
-        <mark key="^" line="146" column="13" />
       </file>
       <file name="D:/coding/AndroidStudioProjects/ScrollingText/app/build.gradle" timestamp="1535853262186">
         <mark key="[" line="22" column="60" />
@@ -424,7 +426,7 @@
         <mark key="^" line="52" column="37" />
         <mark key="." line="52" column="37" />
       </file>
-      <file name="/fragment.java" timestamp="1536415522760">
+      <file name="/fragment.java" timestamp="1536466245471">
         <mark key="[" line="0" column="0" />
         <mark key="o" line="0" column="0" />
       </file>
