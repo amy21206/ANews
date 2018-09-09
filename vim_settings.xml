@@ -202,11 +202,11 @@
         <mark key="^" line="13" column="26" />
         <mark key="." line="13" column="26" />
       </file>
-      <file name="D:/coding/AndroidStudioProjects/Project/ANews/app/src/main/res/layout/nav_header_news_list.xml" timestamp="1536497694178">
-        <mark key="[" line="4" column="27" />
-        <mark key="]" line="4" column="29" />
-        <mark key="^" line="4" column="29" />
-        <mark key="." line="4" column="29" />
+      <file name="D:/coding/AndroidStudioProjects/Project/ANews/app/src/main/res/layout/nav_header_news_list.xml" timestamp="1536498482490">
+        <mark key="[" line="4" column="28" />
+        <mark key="]" line="4" column="28" />
+        <mark key="^" line="4" column="28" />
+        <mark key="." line="4" column="28" />
       </file>
       <file name="D:/coding/AndroidStudioProjects/Project/ANews/app/src/main/java/com/java/wuzihan/anews/database/entity/Theme.java" timestamp="1536488597854">
         <mark key="[" line="38" column="5" />
@@ -231,6 +231,12 @@
         <mark key="]" line="26" column="7" />
         <mark key="^" line="26" column="7" />
         <mark key="." line="26" column="7" />
+      </file>
+      <file name="D:/coding/AndroidStudioProjects/Project/ANews/app/src/main/res/values/dimens.xml" timestamp="1536498499506">
+        <mark key="[" line="4" column="47" />
+        <mark key="]" line="4" column="47" />
+        <mark key="^" line="4" column="47" />
+        <mark key="." line="4" column="47" />
       </file>
       <file name="D:/coding/AndroidStudioProjects/Project/ANews/app/src/main/java/com/java/wuzihan/anews/DataRepository.java" timestamp="1536138323888">
         <mark key="[" line="21" column="40" />
