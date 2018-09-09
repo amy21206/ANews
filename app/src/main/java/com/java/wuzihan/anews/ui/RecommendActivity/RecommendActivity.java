@@ -31,8 +31,9 @@ public class RecommendActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_recommend);
         mViewModel = ViewModelProviders.of(this).get(RecommendViewModel.class);
+        setTheme(mViewModel.getTheme().getAppBarId());
+        setContentView(R.layout.activity_recommend);
         mRecyclerView = findViewById(R.id.recyclerview_recommend);
         final List<News> newsList = new ArrayList<>();
         mAdapter = new NewsListItemsAdapter(this.getApplicationContext(), newsList);

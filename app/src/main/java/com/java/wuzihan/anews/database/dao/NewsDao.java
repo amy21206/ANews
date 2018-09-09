@@ -31,6 +31,9 @@ public interface NewsDao {
     @Query("SELECT * from news_table WHERE category = :category ORDER BY pubDate DESC LIMIT :newsNum OFFSET :offset")
     LiveData<List<News>> getNewsOfCategoryByNumberAndOffset(String category, int newsNum, int offset);
 
+    @Query("SELECT * from news_table WHERE category = :category ORDER BY pubDate DESC LIMIT :newsNum OFFSET :offset")
+    List<News> getNewsOfCategoryByNumberAndOffsetNotLive(String category, int newsNum, int offset);
+
     @Query("SELECT * from news_table WHERE favorite = 1 ORDER BY pubDate DESC")
     LiveData<List<News>> getNewsFavorite();
 

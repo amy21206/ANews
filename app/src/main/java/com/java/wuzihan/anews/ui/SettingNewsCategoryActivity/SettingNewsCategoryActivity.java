@@ -31,9 +31,10 @@ public class SettingNewsCategoryActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mViewModel = ViewModelProviders.of(this).get(SettingNewsCategoryViewModel.class);
+        setTheme(mViewModel.getTheme().getAppBarId());
         setContentView(R.layout.activity_setting_news_category);
         mRecyclerView = findViewById(R.id.recyclerview_settings_news_list);
-        mViewModel = ViewModelProviders.of(this).get(SettingNewsCategoryViewModel.class);
 
         final List<Category> categoryList = new ArrayList<>();
         final Observer<List<Category>> categoryObserver = new Observer<List<Category>>() {

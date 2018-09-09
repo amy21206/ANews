@@ -8,12 +8,14 @@ import android.util.Log;
 
 import com.java.wuzihan.anews.ANewsRepository;
 import com.java.wuzihan.anews.database.entity.Category;
+import com.java.wuzihan.anews.database.entity.Theme;
 
 import java.util.List;
 
 public class NewsListViewModel extends AndroidViewModel {
 
     private ANewsRepository mRepository;
+    private Theme theme;
 
     private LiveData<List<Category>> newsCategories;
 
@@ -21,9 +23,15 @@ public class NewsListViewModel extends AndroidViewModel {
         super(application);
         mRepository = new ANewsRepository(application);
         newsCategories = mRepository.getShownCategories();
+        theme = mRepository.getTheme();
     }
 
     public LiveData<List<Category>> getShownCategories() {
         return newsCategories;
     }
+
+    public Theme getTheme() {
+        return mRepository.getTheme();
+    }
+
 }

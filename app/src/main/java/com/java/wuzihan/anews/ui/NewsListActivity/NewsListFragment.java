@@ -5,8 +5,10 @@ import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -26,7 +28,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class NewsListFragment extends Fragment {
+public class NewsListFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener {
     private String mCategory;
     private List<News> mNewsList;
     private NewsListFragmentViewModel mViewModel;
@@ -35,10 +37,18 @@ public class NewsListFragment extends Fragment {
     private RecyclerView mRecyclerView;
     private NewsListItemsAdapter mAdapter;
 
+    protected Handler handler;
+
+
+    SwipeRefreshLayout swipeRefreshLayout;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.fragment_news_list, container, false);
         Bundle bundle = this.getArguments();
+        mRecyclerView = view.findViewById(R.id.recyclerview_settings_news_list);
+        swipeRefreshLayout = view.findViewById(R.id.swipeRefresh);
+        swipeRefreshLayout.setOnRefreshListener(this);
         mCategory = bundle.getString("category");
         mViewModel =
                 ViewModelProviders
@@ -57,11 +67,39 @@ public class NewsListFragment extends Fragment {
                 mRecyclerView.getAdapter().notifyDataSetChanged();
             }
         };
+        handler = new Handler();
         mViewModel.getNews().observe(this, newsObserver);
         mRecyclerView = view.findViewById(R.id.recyclerview_news_list);
-        mAdapter = new NewsListItemsAdapter(view.getContext(), mNewsList, mViewModel);
-        mRecyclerView.setAdapter(mAdapter);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
+        mAdapter = new NewsListItemsAdapter(view.getContext(), mNewsList, mRecyclerView, mViewModel);
+        mRecyclerView.setAdapter(mAdapter);
+        mAdapter.setOnLoadMoreListener(new OnLoadMoreListener() {
+            int itemcount = 0;
+
+            @Override
+            public void onLoadMore() {
+                //add null , so the adapter will check view_type and show progress bar at bottom
+                mNewsList.add(null);
+                mAdapter.notifyItemInserted(mNewsList.size() - 1);
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        //   remove progress item
+                        mNewsList.remove(mNewsList.size() - 1);
+                        mAdapter.notifyItemRemoved(mNewsList.size());
+                        //add items one by one
+                        int start = mNewsList.size();
+                        int end = start + 5;
+                        List<News> appendNews = mViewModel.getNewsMore(start, end);
+                        for (News item : appendNews) {
+                            mNewsList.add(item);
+                        }
+                        mAdapter.setLoaded();
+                        //or you can add all at once but do not forget to call mAdapter.notifyDataSetChanged();
+                    }
+                }, 2000);
+            }
+        });
         return view;
     }
 
@@ -69,81 +107,16 @@ public class NewsListFragment extends Fragment {
     public void onDestroy() {
         super.onDestroy();
     }
-}
-
-class NewsListItemsAdapter extends RecyclerView.Adapter<NewsListItemsAdapter.NewsListItemHolder> {
-
-    private final List<News> mNewsList;
-    private LayoutInflater mInflater;
-    private NewsListFragmentViewModel mViewModel;
-
-    public NewsListItemsAdapter(Context context, List<News> newsList, NewsListFragmentViewModel viewModel) {
-        mInflater = LayoutInflater.from(context);
-        mNewsList = newsList;
-        mViewModel = viewModel;
-    }
 
     @Override
-    public NewsListItemsAdapter.NewsListItemHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View mItemView = mInflater.inflate(R.layout.item_news_list, parent, false);
-        NewsListItemHolder holder = new NewsListItemHolder(mItemView, this);
-        mItemView.setOnClickListener(new View.OnClickListener() {
+    public void onRefresh() {
+        new Handler().postDelayed(new Runnable() {
             @Override
-            public void onClick(View v) {
-                TextView newsUrl = v.findViewById(R.id.item_news_list_link);
-                TextView newsHeading = v.findViewById(R.id.item_news_list_heading);
-                mViewModel.setNewsViewed((String) newsHeading.getText(), true);
-                Intent intent = new Intent();
-                intent.setClass(v.getContext(), NewsDetailsActivity.class);
-                intent.putExtra("newsUrl", newsUrl.getText());
-                intent.putExtra("favorite", (Boolean) newsHeading.getTag());
-                intent.putExtra("title", newsHeading.getText());
-                v.getContext().startActivity(intent);
+            public void run() {
+                swipeRefreshLayout.setRefreshing(false);
+                mViewModel.refresh();
             }
-        });
-
-        return holder;
-    }
-
-    @Override
-    public void onBindViewHolder(NewsListItemsAdapter.NewsListItemHolder holder, int position) {
-        holder.bind(mNewsList.get(position), mViewModel);
-    }
-
-    @Override
-    public int getItemCount() {
-        return mNewsList.size();
-    }
-
-    class NewsListItemHolder extends RecyclerView.ViewHolder {
-
-        TextView newsHeading;
-        final NewsListItemsAdapter mAdapter;
-        TextView newsTime;
-        TextView newsLink;
-        News news;
-
-        public NewsListItemHolder(View view, NewsListItemsAdapter adapter) {
-            // TODO: change styles of item holder.
-            super(view);
-            mAdapter = adapter;
-            newsHeading = view.findViewById(R.id.item_news_list_heading);
-            newsTime = view.findViewById(R.id.item_news_list_time);
-            newsLink = view.findViewById(R.id.item_news_list_link);
-        }
-
-        public void bind(final News item, NewsListFragmentViewModel viewModel) {
-            news = item;
-            mViewModel = viewModel;
-            newsHeading.setText(item.getHeading());
-            if (item.isViewed()) {
-                newsHeading.setTextColor(this.itemView.getContext().getResources().getColor(R.color.unReadNews));
-            } else {
-                newsHeading.setTextColor(this.itemView.getContext().getResources().getColor(R.color.colorPrimary));
-            }
-            newsLink.setText(item.getUrl());
-            newsTime.setText(item.getPubDate());
-            newsHeading.setTag(item.isFavorite());
-        }
+        }, 2000);
     }
 }
+

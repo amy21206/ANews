@@ -9,17 +9,22 @@ import android.os.AsyncTask;
 import android.support.annotation.NonNull;
 import android.util.Log;
 
+import com.java.wuzihan.anews.R;
 import com.java.wuzihan.anews.database.dao.CategoryDao;
 import com.java.wuzihan.anews.database.dao.NewsDao;
+import com.java.wuzihan.anews.database.dao.ThemeDao;
 import com.java.wuzihan.anews.database.entity.Category;
 import com.java.wuzihan.anews.database.entity.News;
+import com.java.wuzihan.anews.database.entity.Theme;
 
-@Database(entities = {News.class, Category.class}, version = 1)
+@Database(entities = {News.class, Category.class, Theme.class}, version = 1)
 public abstract class ANewsDatabase extends RoomDatabase {
 
     public abstract NewsDao newsDao();
 
     public abstract CategoryDao categoryDao();
+
+    public abstract ThemeDao themeDao();
 
     private static ANewsDatabase INSTANCE;
 
@@ -30,6 +35,7 @@ public abstract class ANewsDatabase extends RoomDatabase {
                     INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
                             ANewsDatabase.class, "a_news_database")
                             .fallbackToDestructiveMigration()
+                            .allowMainThreadQueries()
                             .addCallback(sANewsDatabaseCallback)
                             .build();
                 }
@@ -60,9 +66,11 @@ public abstract class ANewsDatabase extends RoomDatabase {
     private static class PopulateDbOnStartAsync extends AsyncTask<Void, Void, Void> {
 
         private final CategoryDao categoryDao;
+        private final ThemeDao themeDao;
 
         PopulateDbOnStartAsync(ANewsDatabase db) {
             categoryDao = db.categoryDao();
+            themeDao = db.themeDao();
         }
 
         @Override
@@ -83,6 +91,25 @@ public abstract class ANewsDatabase extends RoomDatabase {
             categoryDao.insertCategory(new Category("人物", false, "http://news.qq.com/person/rss_person.xml", 0));
             Log.d("ANewsDatabase", "inserting");
 
+            themeDao.insert(new Theme("RED", R.style.AppTheme_RED, R.style.AppTheme_RED_NoActionBar, true));
+            themeDao.insert(new Theme("PINK", R.style.AppTheme_PINK, R.style.AppTheme_PINK_NoActionBar, false));
+            themeDao.insert(new Theme("PURPLE", R.style.AppTheme_PURPLE, R.style.AppTheme_PURPLE_NoActionBar, false));
+            themeDao.insert(new Theme("DEEPPURPLE", R.style.AppTheme_DEEPPURPLE, R.style.AppTheme_DEEPPURPLE_NoActionBar, false));
+            themeDao.insert(new Theme("INDIGO", R.style.AppTheme_INDIGO, R.style.AppTheme_INDIGO_NoActionBar, false));
+            themeDao.insert(new Theme("BLUE", R.style.AppTheme_BLUE, R.style.AppTheme_BLUE_NoActionBar, false));
+            themeDao.insert(new Theme("LIGHTBLUE", R.style.AppTheme_LIGHTBLUE, R.style.AppTheme_LIGHTBLUE_NoActionBar, false));
+            themeDao.insert(new Theme("CYAN", R.style.AppTheme_CYAN, R.style.AppTheme_CYAN_NoActionBar, false));
+            themeDao.insert(new Theme("TEAL", R.style.AppTheme_TEAL, R.style.AppTheme_TEAL_NoActionBar, false));
+            themeDao.insert(new Theme("GREEN", R.style.AppTheme_GREEN, R.style.AppTheme_GREEN_NoActionBar, false));
+            themeDao.insert(new Theme("LIGHTGREEN", R.style.AppTheme_LIGHTGREEN, R.style.AppTheme_LIGHTGREEN_NoActionBar, false));
+            themeDao.insert(new Theme("LIME", R.style.AppTheme_LIME, R.style.AppTheme_LIME_NoActionBar, false));
+            themeDao.insert(new Theme("YELLOW", R.style.AppTheme_YELLOW, R.style.AppTheme_YELLOW_NoActionBar, false));
+            themeDao.insert(new Theme("AMBER", R.style.AppTheme_AMBER, R.style.AppTheme_AMBER_NoActionBar, false));
+            themeDao.insert(new Theme("ORANGE", R.style.AppTheme_ORANGE, R.style.AppTheme_ORANGE_NoActionBar, false));
+            themeDao.insert(new Theme("DEEPORANGE", R.style.AppTheme_DEEPORANGE, R.style.AppTheme_DEEPORANGE_NoActionBar, false));
+            themeDao.insert(new Theme("BROWN", R.style.AppTheme_BROWN, R.style.AppTheme_BROWN_NoActionBar, false));
+            themeDao.insert(new Theme("GRAY", R.style.AppTheme_GRAY, R.style.AppTheme_GRAY_NoActionBar, false));
+            themeDao.insert(new Theme("BLUEGRAY", R.style.AppTheme_BLUEGRAY, R.style.AppTheme_BLUEGRAY_NoActionBar, false));
             return null;
         }
     }
