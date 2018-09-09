@@ -132,12 +132,10 @@
         <mark key="^" line="153" column="99" />
         <mark key="." line="153" column="99" />
       </file>
-      <file name="D:/coding/AndroidStudioProjects/Project/ANews/app/src/main/java/com/java/wuzihan/anews/ui/NewsDetailsActivity/NewsDetailsActivity.java" timestamp="1536401272172">
-        <mark key="'" line="83" column="0" />
-        <mark key="[" line="105" column="63" />
-        <mark key="]" line="105" column="64" />
-        <mark key="^" line="105" column="64" />
-        <mark key="." line="105" column="64" />
+      <file name="D:/coding/AndroidStudioProjects/Project/ANews/app/src/main/java/com/java/wuzihan/anews/ui/NewsDetailsActivity/NewsDetailsActivity.java" timestamp="1536466005840">
+        <mark key="[" line="57" column="0" />
+        <mark key="]" line="57" column="12" />
+        <mark key="." line="57" column="12" />
       </file>
       <file name="D:/coding/AndroidStudioProjects/DroidCafe/app/src/main/res/values/dimens.xml" timestamp="1535880191803">
         <mark key="[" line="3" column="32" />
@@ -267,7 +265,7 @@
         <mark key="." line="14" column="44" />
         <mark key="^" line="14" column="44" />
       </file>
-      <file name="D:/coding/AndroidStudioProjects/Project/ANews/app/src/main/res/layout/activity_news_details.xml" timestamp="1536399886380">
+      <file name="D:/coding/AndroidStudioProjects/Project/ANews/app/src/main/res/layout/activity_news_details.xml" timestamp="1536465128029">
         <mark key="[" line="15" column="29" />
         <mark key="]" line="15" column="48" />
         <mark key="." line="15" column="48" />
@@ -408,7 +406,7 @@
         <mark key="^" line="59" column="28" />
         <mark key="." line="59" column="28" />
       </file>
-      <file name="D:/coding/AndroidStudioProjects/Project/ANews/app/src/main/res/values/styles.xml" timestamp="1535958031546">
+      <file name="D:/coding/AndroidStudioProjects/Project/ANews/app/src/main/res/values/styles.xml" timestamp="1536465802895">
         <mark key="[" line="13" column="12" />
         <mark key="]" line="19" column="19" />
         <mark key="^" line="19" column="19" />
