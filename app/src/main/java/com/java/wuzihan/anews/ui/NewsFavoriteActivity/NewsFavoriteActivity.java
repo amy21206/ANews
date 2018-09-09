@@ -30,9 +30,10 @@ public class NewsFavoriteActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mViewModel = ViewModelProviders.of(this).get(NewsFavoriteViewModel.class);
+        setTheme(mViewModel.getTheme().getAppBarId());
         setContentView(R.layout.activity_news_favorite);
         mRecyclerView = findViewById(R.id.recyclerview_news_favorite);
-        mViewModel = ViewModelProviders.of(this).get(NewsFavoriteViewModel.class);
 
         final List<News> newsList = new ArrayList<>();
         final Observer<List<News>> categoryObserver = new Observer<List<News>>() {

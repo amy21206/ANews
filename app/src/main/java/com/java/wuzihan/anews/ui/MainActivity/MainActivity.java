@@ -9,6 +9,7 @@ import com.java.wuzihan.anews.R;
 import com.java.wuzihan.anews.ViewModel.MainActivityViewModel;
 import com.java.wuzihan.anews.ui.NewsListActivity.NewsListActivity;
 
+
 public class MainActivity extends AppCompatActivity {
 
     @Override

@@ -8,6 +8,7 @@ import android.arch.lifecycle.Transformations;
 
 import com.java.wuzihan.anews.ANewsRepository;
 import com.java.wuzihan.anews.database.entity.News;
+import com.java.wuzihan.anews.database.entity.Theme;
 
 import java.util.List;
 
@@ -15,6 +16,7 @@ public class SearchViewModel extends AndroidViewModel {
 
     private ANewsRepository mRepository;
 
+    private Theme theme;
     private MutableLiveData<String> searchPrompt;
     private LiveData<List<News>> newsList;
 
@@ -24,6 +26,7 @@ public class SearchViewModel extends AndroidViewModel {
         setSearchCategory("somestrangevaluetomakesurethere'snoresultalsdfdjfas");
         mRepository = new ANewsRepository(application);
         newsList = Transformations.switchMap(searchPrompt, prompt -> mRepository.getSearchResult(prompt));
+        theme = mRepository.getTheme();
     }
 
     public void setSearchCategory(String prompt) {
@@ -32,5 +35,9 @@ public class SearchViewModel extends AndroidViewModel {
 
     public LiveData<List<News>> getNewsList() {
         return newsList;
+    }
+
+    public Theme getTheme() {
+        return theme;
     }
 }

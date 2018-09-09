@@ -32,10 +32,11 @@ public class SearchActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mViewModel = ViewModelProviders.of(this).get(SearchViewModel.class);
+        setTheme(mViewModel.getTheme().getAppBarId());
         setContentView(R.layout.activity_search);
 
         mRecyclerView = findViewById(R.id.recyclerview_search);
-        mViewModel = ViewModelProviders.of(this).get(SearchViewModel.class);
         final List<News> newsList = new ArrayList<>();
         mAdapter = new NewsListItemsAdapter(this.getApplicationContext(), newsList);
         mRecyclerView.setAdapter(mAdapter);

@@ -14,21 +14,28 @@ Android news client for Java
     - [x] favorite page activity triggered by entry in drawer
     - [ ] cache webpage
 
-- [ ] Share
-    - [ ] share icon on webview page
-    - [ ] set up share intent
+- [x] Share
+    - [x] share icon on webview page
+    - [x] set up share intent
+    - [ ] add url to share
 
 - [x] viewed record
     - [x] update database on clicking item in NewsList
     - [x] Highlight unread stuff in newsitem
 
-- [ ] recommend
-    - [ ] simple recommend algorithm in viewmodel
-    - [ ] new activity triggered by an entry in drawer
-    - [ ] recyclerview
-    - [ ] recommend method in repository
+- [x] recommend
+    - [x] simple recommend algorithm in viewmodel
+    - [x] new activity triggered by an entry in drawer
+    - [x] recyclerview
+    - [x] recommend method in repository
 
 - [x] search
     - [x] new activity triggered by an entry in drawer
     - [x] a textinput and recyclerview
     - [x] search method in repository
+    
+- [x] swipe up to load more
+
+addition: 
+- [ ] swipe down to refresh
+- [ ] color theme

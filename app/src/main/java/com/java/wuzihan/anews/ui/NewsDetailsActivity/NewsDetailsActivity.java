@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.webkit.WebSettings;
@@ -21,6 +22,7 @@ public class NewsDetailsActivity extends AppCompatActivity {
     private boolean favorite;
     private NewsDetailsViewModel mViewModel;
     private String mTitle;
+    private String mUrl;
 
     private class NewsWebViewClient extends WebViewClient {
         @Override
@@ -34,14 +36,14 @@ public class NewsDetailsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_news_details);
         mViewModel = ViewModelProviders.of(this).get(NewsDetailsViewModel.class);
+        setTheme(mViewModel.getTheme().getNoAppBarId());
+        setContentView(R.layout.activity_news_details);
 
         Toolbar toolbar = findViewById(R.id.toolbar_news_details);
         setSupportActionBar(toolbar);
 
         WebView mWebView;
-        String mUrl;
         Intent startingIntent = getIntent();
         mWebView = findViewById(R.id.webview_news_details);
         mWebView.setWebViewClient(new NewsWebViewClient());
@@ -103,7 +105,7 @@ public class NewsDetailsActivity extends AppCompatActivity {
             shareIntent = new Intent(android.content.Intent.ACTION_SEND);
             shareIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             //shareIntent.putExtra(Intent.EXTRA_STREAM, bmpUri);
-            shareIntent.putExtra(Intent.EXTRA_TEXT, "ANews-分享新闻：\n" + mTitle);
+            shareIntent.putExtra(Intent.EXTRA_TEXT, "ANews-分享新闻：\n" + mTitle + "\n" + mUrl);
             shareIntent.setType("image/png");
             startActivity(Intent.createChooser(shareIntent, "Share with"));
         }

@@ -13,10 +13,12 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import com.java.wuzihan.anews.R;
+import com.java.wuzihan.anews.ui.ChooseThemeActivity.ChooseThemeActivity;
 import com.java.wuzihan.anews.ui.RecommendActivity.RecommendActivity;
 import com.java.wuzihan.anews.database.entity.Category;
 import com.java.wuzihan.anews.ViewModel.NewsListViewModel;
@@ -34,10 +36,13 @@ public class NewsListActivity extends AppCompatActivity
     private TabLayout mTabLayout;
     private ViewPager mViewPager;
     private NewsListTabAdapter mTabAdapter;
+    private final int REQUEST_FOR_THEME = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mViewModel = ViewModelProviders.of(this).get(NewsListViewModel.class);
+        setTheme(mViewModel.getTheme().getNoAppBarId());
         setContentView(R.layout.activity_news_list);
 
         // Setting toolbar
@@ -60,7 +65,6 @@ public class NewsListActivity extends AppCompatActivity
         mTabLayout = findViewById(R.id.newsListTabLayout);
         mTabAdapter = new NewsListTabAdapter(getSupportFragmentManager());
         // Setting ViewModel
-        mViewModel = ViewModelProviders.of(this).get(NewsListViewModel.class);
         final Observer<List<Category>> articleObserver = new Observer<List<Category>>() {
             @Override
             public void onChanged(List<Category> categories) {
@@ -134,10 +138,9 @@ public class NewsListActivity extends AppCompatActivity
             startActivity(intent);
 
         } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
+            Intent intent = new Intent();
+            intent.setClass(NewsListActivity.this, ChooseThemeActivity.class);
+            startActivityForResult(intent, REQUEST_FOR_THEME);
 
         }
 
@@ -145,4 +148,16 @@ public class NewsListActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        switch (requestCode) {
+            case REQUEST_FOR_THEME:
+                //you just got back from activity B - deal with resultCode
+                //use data.getExtra(...) to retrieve the returned data
+                this.recreate();
+                break;
+        }
+    }
+
 }

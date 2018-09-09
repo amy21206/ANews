@@ -13,8 +13,10 @@ import android.util.Log;
 import com.java.wuzihan.anews.database.ANewsDatabase;
 import com.java.wuzihan.anews.database.dao.CategoryDao;
 import com.java.wuzihan.anews.database.dao.NewsDao;
+import com.java.wuzihan.anews.database.dao.ThemeDao;
 import com.java.wuzihan.anews.database.entity.Category;
 import com.java.wuzihan.anews.database.entity.News;
+import com.java.wuzihan.anews.database.entity.Theme;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -30,6 +32,7 @@ public class ANewsRepository {
 
     private CategoryDao mCategoryDao;
     private NewsDao mNewsDao;
+    private ThemeDao themeDao;
     private HashMap<String, LiveData<List<News>>> mCategoryToNews;
     private LiveData<List<Category>> mAllCategories;
     private LiveData<List<Category>> mShownCategories;
@@ -38,6 +41,7 @@ public class ANewsRepository {
     private LiveData<List<News>> mSearchResult;
     private LiveData<List<News>> mRecommendNews;
     private LiveData<List<Category>> mMostViewedCategory;
+    private LiveData<List<Theme>> allThemes;
 
 
     // Note that in order to unit test the WordRepository, you have to remove the Application
@@ -48,6 +52,7 @@ public class ANewsRepository {
         ANewsDatabase db = ANewsDatabase.getDatabase(application);
         mCategoryDao = db.categoryDao();
         mNewsDao = db.newsDao();
+        themeDao = db.themeDao();
         mAllCategories = mCategoryDao.getAllCategories();
         mShownCategories = mCategoryDao.getShownCategories();
         mCategoryToNews = new HashMap<>();
@@ -56,6 +61,7 @@ public class ANewsRepository {
         Log.d("search", mSearchResult.toString());
         mMostViewedCategory = mCategoryDao.getMostViewedThreeCategory();
         mRecommendNews = new MutableLiveData<>();
+        allThemes = themeDao.getThemes();
 //        new UpdateRecommendAsyncTask(mNewsDao, mRecommendNews).execute(mMostViewedCategory.getValue());
     }
 
@@ -86,10 +92,17 @@ public class ANewsRepository {
         return mRecommendNews;
     }
 
+    public Theme getTheme() {
+        return themeDao.selectedTheme();
+    }
+
+    public LiveData<List<Theme>> getAllThemes() {
+        return allThemes;
+    }
 
     public LiveData<List<News>> getNewsListByCategoryName(String categoryName) {
         if (!mCategoryToNews.containsKey(categoryName)) {
-            mCategoryToNews.put(categoryName, mNewsDao.getNewsOfCategory(categoryName));
+            mCategoryToNews.put(categoryName, mNewsDao.getNewsOfCategoryByNumber(categoryName, 5));
             updateNewsListByCategoryName(categoryName);
         }
         return mCategoryToNews.get(categoryName);
@@ -114,6 +127,10 @@ public class ANewsRepository {
 //        new UpdateRecommendAsyncTask(mNewsDao, mCategoryDao, mRecommendNews).execute(mMostViewedCategory);
     }
 
+    public List<News> getNewsMore(String catTitle, int start, int end) {
+        return mNewsDao.getNewsOfCategoryByNumberAndOffsetNotLive(catTitle, end - start, start);
+    }
+
     public void fetchAllData() {
         List<Category> allCats = mCategoryDao.getAllCategories().getValue();
         for (Category cat : allCats) {
@@ -121,6 +138,8 @@ public class ANewsRepository {
         }
     }
 
+    public void refresh() {
+    }
 
     private static class updateCategoryAsyncTask extends AsyncTask<String, Void, Void> {
 
@@ -277,5 +296,11 @@ public class ANewsRepository {
             newsList.setValue(mNewsList);
             return null;
         }
+    }
+
+    public void setTheme(Theme theme) {
+        Theme currentTheme = themeDao.selectedTheme();
+        themeDao.updateThemeChose(currentTheme.getName(), false);
+        themeDao.updateThemeChose(theme.getName(), true);
     }
 }
