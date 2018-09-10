@@ -53,6 +53,28 @@ public class ANewsRepository {
         mCategoryDao = db.categoryDao();
         mNewsDao = db.newsDao();
         themeDao = db.themeDao();
+
+
+        themeDao.insert(new Theme("红色", R.style.AppTheme_RED, R.style.AppTheme_RED_NoActionBar, false));
+        themeDao.insert(new Theme("粉红", R.style.AppTheme_PINK, R.style.AppTheme_PINK_NoActionBar, false));
+        themeDao.insert(new Theme("紫色", R.style.AppTheme_PURPLE, R.style.AppTheme_PURPLE_NoActionBar, false));
+        themeDao.insert(new Theme("深紫", R.style.AppTheme_DEEPPURPLE, R.style.AppTheme_DEEPPURPLE_NoActionBar, false));
+        themeDao.insert(new Theme("经典", R.style.AppTheme_INDIGO, R.style.AppTheme_INDIGO_NoActionBar, false));
+        themeDao.insert(new Theme("蓝色", R.style.AppTheme_BLUE, R.style.AppTheme_BLUE_NoActionBar, false));
+        themeDao.insert(new Theme("浅蓝", R.style.AppTheme_LIGHTBLUE, R.style.AppTheme_LIGHTBLUE_NoActionBar, false));
+        themeDao.insert(new Theme("青色", R.style.AppTheme_CYAN, R.style.AppTheme_CYAN_NoActionBar, true));
+        themeDao.insert(new Theme("深青", R.style.AppTheme_TEAL, R.style.AppTheme_TEAL_NoActionBar, false));
+        themeDao.insert(new Theme("绿色", R.style.AppTheme_GREEN, R.style.AppTheme_GREEN_NoActionBar, false));
+        themeDao.insert(new Theme("浅绿", R.style.AppTheme_LIGHTGREEN, R.style.AppTheme_LIGHTGREEN_NoActionBar, false));
+        themeDao.insert(new Theme("柠檬", R.style.AppTheme_LIME, R.style.AppTheme_LIME_NoActionBar, false));
+        themeDao.insert(new Theme("黄色", R.style.AppTheme_YELLOW, R.style.AppTheme_YELLOW_NoActionBar, false));
+        themeDao.insert(new Theme("琥珀", R.style.AppTheme_AMBER, R.style.AppTheme_AMBER_NoActionBar, false));
+        themeDao.insert(new Theme("橙色", R.style.AppTheme_ORANGE, R.style.AppTheme_ORANGE_NoActionBar, false));
+        themeDao.insert(new Theme("深橙", R.style.AppTheme_DEEPORANGE, R.style.AppTheme_DEEPORANGE_NoActionBar, false));
+        themeDao.insert(new Theme("棕色", R.style.AppTheme_BROWN, R.style.AppTheme_BROWN_NoActionBar, false));
+        themeDao.insert(new Theme("灰色", R.style.AppTheme_GRAY, R.style.AppTheme_GRAY_NoActionBar, false));
+        themeDao.insert(new Theme("蓝灰", R.style.AppTheme_BLUEGRAY, R.style.AppTheme_BLUEGRAY_NoActionBar, false));
+
         mAllCategories = mCategoryDao.getAllCategories();
         mShownCategories = mCategoryDao.getShownCategories();
         mCategoryToNews = new HashMap<>();
@@ -93,7 +115,9 @@ public class ANewsRepository {
     }
 
     public Theme getTheme() {
-        return themeDao.selectedTheme();
+        Theme theme = themeDao.selectedTheme();
+        Log.d("Theme", theme.getName());
+        return theme;
     }
 
     public LiveData<List<Theme>> getAllThemes() {

@@ -110,7 +110,7 @@ public class NewsListActivity extends AppCompatActivity
         if (id == R.id.action_settings) {
             Intent intent = new Intent();
             intent.setClass(NewsListActivity.this, SettingNewsCategoryActivity.class);
-            startActivity(intent);
+            startActivityForResult(intent, REQUEST_FOR_THEME);
             return true;
         }
 
@@ -155,6 +155,7 @@ public class NewsListActivity extends AppCompatActivity
             case REQUEST_FOR_THEME:
                 //you just got back from activity B - deal with resultCode
                 //use data.getExtra(...) to retrieve the returned data
+                Log.d("recreate", "recreate");
                 this.recreate();
                 break;
         }

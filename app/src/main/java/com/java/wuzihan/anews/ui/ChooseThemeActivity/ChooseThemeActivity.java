@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.Toast;
 
 import com.java.wuzihan.anews.R;
 import com.java.wuzihan.anews.ViewModel.ChooseThemeViewModel;
@@ -53,10 +54,15 @@ public class ChooseThemeActivity extends AppCompatActivity {
     }
 
     public void onClick(View view) {
-        mViewModel.updateTheme();
-        Intent resultIntent = new Intent();
-        resultIntent.putExtra("THEME_ID", mViewModel.getSelectedTheme().getNoAppBarId());
-        setResult(Activity.RESULT_OK, resultIntent);
-        finish();
+        if (mViewModel.getSelectedTheme() == null) {
+            Toast.makeText(this, "请选择主题",
+                    Toast.LENGTH_SHORT).show();
+        } else {
+            mViewModel.updateTheme();
+            Intent resultIntent = new Intent();
+            resultIntent.putExtra("THEME_ID", mViewModel.getSelectedTheme().getNoAppBarId());
+            setResult(Activity.RESULT_OK, resultIntent);
+            finish();
+        }
     }
 }

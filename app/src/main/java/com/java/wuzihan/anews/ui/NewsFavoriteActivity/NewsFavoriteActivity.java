@@ -76,6 +76,7 @@ class NewsListItemsAdapter extends RecyclerView.Adapter<NewsListItemsAdapter.New
                 intent.setClass(v.getContext(), NewsDetailsActivity.class);
                 intent.putExtra("newsUrl", newsUrl.getText());
                 intent.putExtra("favorited", false);
+                intent.putExtra("favorite", (Boolean) newsHeading.getTag());
                 intent.putExtra("title", newsHeading.getText());
                 v.getContext().startActivity(intent);
             }
@@ -114,6 +115,7 @@ class NewsListItemsAdapter extends RecyclerView.Adapter<NewsListItemsAdapter.New
             newsHeading.setText(item.getHeading());
             newsLink.setText(item.getUrl());
             newsTime.setText(item.getPubDate());
+            newsHeading.setTag(item.isFavorite());
         }
     }
 }

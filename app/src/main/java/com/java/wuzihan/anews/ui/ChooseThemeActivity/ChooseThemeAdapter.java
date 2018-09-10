@@ -1,8 +1,10 @@
 package com.java.wuzihan.anews.ui.ChooseThemeActivity;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -46,6 +48,12 @@ public class ChooseThemeAdapter extends
     public void onBindViewHolder(ChooseThemeAdapter.ViewHolder holder,
                                  int position) {
         holder.textView.setText(theme.get(position).getName());
+        Resources.Theme curTheme = context.getResources().newTheme();
+        curTheme.applyStyle(theme.get(position).getAppBarId(), true);
+
+        TypedValue typedValue = new TypedValue();
+        curTheme.resolveAttribute(R.attr.colorPrimary, typedValue, true);
+        holder.textView.setTextColor(context.getResources().getColor(typedValue.resourceId));
 
         //since only one radio button is allowed to be selected,
         // this condition un-checks previous selections
