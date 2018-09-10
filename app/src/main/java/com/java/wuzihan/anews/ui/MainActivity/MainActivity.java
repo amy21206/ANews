@@ -2,6 +2,7 @@ package com.java.wuzihan.anews.ui.MainActivity;
 
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -16,10 +17,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        MainActivityViewModel mViewModel = ViewModelProviders.of(this).get(MainActivityViewModel.class);
-//        mViewModel.FetchAllData();
-
-        startActivity(new Intent(this, NewsListActivity.class));
-        finish();
+//        mViewModel.FetchAllData()
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                startActivity(new Intent(MainActivity.this, NewsListActivity.class));
+                finish();
+            }
+        }, 2000);
     }
 }

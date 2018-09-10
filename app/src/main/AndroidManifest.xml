@@ -8,10 +8,10 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:label="News_武子涵"
+        android:roundIcon="@drawable/penguin_a_news"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/SplashTheme">
         <activity android:name=".ui.MainActivity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -64,7 +64,9 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ui.NewsListActivity.NewsListActivity" />
         </activity>
-        <activity android:name=".ui.ChooseThemeActivity.ChooseThemeActivity"></activity>
+        <activity
+            android:name=".ui.ChooseThemeActivity.ChooseThemeActivity"
+            android:label="主题"></activity>
     </application>
 
 </manifest>
